@@ -14,6 +14,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.SkillsList;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -65,6 +66,31 @@ public class ParserUtil {
     public static Optional<Name> parseName(Optional<String> name) throws IllegalValueException {
         requireNonNull(name);
         return name.isPresent() ? Optional.of(parseName(name.get())) : Optional.empty();
+    }
+
+    /**
+     * Parses a {@code String name} into a {@code Name}.
+     * Leading and trailing whitespaces will be trimmed.
+     * TODO: Update comments
+     * @throws IllegalValueException if the given {@code name} is invalid.
+     */
+    public static SkillsList parseSkillsList(String skillsList) throws IllegalValueException {
+        requireNonNull(skillsList);
+        String trimmedSkillsList = skillsList.trim();
+        if (!SkillsList.isValidSkillsList(trimmedSkillsList)) {
+            throw new IllegalValueException(SkillsList.MESSAGE_SKILLS_CONSTRAINTS);
+        }
+        return new SkillsList(trimmedSkillsList);
+    }
+
+    /**
+     * Parses a {@code Optional<String> name} into an {@code Optional<Name>} if {@code name} is present.
+     * See header comment of this class regarding the use of {@code Optional} parameters.
+     * TODO: Update comments
+     */
+    public static Optional<SkillsList> parseSkillsList(Optional<String> skillsList) throws IllegalValueException {
+        requireNonNull(skillsList);
+        return skillsList.isPresent() ? Optional.of(parseSkillsList(skillsList.get())) : Optional.empty();
     }
 
     /**
