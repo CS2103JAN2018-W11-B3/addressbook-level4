@@ -1,4 +1,4 @@
-= AddressBook Level 4 - User Guide
+= Infinity Book - User Guide
 :toc:
 :toc-title:
 :toc-placement: preamble
@@ -11,9 +11,9 @@ ifdef::env-github[]
 :tip-caption: :bulb:
 :note-caption: :information_source:
 endif::[]
-:repoURL: https://github.com/se-edu/addressbook-level4
+:repoURL: https://github.com/CS2103JAN2018-W11-B3/main
 
-By: `Team SE-EDU`      Since: `Jun 2016`      Licence: `MIT`
+By: `Team CS2103JAN2018-W11-B3`      Since: `Jun 2016`      Licence: `MIT`
 
 == Introduction
 
@@ -117,6 +117,19 @@ Examples:
 Returns `john` and `John Doe`
 * `find Betsy Tim John` +
 Returns any person having names `Betsy`, `Tim`, or `John`
+
+=== Viewing a person: `view`
+Views the person whose email is the same as given email. +
+Format: `view email`
+****
+* The email needs to be correct format.
+* Only one person returned since email is unique.
+****
+
+Examples: `view john@gmail.com`
+
+Return the person whose email is `john@gmail.com` +
+Display all the information about this person and display the resume on browser panel.
 
 === Deleting a person : `delete`
 
@@ -233,10 +246,30 @@ Format: `exit`
 Address book data are saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
 
-// tag::dataencryption[]
-=== Encrypting data files `[coming in v2.0]`
+=== Data visualization
+Make data-driven decisions with recruiting analytics
 
-_{explain how the user can enable/disable data encryption}_
+image::graph.png[width="500"]
+
+Format: `draw [t/TAG]...`
+
+=== Job Posting
+Add job requirements to find out qualified candidates.
+
+Format: `addjob [SKILLS]`
+
+=== Resume Auto Scanning
+Easily filter candidates whose resume having desirable keywords. +
+
+Format: `scanresume [KEYWORD]`
+
+=== LinkedIn Integration
+Reduced clicks, and continuously updated information of candidates.
+
+View LinkedIn profile of the person identified by the index number used in the last person listing. +
+Format: `viewlinkedin [INDEX]`
+
+=== Encrypting data files `[coming in v2.0]`
 // end::dataencryption[]
 
 == FAQ
@@ -245,20 +278,18 @@ _{explain how the user can enable/disable data encryption}_
 *A*: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.
 
 == Command Summary
-
-* *Add* `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...` +
-e.g. `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-* *Clear* : `clear`
-* *Delete* : `delete INDEX` +
-e.g. `delete 3`
-* *Edit* : `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]...` +
-e.g. `edit 2 n/James Lee e/jameslee@example.com`
-* *Find* : `find KEYWORD [MORE_KEYWORDS]` +
-e.g. `find James Jake`
-* *List* : `list`
-* *Help* : `help`
-* *Select* : `select INDEX` +
-e.g.`select 2`
-* *History* : `history`
-* *Undo* : `undo`
-* *Redo* : `redo`
+[width="100%",cols="10%,<45%,<45%",options="header",]
+|=====================================================================================================
+|Command |Command Format |Example
+|Add |`add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...` | `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
+|Clear |`clear`|
+|Delete |`delete INDEX` |`delete 3`
+|Edit |`edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]...` |`edit 2 n/James Lee e/jameslee@example.com`
+|Find |`find KEYWORD [MORE_KEYWORDS]` |`find James Jake`
+|List | `list`|
+|Help |`help` |
+|Select |`select INDEX` |`select 2`
+|History |`history` |
+|Undo |`undo` |
+|Redo |`redo`|
+|=====================================================================================================
