@@ -792,23 +792,6 @@ Tech recruiters who have the need for finding and acquiring skilled Computing st
 
 
 === Feature contribution:
-==== Sashankh Chengavalli Kumar (@ChengSashankh)
-+===== Major Enhancement: Adding job postings
-This allows the user to add job postings and receive suggestions about most suitable candidates based on various parameters.
-
-For example, when the need arises to hire a new fresh graduate for a backend software development role with proficiency in MYSQL and Javascript, with location restrictions as well, the user may create such a job posting. As candidates are added and removed, the application displays an updated list of matching candidates, until removed from address book.
-
-Implementations needed:
-
-. Creating a postjob command that creates a job posting.
-. Creating an edit and delete command that does said operations to job posting.
-. Display pane for showing the list of jobs currently active.
-
-===== Minor Enhancement: Add a skills field to the Infinity Book to allow users to make
-* Allows the recruiter to tag each user with a set of skills which are used for other candidate matching purposes.
-* In account of the multiple roles that each candidate might be suitable for, skills allow recruiter to choose the best match.
- This feature addresses this core need for recruiters.
-
 ==== Huynh Thanh Duc Anh (@anh211)
 ===== Major Enhancement: Data visualization
 This allows users to make data-driven decisions with the visualization of recruiting data.
