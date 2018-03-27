@@ -248,7 +248,8 @@ This section describes commands available for managing job postings in the Infin
 
 ==== Post Job Command
 
-image::postJob.jpg[width="500"]
+image::postjob.jpg[width="500"]
+
 Figure 2: PostJob Command adds Jobs into a new pane as shown.
 
 
