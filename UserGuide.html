@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>Infinity Book - User Guide</title>
+<link rel="stylesheet" href="stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Infinity Book - User Guide</h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>By: <code>Team JACKHA (CS2103JAN2018-W11-B3)</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+</div>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle"></div>
+<ul class="sectlevel1">
+<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#about">2. About</a></li>
+<li><a href="#quick-start">3. Quick Start</a></li>
+<li><a href="#Features">4. Features</a>
+<ul class="sectlevel2">
+<li><a href="#managing-candidates-information">4.1. Managing Candidates' Information</a>
+<ul class="sectlevel3">
+<li><a href="#adding-a-person-code-add-code">4.1.1. Adding a person: <code>add</code></a></li>
+<li><a href="#editing-a-person-code-edit-code">4.1.2. Editing a person : <code>edit</code></a></li>
+<li><a href="#add-new-tags-to-a-person-code-edit-add-tag-code">4.1.3. Add new tags to a person : <code>edit -add-tag</code></a></li>
+<li><a href="#delete-tags-from-a-person-code-edit-delete-tag-code">4.1.4. Delete tags from a person : <code>edit -delete-tag</code></a></li>
+<li><a href="#add-a-remark-code-remark-code-since-v1-1">4.1.5. Add a remark : <code>remark</code> [Since v1.1]</a></li>
+<li><a href="#deleting-a-person-code-delete-code">4.1.6. Deleting a person : <code>delete</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">4.1.7. Clearing all entries : <code>clear</code></a></li>
+</ul>
+</li>
+<li><a href="#navigating-infinity-book">4.2. Navigating Infinity Book</a>
+<ul class="sectlevel3">
+<li><a href="#listing-all-persons-code-list-code">4.2.1. Listing all persons : <code>list</code></a></li>
+<li><a href="#locating-persons-by-name-phone-email-and-tags-code-find-code">4.2.2. Locating persons by name, phone, email, and tags: <code>find</code></a></li>
+<li><a href="#viewing-a-person-code-view-code">4.2.3. Viewing a person: <code>view</code></a></li>
+<li><a href="#selecting-a-person-code-select-code">4.2.4. Selecting a person : <code>select</code></a></li>
+<li><a href="#auto-correct-and-auto-complete">4.2.5. Auto-correct and auto-complete</a></li>
+</ul>
+</li>
+<li><a href="#dashboard-reporting">4.3. Dashboard Reporting</a>
+<ul class="sectlevel3">
+<li><a href="#viewing-a-report-code-viewreport-code-or-code-vr-code-since-v1-4">4.3.1. Viewing a report : <code>viewreport</code> or <code>vr</code> [Since v1.4]</a></li>
+<li><a href="#saving-a-report-code-savereport-code-or-code-sr-code-since-v1-4">4.3.2. Saving a report : <code>savereport</code> or <code>sr</code> [Since v1.4]</a></li>
+</ul>
+</li>
+<li><a href="#managing-job-postings">4.4. Managing Job Postings</a>
+<ul class="sectlevel3">
+<li><a href="#post-job-command">4.4.1. Post Job Command</a></li>
+<li><a href="#match-job-command">4.4.2. Match Job Command</a></li>
+<li><a href="#edit-job-command">4.4.3. Edit Job Command</a></li>
+<li><a href="#delete-job-command">4.4.4. Delete Job Command</a></li>
+</ul>
+</li>
+<li><a href="#managing-interview">4.5. Managing Interview</a>
+<ul class="sectlevel3">
+<li><a href="#add-interview-command">4.5.1. Add Interview Command</a></li>
+<li><a href="#list-interview-coming-in-v1-5">4.5.2. List Interview [Coming in v1.5]</a></li>
+<li><a href="#add-question-coming-in-v1-5">4.5.3. Add Question [Coming in v1.5]</a></li>
+</ul>
+</li>
+<li><a href="#social-media-fb-linkedin-integration-since-v1-4">4.6. Social Media (FB, Linkedin) Integration [Since v1.4]</a>
+<ul class="sectlevel3">
+<li><a href="#facebook-integration">4.6.1. Facebook integration</a></li>
+</ul>
+</li>
+<li><a href="#miscellaneous">4.7. Miscellaneous</a>
+<ul class="sectlevel3">
+<li><a href="#changing-theme-code-theme-code-since-v1-3">4.7.1. Changing theme : <code>theme</code> [Since v1.3]</a></li>
+<li><a href="#viewing-help-code-help-code">4.7.2. Viewing help : <code>help</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">4.7.3. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">4.7.4. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">4.7.5. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">4.7.6. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">4.7.7. Saving the data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#faq">5. FAQ</a></li>
+<li><a href="#command-summary">6. Command Summary</a></li>
+<li><a href="#glossary-br">Appendix A: Glossary<br></a></li>
+</ul>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Infinity Book (IB) is for those Tech recruiters who <strong>prefer to use a desktop app for managing candidates</strong>. <br></p>
+</div>
+<div class="paragraph">
+<p>More importantly, IB is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (<a href="#cli">CLI</a>) while still having the benefits of a Graphical User Interface (<a href="#gui">GUI</a>). If you can type fast, IB can get your candidates management tasks done faster than traditional GUI apps.<br></p>
+</div>
+<div class="paragraph">
+<p>Interested?<br>
+Jump to the <a href="#quick-start">Section 3, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="about"><a class="link" href="#about">2. About</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This User Guide introduces a user to Infinity Book, provides set up instructions and details the features of the product.
+This document does not assume any prior knowledge, and the glossary explains any technical terms.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For information about implementation and architecture, please refer to the Developer Guide.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="quick-start"><a class="link" href="#quick-start">3. Quick Start</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you are a first time user, this section will help you get started with Infinity Book in 5 easy steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ensure you have Java version <code>1.8.0_60</code> or later installed in your Computer.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Having any Java 8 version is not enough.<br>
+This app will not work with earlier versions of Java 8.<br>
+Refer to <a href="#faq">Section 5, &#8220;FAQ&#8221;</a> for instructions to check Java version.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Download the latest <code>infinitybook.jar</code> <a href="https://github.com/CS2103JAN2018-W11-B3/main/releases">here</a>.</p>
+</li>
+<li>
+<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+</li>
+<li>
+<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/Ui.png" alt="Ui" width="790">
+</div>
+<div class="title">Figure 1. The User Interface.</div>
+</div>
+</li>
+<li>
+<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
+e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
+</li>
+<li>
+<p>Set up is now complete. You should see the interface as shown in Figure 1. Try some example commands shown here:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>list</code></strong> : lists all contacts</p>
+</li>
+<li>
+<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
+</li>
+<li>
+<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
+</li>
+<li>
+<p><strong><code>exit</code></strong> : exits the app</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The User Interface might appear mildly different for different versions of the product.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Refer to <a href="#Features">Section 4, &#8220;Features&#8221;</a> for details of each command and for more commands.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Features"><a class="link" href="#Features">4. Features</a></h2>
+<div class="sectionbody">
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Command Format</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command starts with a <code>COMMAND WORD</code> to specify the command you want to perform.</p>
+</li>
+<li>
+<p>Words prefixed with a dash (optional) are <code>COMMAND OPTION</code> e.g. in <code>edit -add-tag t/TAG</code>, <code>-add-tag</code> is a command option.</p>
+</li>
+<li>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+</li>
+<li>
+<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+</li>
+<li>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+</li>
+<li>
+<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-candidates-information"><a class="link" href="#managing-candidates-information">4.1. Managing Candidates' Information</a></h3>
+<div class="sect3">
+<h4 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">4.1.1. Adding a person: <code>add</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Adds a person to the Infinity Book<br></p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS l/LINK[t/TAG]&#8230;&#8203;</code></p>
+</li>
+<li>
+<p><strong>Examples:</strong><br></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123,
+#01-01 l/https://nus-cs2103-ay1718s2.github.io/website/</code></p>
+</li>
+<li>
+<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate
+Prison p/1234567 l/https://nus-cs2103-ay1718s2.github.io/website/ t/criminal</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A person can have any number of tags (including 0)
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">4.1.2. Editing a person : <code>edit</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Edits an existing person in Infinity Book.<br></p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+</li>
+<li>
+<p><strong>Examples:</strong><br></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
+Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+</li>
+<li>
+<p><code>edit 2 n/Betsy Crower t/</code><br>
+Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the last person listing. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
+</li>
+<li>
+<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-new-tags-to-a-person-code-edit-add-tag-code"><a class="link" href="#add-new-tags-to-a-person-code-edit-add-tag-code">4.1.3. Add new tags to a person : <code>edit -add-tag</code></a></h4>
+<div class="paragraph">
+<p>To add new tags to an existing person in Infinity Book, use the edit -add-tag command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong> <code>edit -add-tag INDEX [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Tag name comparision is case sensitive.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong><br>
+<code>edit -add-tag 1 t/Year2 t/SpeakVietnamese</code><br>
+Adds tag <code>Year2</code> and <code>SpeakVietnamese</code> to the first person.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/addtag.png" alt="addtag" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure.</em> Added new tags to the first person.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-tags-from-a-person-code-edit-delete-tag-code"><a class="link" href="#delete-tags-from-a-person-code-edit-delete-tag-code">4.1.4. Delete tags from a person : <code>edit -delete-tag</code></a></h4>
+<div class="paragraph">
+<p>To remove tags from an existing person in Infinity Book, use the edit -delete-tag command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong> <code>edit -delete-tag INDEX [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Tag name comparision is case sensitive.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong><br>
+<code>edit -delete-tag 1 t/Year2 t/SpeakVietnamese</code><br>
+Deletes tag <code>Year2</code> and <code>SpeakVietnamese</code> from the first person.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/deletetag.png" alt="deletetag" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure.</em> Deleted tags from the first person.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-a-remark-code-remark-code-since-v1-1"><a class="link" href="#add-a-remark-code-remark-code-since-v1-1">4.1.5. Add a remark : <code>remark</code> [Since v1.1]</a></h4>
+<div class="paragraph">
+<p>Adds or edits remarks to the person identified by the INDEX</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Format: remark INDEX r/[REMARK]</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Alias: rm INDEX r/[REMARK]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><span class="big green">Examples</span>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>remark 1 r/Likes to go swimming</code><br>
+Edits the remark for the first person to Likes to drink coffee.</p>
+</li>
+<li>
+<p><code>remark 2 r/</code><br>
+Removes the remark for the second person.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">4.1.6. Deleting a person : <code>delete</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Deletes the specified person from the Infinity Book.<br></p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>delete INDEX</code></p>
+</li>
+<li>
+<p><strong>Examples:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>delete 2</code><br>
+Deletes the 2nd person in the Infinity Book.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>delete 1</code><br>
+Deletes the 1st person in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the person at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">4.1.7. Clearing all entries : <code>clear</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Clears all entries from the Infinity Book.<br></p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>clear</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="navigating-infinity-book"><a class="link" href="#navigating-infinity-book">4.2. Navigating Infinity Book</a></h3>
+<div class="sect3">
+<h4 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">4.2.1. Listing all persons : <code>list</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Shows a list of all persons in the Infinity Book.<br></p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>list</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="locating-persons-by-name-phone-email-and-tags-code-find-code"><a class="link" href="#locating-persons-by-name-phone-email-and-tags-code-find-code">4.2.2. Locating persons by name, phone, email, and tags: <code>find</code></a></h4>
+<div class="paragraph">
+<p>Finds persons whose names, phone numbers, emails, or tags contain any of the given keywords.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong> <code>find KEYWORD [MORE_KEYWORDS]</code><br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+</li>
+<li>
+<p>Only the name, phone number, email, and tags are searched.</p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+</li>
+<li>
+<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Examples:</strong>
+- <code>find Alex 93210283</code><br>
+Returns <code>Alex Yeoh</code>, <code>Charlotte Oliveiro</code>, and <code>Alex Smith</code> whose names and phone numbers match with the given keywords.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Find.png" alt="Find" width="300">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure.</em> Person list after finding with keywords <code>Alex</code> and <code>93210283</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-a-person-code-view-code"><a class="link" href="#viewing-a-person-code-view-code">4.2.3. Viewing a person: <code>view</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Displays the person whose email is the same as given email.<br></p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>view email</code></p>
+</li>
+<li>
+<p><strong>Examples:</strong> <code>view <a href="mailto:abcd@gmail.com">abcd@gmail.com</a></code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/viewCommand.png" alt="viewCommand" width="300">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Returns the person whose email is <code>john@gmail.com</code><br></p>
+</li>
+<li>
+<p>Displays all the person&#8217;s information and resume in the browser panel.</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The email needs to be correct format.</p>
+</li>
+<li>
+<p>Only one person returned since email is unique.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">4.2.4. Selecting a person : <code>select</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Selects the person identified by the index number used in the last person listing.<br></p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>select INDEX</code></p>
+</li>
+<li>
+<p><strong>Examples:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>select 2</code><br>
+Selects the 2nd person in the Infinity Book.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>select 1</code><br>
+Selects the 1st person in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Selects the person and loads the Google search page the person at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="auto-correct-and-auto-complete"><a class="link" href="#auto-correct-and-auto-complete">4.2.5. Auto-correct and auto-complete</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Spell corrects and completes command words being typed into Infinity Book<br></p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>TAB</code> keypress auto-completes and <code>SPACE</code> autocorrects</p>
+</li>
+<li>
+<p><strong>Example:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>li</code> + <code>TAB</code> key press<br>
+Completes to command word to <code>list</code></p>
+</li>
+<li>
+<p><code>lsit</code> + <code>SPACE</code> key press<br>
+Corrects command word to <code>list</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Auto-correct only corrects one edit distance errors.</p>
+</li>
+<li>
+<p>When completions are available, use <code>TAB</code> to toggle through options.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dashboard-reporting"><a class="link" href="#dashboard-reporting">4.3. Dashboard Reporting</a></h3>
+<div class="paragraph">
+<p>Infinity Book is tailored for people who are obsessed with speed. Aligning with this vision, our Report feature enables
+you to get insights of your huge list of contacts in a few keystrokes.</p>
+</div>
+<div class="paragraph">
+<p>Each report is identified with a Population Tag:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Represented with the prefix <code>pop/</code> followed by the tag name of the population tag. Example: <code>pop/SEIntern</code>.</p>
+</li>
+<li>
+<p>The population tag name must be an alphanumeric string.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the report, you will find statistics of the group of all Persons tagged with <code>POPULATION TAG</code>:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A bar chart showing all other Tags owned by this group and number of owners for each Tag.</p>
+</li>
+<li>
+<p>A pie chart illustrating the numerical proportion of each Tag.</p>
+</li>
+<li>
+<p>A history panel listing statistics of this group at earlier points of time.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>An example usage:</strong></p>
+</div>
+<div class="paragraph">
+<p>You are recruiting Software Engineering interns, and you want to keep track of the number of candidates in each stage:
+Screening, Interviewing, Offered, or Rejected. Given the a significant pool of applicants, this task is tedious, and
+our Report feature is a solution.  <br></p>
+</div>
+<div class="paragraph">
+<p>Using our Report with population tag <code>SEIntern</code>,<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You can monitor recruiting pipeline:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/barchart.png" alt="barchart" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure.</em> Bar chart in <code>SEIntern</code> report<br>
+<em>Explanation:</em> there are 11 candidates tagged with <code>SEIntern</code> in which 5 of them are tagged with <code>Screening</code>, 3 of them
+are tagged with <code>Interviewing</code>, 1 of them is tagged with <code>Rejected</code>, and 2 of them are tagged with <code>Offered</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You can evaluate the amount of workload:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/piechart.png" alt="piechart" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure.</em> Pie chart in <code>SEIntern</code> report<br>
+<em>Explanation:</em> there are 11 tags that candidates tagged with <code>SEIntern</code> has in total, and 45% of them are <code>Screening</code>,
+27% are <code>Interviewing</code>, 18% are <code>Offered</code>, and 9% are <code>Rejected</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You can track of the progress of your team:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/history.png" alt="history" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure.</em> History panel in <code>SEIntern</code> report<br></p>
+</div>
+<div class="sect3">
+<h4 id="viewing-a-report-code-viewreport-code-or-code-vr-code-since-v1-4"><a class="link" href="#viewing-a-report-code-viewreport-code-or-code-vr-code-since-v1-4">4.3.1. Viewing a report : <code>viewreport</code> or <code>vr</code> [Since v1.4]</a></h4>
+<div class="paragraph">
+<p>Want to have bird&#8217;s view statistics of a certain group of candidates? View a report using <code>viewreport</code> or <code>vr</code> command.+</p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong>  <code>viewreport pop/POPULATION_TAG</code> or <code>vr pop/POPULATION_TAG</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong>
+<code>viewreport pop/SEIntern</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/viewreport.png" alt="viewreport" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure.</em> Report with population Tag <code>SEIntern</code> is displayed.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="saving-a-report-code-savereport-code-or-code-sr-code-since-v1-4"><a class="link" href="#saving-a-report-code-savereport-code-or-code-sr-code-since-v1-4">4.3.2. Saving a report : <code>savereport</code> or <code>sr</code> [Since v1.4]</a></h4>
+<div class="paragraph">
+<p>Wish to save the current statistics for future reference? Saving the report using <code>savereport</code> or <code>sr</code> command.<br>
+<strong>Format:</strong>  <code>savereport pop/REPORT_NAME</code>  <code>sr pop/REPORT_NAME</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong>
+<code>savereport pop/SEIntern</code>
+Saves the current statistics of the report. A new entry will be added at the end of history panel in the report.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/savereport.png" alt="savereport" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure.</em> Report with population Tag <code>SEIntern</code> is saved.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-job-postings"><a class="link" href="#managing-job-postings">4.4. Managing Job Postings</a></h3>
+<div class="paragraph">
+<p>This section describes commands available for managing job postings in the Infinity Book.</p>
+</div>
+<div class="sect3">
+<h4 id="post-job-command"><a class="link" href="#post-job-command">4.4.1. Post Job Command</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/postjob.JPG" alt="postjob" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 2: PostJob Command adds Jobs into a new pane as shown.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Add a job posting to Infinity Book to filter out qualified candidates.</p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>postjob j/JOB TITLE l/LOCATION t/[TAGS] s/SKILLS</code></p>
+</li>
+<li>
+<p><strong>Examples:</strong> <code>postjob j/Backend Engineer l/Singapore t/FreshGrad s/Java</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="match-job-command"><a class="link" href="#match-job-command">4.4.2. Match Job Command</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/matchJob.JPG" alt="matchJob" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 3: MatchJob command filters the Candidates as per Job, as shown above.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Match a job posting to list out the filtered candidates for this job.</p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>matchjob INDEX</code></p>
+</li>
+<li>
+<p><strong>Example:</strong> <code>matchjob 1</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-job-command"><a class="link" href="#edit-job-command">4.4.3. Edit Job Command</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Edits an existing job posting in the Infinity Book.</p>
+</li>
+<li>
+<p><strong>Format:</strong> ` editjob INDEX [j/JOBTITLE] [l/LOCATION] [s/SKILLS] [t/TAG]`</p>
+</li>
+<li>
+<p><strong>Examples:</strong> ` editjob 1 j/Backend Engineer l/Singapore`</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-job-command"><a class="link" href="#delete-job-command">4.4.4. Delete Job Command</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Remove a job posting from Infinity Book using the index from latest listing.</p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>deletejob INDEX</code></p>
+</li>
+<li>
+<p><strong>Examples:</strong> <code>deletejob 1</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Index to be used as displayed in the panel.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-interview"><a class="link" href="#managing-interview">4.5. Managing Interview</a></h3>
+<div class="paragraph">
+<p>This section describes command available for managing interview in the Infinity Book.</p>
+</div>
+<div class="sect3">
+<h4 id="add-interview-command"><a class="link" href="#add-interview-command">4.5.1. Add Interview Command</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Add a Interview to Infinity Book.</p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>addInterview n/Interviewee l/LOCATION d/DATE</code></p>
+</li>
+<li>
+<p><strong>Examples:</strong> <code>addInterview n/John l/One North d/30.1.2018</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/viewCommand.png" alt="viewCommand" width="300">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add the interview with predicate name, location, and date</p>
+</li>
+<li>
+<p>Displays the added interview in list of Interview panel.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-interview-coming-in-v1-5"><a class="link" href="#list-interview-coming-in-v1-5">4.5.2. List Interview [Coming in v1.5]</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="add-question-coming-in-v1-5"><a class="link" href="#add-question-coming-in-v1-5">4.5.3. Add Question [Coming in v1.5]</a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="social-media-fb-linkedin-integration-since-v1-4"><a class="link" href="#social-media-fb-linkedin-integration-since-v1-4">4.6. Social Media (FB, Linkedin) Integration [Since v1.4]</a></h3>
+<div class="sect3">
+<h4 id="facebook-integration"><a class="link" href="#facebook-integration">4.6.1. Facebook integration</a></h4>
+<div class="paragraph">
+<p>Connecting to Facebook [Since v1.4]: <code>facebooklogin</code></p>
+</div>
+<div class="paragraph">
+<p>To connect your Facebook account to Infinity Book, use the <code>facebooklogin</code> command.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Command format</strong>: <code><span class="red">facebooklogin</span></code><br>
+<strong>Alias</strong>: <code><span class="red">fb</span></code><br></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>You will be prompted by a Facebook authorization page (displayed in the browser panel)</p>
+</div>
+<div class="paragraph">
+<p>You can key in your facebook credentials. Infinity Book is then connected to that facebook account and you can use other
+features that Infinity Book offers.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous"><a class="link" href="#miscellaneous">4.7. Miscellaneous</a></h3>
+<div class="sect3">
+<h4 id="changing-theme-code-theme-code-since-v1-3"><a class="link" href="#changing-theme-code-theme-code-since-v1-3">4.7.1. Changing theme : <code>theme</code> [Since v1.3]</a></h4>
+<div class="paragraph">
+<p>To change the theme of InfinityBook, use the <code>theme</code> command.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong> <code>theme [THEME_NAME]</code> or <code>t [THEME_NAME]</code></p>
+</div>
+<div class="paragraph">
+<p><code>THEME_NAME</code> can be <code>morning</code>, <code>dark</code>, or <code>light</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Examples</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>theme</code> light</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You should see the user interface change to theme Light.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.7.2. Viewing help : <code>help</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Opens the User Guide in a new window<br></p>
+</li>
+<li>
+<p><strong>Format:</strong> `help`p</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">4.7.3. Listing entered commands : <code>history</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Lists all the commands that you have entered in reverse chronological order.<br></p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>history</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">4.7.4. Undoing previous command : <code>undo</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Restores the Infinity Book to the state before the previous <em>undoable</em> command was executed.<br></p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>undo</code></p>
+</li>
+<li>
+<p><strong>Examples:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete 1</code><br>
+<code>list</code><br>
+<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
+</li>
+<li>
+<p><code>select 1</code><br>
+<code>list</code><br>
+<code>undo</code><br>
+The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
+</li>
+<li>
+<p><code>delete 1</code><br>
+<code>clear</code><br>
+<code>undo</code> (reverses the <code>clear</code> command)<br>
+<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Undoable commands: those commands that modify the Infinity Book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">4.7.5. Redoing the previously undone command : <code>redo</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Reverses the most recent <code>undo</code> command.<br></p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>redo</code></p>
+</li>
+<li>
+<p><strong>Examples:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete 1</code><br>
+<code>undo</code> (reverses the <code>delete 1</code> command)<br>
+<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
+</li>
+<li>
+<p><code>delete 1</code><br>
+<code>redo</code><br>
+The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
+</li>
+<li>
+<p><code>delete 1</code><br>
+<code>clear</code><br>
+<code>undo</code> (reverses the <code>clear</code> command)<br>
+<code>undo</code> (reverses the <code>delete 1</code> command)<br>
+<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
+<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.7.6. Exiting the program : <code>exit</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Exits the program.<br></p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>exit</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="saving-the-data"><a class="link" href="#saving-the-data">4.7.7. Saving the data</a></h4>
+<div class="paragraph">
+<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
+There is no need to save manually.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: How do I check if Infinity Book is compatible with my computer?<br>
+<strong>A</strong>: Infinity Book is compatible with Windows, Mac OS and Ubuntu with Java <code>1.8.0_60</code> or later installed. Compatibility with other <a href="#unix">UNIX</a> distributions is not guaranteed.<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>To check your Java Version:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>MAC OS/ OS-X Users:<br></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open Spotlight using Command + Space</p>
+</li>
+<li>
+<p>Search for <code>Terminal</code> and open the application</p>
+</li>
+<li>
+<p>In the terminal, copy paste the following command without enclosing double quotes to find your Java version:
+<code>"/Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java -version"</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Windows users:<br></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open Run using Windows Key + R</p>
+</li>
+<li>
+<p>Type <code>cmd</code> and press enter to open Command Prompt</p>
+</li>
+<li>
+<p>In Command Prompt, enter the following command without enclosing double quotes to find your Java version:
+<code>"java -showversion"</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Ubuntu users:<br></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open Terminal using Ctrl + Alt + T</p>
+</li>
+<li>
+<p>In the terminal copy paste the following command without enclosing double quotes to find your Java vesion:
+<code>"java -v"</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following table summarises Infinity Book commands with suitable examples:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 45%;">
+<col style="width: 45%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Command Format</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clear</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit 2 n/James Lee e/jameslee@example.com</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add new tags to a person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit -add-tag INDEX [t/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit -add-tag 2 t/Computing</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete tags from a person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit -delete-tag INDEX [t/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit -delete-tag 2 t/Computing</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find James Jake</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Help</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">History</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Select</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select 2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Undo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">View Report</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>viewreport pop/[POPULATION_TAG]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>viewreport pop/SEIntern</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Save Report</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>savereport pop/[POPULATION_TAG]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>savereport pop/SEIntern</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="glossary-br"><a class="link" href="#glossary-br">Appendix A: Glossary<br></a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>The following are some terms referenced in the User Guide:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a id="unix"></a><strong>UNIX</strong>: Unix  is a family of multitasking, multiuser computer operating systems. Common UNIX operating systems include Linux, Fedora and MAC OS.</p>
+</li>
+<li>
+<p><a id="cli"></a><strong>Command Line Interface</strong>: A user interface in which the user executes and responds to an application through a specified text input where commands are typed.</p>
+</li>
+<li>
+<p><a id="gui"></a><strong>Graphical User Interface</strong>: A user interface in which the user interacts with the application through visual representations through menus, text, images, etc.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-04-10 17:46:55 UTC
+</div>
+</div>
+</body>
+</html>
