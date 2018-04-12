@@ -53,14 +53,12 @@
 <li><a href="#search-by-name-tags-email-and-phone-since-v1-2">5.5. Search by Name, Tags, Email, and Phone (Since v1.2)</a></li>
 <li><a href="#add-remove-tags-since-v1-3">5.6. Add/Remove Tags (Since v1.3)</a></li>
 <li><a href="#accept-option-for-commands-since-v1-2">5.7. Accept Option for Commands (Since v1.2)</a></li>
-<li><a href="#report">5.8. Report</a></li>
-<li><a href="#report-panel-since-v1-4">5.9. Report Panel (Since v1.4)</a></li>
-<li><a href="#report-history-since-v1-5rc">5.10. Report History (Since v1.5rc)</a></li>
-<li><a href="#tag-colors-since-v1-0">5.11. Tag colors [since v1.0]</a></li>
-<li><a href="#display-relevant-github-or-resume-page-coming-in-v1-4">5.12. Display relevant Github or resume page.[coming in v1.4]</a></li>
-<li><a href="#add-and-match-job-postings-to-candidates-since-v1-3">5.13. Add and match job postings to candidates. [Since v1.3]</a></li>
-<li><a href="#theming-mechanism-since-v1-3">5.14. Theming Mechanism [since v1.3]</a></li>
-<li><a href="#interview-management">5.15. Interview Management</a></li>
+<li><a href="#report-since-v1-4">5.8. Report (Since v1.4)</a></li>
+<li><a href="#tag-colors-since-v1-0">5.9. Tag colors [since v1.0]</a></li>
+<li><a href="#display-relevant-github-or-resume-page-coming-in-v1-4">5.10. Display relevant Github or resume page.[coming in v1.4]</a></li>
+<li><a href="#add-and-match-job-postings-to-candidates-since-v1-3">5.11. Add and match job postings to candidates. [Since v1.3]</a></li>
+<li><a href="#theming-mechanism-since-v1-3">5.12. Theming Mechanism [since v1.3]</a></li>
+<li><a href="#interview-management">5.13. Interview Management</a></li>
 </ul>
 </li>
 <li><a href="#documentation">6. Documentation</a>
@@ -101,7 +99,7 @@
 <li><a href="#user-stories">Appendix C: User Stories</a></li>
 <li><a href="#use-cases">Appendix D: Use Cases</a>
 <ul class="sectlevel2">
-<li><a href="#use-case-search-a-person-by-tag">D.1. Use case: Search a person by tag</a></li>
+<li><a href="#use-case-search-a-candidate-by-tag">D.1. Use case: Search a candidate by tag</a></li>
 <li><a href="#use-case-view-linkedin-profile-of-a-person">D.2. Use case: View Linkedin profile of a person</a></li>
 </ul>
 </li>
@@ -122,13 +120,13 @@
 <h2 id="top"><a class="link" href="#top">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Infinity Book (IB) is an address book application for Tech recruiters who <strong>prefer to use a desktop app for managing candidates</strong>. <br></p>
+<p>Infinity Book is an Infinity Book application for Tech recruiters who <strong>prefer to use a desktop app to keep track candidates' information, job postings, and interview</strong>. <br></p>
 </div>
 <div class="paragraph">
-<p>IB provides end-to-end support, from searching for candidates,to adding job postings and saving their resumes and interviews.<br></p>
+<p>Infinity Book provides end-to-end support, from searching for candidates,to adding job postings and saving their resumes and interviews.<br></p>
 </div>
 <div class="paragraph">
-<p>More importantly, IB is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (<a href="#cli">CLI</a>) while still having the benefits of a Graphical User Interface (<a href="#gui">GUI</a>). If you can type fast, IB can get your candidates management tasks done faster than traditional GUI apps.<br></p>
+<p>More importantly, Infinity Book is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (<a href="#cli">CLI</a>) while still having the benefits of a Graphical User Interface (<a href="#gui">GUI</a>). If you can type fast, Infinity Book can get your candidates management tasks done faster than traditional GUI apps.<br></p>
 </div>
 <div class="paragraph">
 <p><a href="#top">Back to top</a></p>
@@ -139,7 +137,7 @@
 <h2 id="about"><a class="link" href="#about">2. About</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This Developer Guide provides details on setting up this project for development, compatibility, and architecture information about IB. Design and implementation specifications are specified below, followed by product management specifics.<br></p>
+<p>This Developer Guide provides details on setting up this project for development, compatibility, and architecture information about Infinity Book. Design and implementation specifications are specified below, followed by product management specifics.<br></p>
 </div>
 <div class="paragraph">
 <p>For information about application usage, refer to the <a href="https://github.com/CS2103JAN2018-W11-B3/main/blob/master/docs/UserGuide.adoc">User Guide</a>
@@ -474,7 +472,7 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Note how the <code>Model</code> simply raises a <code>AddressBookChangedEvent</code> when the Address Book data are changed, instead of asking the <code>Storage</code> to save the updates to the hard disk.
+Note how the <code>Model</code> simply raises a <code>AddressBookChangedEvent</code> when the Infinity Book data are changed, instead of asking the <code>Storage</code> to save the updates to the hard disk.
 </td>
 </tr>
 </table>
@@ -602,7 +600,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores the Address Book data.</p>
+<p>stores the Infinity Book data.</p>
 </li>
 <li>
 <p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
@@ -633,7 +631,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p>can save <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>can save the Address Book data in xml format and read it back.</p>
+<p>can save the Infinity Book data in xml format and read it back.</p>
 </li>
 </ul>
 </div>
@@ -660,7 +658,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">5.1.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by an <code>UndoRedoStack</code>, which resides inside <code>LogicManager</code>. It supports undoing and redoing of commands that modifies the state of the address book (e.g. <code>add</code>, <code>edit</code>). Such commands will inherit from <code>UndoableCommand</code>.</p>
+<p>The undo/redo mechanism is facilitated by an <code>UndoRedoStack</code>, which resides inside <code>LogicManager</code>. It supports undoing and redoing of commands that modifies the state of the Infinity Book (e.g. <code>add</code>, <code>edit</code>). Such commands will inherit from <code>UndoableCommand</code>.</p>
 </div>
 <div class="paragraph">
 <p><code>UndoRedoStack</code> only deals with <code>UndoableCommands</code>. Commands that cannot be undone will inherit from <code>Command</code> instead. The following diagram shows the inheritance diagram for commands:</p>
@@ -671,7 +669,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 </div>
 </div>
 <div class="paragraph">
-<p>As you can see from the diagram, <code>UndoableCommand</code> adds an extra layer between the abstract <code>Command</code> class and concrete commands that can be undone, such as the <code>DeleteCommand</code>. Note that extra tasks need to be done when executing a command in an <em>undoable</em> way, such as saving the state of the address book before execution. <code>UndoableCommand</code> contains the high-level algorithm for those extra tasks while the child classes implements the details of how to execute the specific command. Note that this technique of putting the high-level algorithm in the parent class and lower-level steps of the algorithm in child classes is also known as the <a href="https://www.tutorialspoint.com/design_pattern/template_pattern.htm">template pattern</a>.</p>
+<p>As you can see from the diagram, <code>UndoableCommand</code> adds an extra layer between the abstract <code>Command</code> class and concrete commands that can be undone, such as the <code>DeleteCommand</code>. Note that extra tasks need to be done when executing a command in an <em>undoable</em> way, such as saving the state of the Infinity Book before execution. <code>UndoableCommand</code> contains the high-level algorithm for those extra tasks while the child classes implements the details of how to execute the specific command. Note that this technique of putting the high-level algorithm in the parent class and lower-level steps of the algorithm in child classes is also known as the <a href="https://www.tutorialspoint.com/design_pattern/template_pattern.htm">template pattern</a>.</p>
 </div>
 <div class="paragraph">
 <p>Commands that are not undoable are implemented this way:</p>
@@ -712,7 +710,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p>Suppose that the user has just launched the application. The <code>UndoRedoStack</code> will be empty at the beginning.</p>
 </div>
 <div class="paragraph">
-<p>The user executes a new <code>UndoableCommand</code>, <code>delete 5</code>, to delete the 5th person in the address book. The current state of the address book is saved before the <code>delete 5</code> command executes. The <code>delete 5</code> command will then be pushed onto the <code>undoStack</code> (the current state is saved together with the command).</p>
+<p>The user executes a new <code>UndoableCommand</code>, <code>delete 5</code>, to delete the 5th candidate in the Infinity Book. The current state of the Infinity Book is saved before the <code>delete 5</code> command executes. The <code>delete 5</code> command will then be pushed onto the <code>undoStack</code> (the current state is saved together with the command).</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -740,10 +738,10 @@ If a command fails its execution, it will not be pushed to the <code>UndoRedoSta
 </table>
 </div>
 <div class="paragraph">
-<p>The user now decides that adding the person was a mistake, and decides to undo that action using <code>undo</code>.</p>
+<p>The user now decides that adding the candidate was a mistake, and decides to undo that action using <code>undo</code>.</p>
 </div>
 <div class="paragraph">
-<p>We will pop the most recent command out of the <code>undoStack</code> and push it back to the <code>redoStack</code>. We will restore the address book to the state before the <code>add</code> command executed.</p>
+<p>We will pop the most recent command out of the <code>undoStack</code> and push it back to the <code>redoStack</code>. We will restore the Infinity Book to the state before the <code>add</code> command executed.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -771,7 +769,7 @@ If the <code>undoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="paragraph">
-<p>The redo does the exact opposite (pops from <code>redoStack</code>, push to <code>undoStack</code>, and restores the address book to the state after the command is executed).</p>
+<p>The redo does the exact opposite (pops from <code>redoStack</code>, push to <code>undoStack</code>, and restores the Infinity Book to the state after the command is executed).</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -850,7 +848,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
+<p><strong>Alternative 1 (current choice):</strong> Saves the entire Infinity Book.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -867,7 +865,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
+<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the candidate being deleted).</p>
 </li>
 <li>
 <p>Cons: We must ensure that the implementation of each individual command are correct.</p>
@@ -883,7 +881,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Only include commands that modifies the address book (<code>add</code>, <code>clear</code>, <code>edit</code>).</p>
+<p><strong>Alternative 1 (current choice):</strong> Only include commands that modifies the Infinity Book (<code>add</code>, <code>clear</code>, <code>edit</code>).</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1005,7 +1003,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="sect3">
 <h4 id="implementation-details"><a class="link" href="#implementation-details">5.5.1. Implementation Details</a></h4>
 <div class="paragraph">
-<p>During execution of this command, IB will do the following:</p>
+<p>During execution of this command, Infinity Book will do the following:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1018,7 +1016,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </ol>
 </div>
 <div class="paragraph">
-<p>The condition for a Person to be matched with given keywords is defined in <code>PersonContainsKeywordsPredicate</code>.</p>
+<p>The condition for a candidate to be matched with given keywords is defined in <code>PersonContainsKeywordsPredicate</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1058,7 +1056,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <h3 id="add-remove-tags-since-v1-3"><a class="link" href="#add-remove-tags-since-v1-3">5.6. Add/Remove Tags (Since v1.3)</a></h3>
 <div class="paragraph">
 <p>The mechanics of <code>EditCommand</code> is that a new <code>Person</code> will be first created with the same information as the <code>Person</code> to edit.
-Then edited fields of the new <code>Person</code> will be determined based on user inputs, then it will be used to update the persons list of IB.</p>
+Then edited fields of the new <code>Person</code> will be determined based on user inputs, then it will be used to update the persons list of Infinity Book.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1071,7 +1069,7 @@ editedPerson = editPersonDescriptor.createEditedPerson(personToEdit);
 </div>
 </div>
 <div class="paragraph">
-<p>From v1.0, user can overwrite any field of a person using <code>edit</code> command. Enhancing on top of this, the creation of the new <code>Person</code> is updated
+<p>From v1.0, user can overwrite any field of a candidate using <code>edit</code> command. Enhancing on top of this, the creation of the new <code>Person</code> is updated
 so that user can add new tags by <code>edit -add-tag INDEX [t/TAG]&#8230;&#8203;</code> command and remove existing tags by <code>edit -delete-tag [t/TAG]&#8230;&#8203;</code> command.</p>
 </div>
 <div class="paragraph">
@@ -1216,32 +1214,214 @@ args = argWithOption.getArgs();
 </div>
 </div>
 <div class="sect2">
-<h3 id="report"><a class="link" href="#report">5.8. Report</a></h3>
-
-</div>
-<div class="sect2">
-<h3 id="report-panel-since-v1-4"><a class="link" href="#report-panel-since-v1-4">5.9. Report Panel (Since v1.4)</a></h3>
+<h3 id="report-since-v1-4"><a class="link" href="#report-since-v1-4">5.8. Report (Since v1.4)</a></h3>
 <div class="paragraph">
-<p><code>viewreport pop/[t/TAG]</code> command allows the user to view statistics of the current contacts list.</p>
+<p>Each <code>Report</code> is identified with a <code>Tag population</code>:</p>
 </div>
 <div class="paragraph">
-<p>'ReportPanel' extends <code>UiPart&lt;Region&gt;</code> and shares the same region with <code>BrowserPanel</code>. When <code>viewreport</code> or <code>savereport</code> is executed, <code>MainWindow</code> class will swap out the <code>BrowserPanel</code> for the <code>ReportPanel</code>.</p>
+<p>Represented with the prefix <code>pop/</code> followed by the <code>tagName</code> of the <code>Tag population</code>. Example: <code>pop/SEIntern</code>.</p>
 </div>
 <div class="paragraph">
-<p>Figure. Triggering</p>
+<p>In the report, you will find statistics of the group of all Persons tagged with <code>population</code>:<br></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A bar chart showing all other Tags owned by this group and number of owners for each Tag.</p>
+</li>
+<li>
+<p>A pie chart illustrating the numerical proportion of each Tag.</p>
+</li>
+<li>
+<p>A history panel listing statistics of this group at earlier points of time.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>'ReportPanel' takes report data from a <code>Report</code> instance and history data from a <code>ObservableList&lt;Report&gt;</code>, both of which can be obtained from <code>Logic</code> model.</p>
+<p>User can view a report using <code>viewreport</code> command and save a report for future reference using <code>savereport</code> command.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="report-history-since-v1-5rc"><a class="link" href="#report-history-since-v1-5rc">5.10. Report History (Since v1.5rc)</a></h3>
-
-</div>
-<div class="sect2">
-<h3 id="tag-colors-since-v1-0"><a class="link" href="#tag-colors-since-v1-0">5.11. Tag colors [since v1.0]</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">5.11.1. Current Implementation</a></h4>
+<h4 id="implementation-details-3"><a class="link" href="#implementation-details-3">5.8.1. Implementation Details</a></h4>
+<div class="sect4">
+<h5 id="model-component"><a class="link" href="#model-component">Model Component</a></h5>
+<div class="paragraph">
+<p>For each report, all statistics details are encapsulated within the <code>Report</code> class. We use one <code>UniqueReportList</code> to keep all <code>Report</code> that user has saved.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/report_model.jpg" alt="report model" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 9. Report as a part in the structure of Model Component of Infinity Book</p>
+</div>
+<div class="paragraph">
+<p><strong>Calculating statistics:</strong></p>
+</div>
+<div class="paragraph">
+<p>Given the idea we use <code>UniqueReportList</code> to keep history, all <code>Report</code> instances in this list are immutable. There is no method to update instances in this list.
+We keep one <code>Report</code> instance in Infinity Book so that we can show to the user.
+This instance can be re-calculated via method <code>updateReport()</code> (implementation shown in the below snippet) in <code>Model</code> interface.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">void</span> updateReport(Tag population) {
+
+    <span class="comment">// Get the list of `Person` tagged with `population`.</span>
+
+    FilteredList&lt;Person&gt; allPersonList = <span class="keyword">new</span> FilteredList&lt;&gt;(<span class="local-variable">this</span>.addressBook.getPersonList());
+    <span class="predefined-type">Predicate</span>&lt;Person&gt; personContainsPopulationTagPredicate =
+        <span class="keyword">new</span> <span class="predefined-type">Predicate</span>&lt;Person&gt;() {
+            <span class="annotation">@Override</span>
+            <span class="directive">public</span> <span class="type">boolean</span> test(Person person) {
+                <span class="keyword">return</span> person.getTags().stream()
+                        .anyMatch(tag -&gt; StringUtil.containsWordIgnoreCase(tag.tagName, population.tagName));
+            }
+        };
+    allPersonList.setPredicate(personContainsPopulationTagPredicate);
+
+    <span class="comment">// Calculate statistics of other `Tag` owned by `Person` in this list</span>
+
+    <span class="predefined-type">Map</span>&lt;<span class="predefined-type">String</span>, Pair&lt;<span class="predefined-type">Integer</span>, <span class="predefined-type">Integer</span>&gt;&gt; counts = <span class="keyword">new</span> <span class="predefined-type">HashMap</span>&lt;&gt;();
+    allPersonList.forEach((p) -&gt; {
+        <span class="predefined-type">Set</span>&lt;Tag&gt; allTags = p.getTags();
+        <span class="keyword">for</span> (Tag t : allTags) {
+            <span class="keyword">if</span> (!t.tagName.equalsIgnoreCase(population.tagName)) {
+                counts.merge(t.tagName, <span class="keyword">new</span> Pair&lt;&gt;(<span class="integer">1</span>, <span class="integer">1</span>), (a, b) -&gt;
+                        <span class="keyword">new</span> Pair(a.getKey() + b.getKey(), a.getValue() + b.getValue()));
+            }
+        }
+    });
+
+    <span class="comment">// Encapsulate statistics of each `Tag` in a `Proportion` instance</span>
+
+    <span class="predefined-type">List</span>&lt;Proportion&gt; allProportions = <span class="keyword">new</span> <span class="predefined-type">ArrayList</span>&lt;&gt;();
+    <span class="keyword">for</span> (<span class="predefined-type">Map</span>.Entry&lt;<span class="predefined-type">String</span>, Pair&lt;<span class="predefined-type">Integer</span>, <span class="predefined-type">Integer</span>&gt;&gt; entry : counts.entrySet()) {
+        allProportions.add(<span class="keyword">new</span> Proportion(entry.getKey(), entry.getValue().getKey(), entry.getValue().getValue()));
+    }
+
+    report = <span class="keyword">new</span> Report(population, allProportions, allPersonList.size());
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="storage-component"><a class="link" href="#storage-component">Storage Component</a></h5>
+<div class="paragraph">
+<p>We keep <code>UniqueReportList</code> persistently in XML files.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ReportStorageDiagram.jpg" alt="ReportStorageDiagram" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 10. <code>XmlAdaptedReport</code> in the structure of Storage Component of Infinity Book.</p>
+</div>
+<div class="paragraph">
+<p>One example of <code>Report</code> details stored in xml file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;reports&gt;</span>
+    <span class="tag">&lt;population&gt;</span>SEIntern<span class="tag">&lt;/population&gt;</span>
+    <span class="tag">&lt;totalTags&gt;</span>11<span class="tag">&lt;/totalTags&gt;</span>
+    <span class="tag">&lt;totalPersons&gt;</span>11<span class="tag">&lt;/totalPersons&gt;</span>
+    <span class="tag">&lt;proportions&gt;</span>
+        <span class="tag">&lt;proportionName&gt;</span>Screening<span class="tag">&lt;/proportionName&gt;</span>
+        <span class="tag">&lt;value&gt;</span>5<span class="tag">&lt;/value&gt;</span>
+        <span class="tag">&lt;totalPersonsInProportion&gt;</span>5<span class="tag">&lt;/totalPersonsInProportion&gt;</span>
+    <span class="tag">&lt;/proportions&gt;</span>
+    <span class="tag">&lt;proportions&gt;</span>
+        <span class="tag">&lt;proportionName&gt;</span>Rejected<span class="tag">&lt;/proportionName&gt;</span>
+        <span class="tag">&lt;value&gt;</span>1<span class="tag">&lt;/value&gt;</span>
+        <span class="tag">&lt;totalPersonsInProportion&gt;</span>1<span class="tag">&lt;/totalPersonsInProportion&gt;</span>
+    <span class="tag">&lt;/proportions&gt;</span>
+    <span class="tag">&lt;proportions&gt;</span>
+        <span class="tag">&lt;proportionName&gt;</span>Offered<span class="tag">&lt;/proportionName&gt;</span>
+        <span class="tag">&lt;value&gt;</span>2<span class="tag">&lt;/value&gt;</span>
+        <span class="tag">&lt;totalPersonsInProportion&gt;</span>2<span class="tag">&lt;/totalPersonsInProportion&gt;</span>
+    <span class="tag">&lt;/proportions&gt;</span>
+    <span class="tag">&lt;proportions&gt;</span>
+        <span class="tag">&lt;proportionName&gt;</span>Interviewing<span class="tag">&lt;/proportionName&gt;</span>
+        <span class="tag">&lt;value&gt;</span>3<span class="tag">&lt;/value&gt;</span>
+        <span class="tag">&lt;totalPersonsInProportion&gt;</span>3<span class="tag">&lt;/totalPersonsInProportion&gt;</span>
+    <span class="tag">&lt;/proportions&gt;</span>
+    <span class="tag">&lt;date&gt;</span>04/06/2018 14:41:30<span class="tag">&lt;/date&gt;</span>
+<span class="tag">&lt;/reports&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="logic-component"><a class="link" href="#logic-component">Logic Component</a></h5>
+<div class="paragraph">
+<p>The below sequence diagram show interactions within <code>Logic</code> component when user executes <code>viewreport pop/CS</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ViewReportDiagram.jpg" alt="ViewReportDiagram" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure. Interactions Inside the Logic Component for the <code>viewreport pop/CS</code> Command</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="ui-component"><a class="link" href="#ui-component">UI Component</a></h5>
+<div class="paragraph">
+<p>'ReportPanel' extends <code>UiPart&lt;Region&gt;</code> and shares the same region with <code>BrowserPanel</code>. When <code>viewreport</code> or <code>savereport</code> is executed, <code>MainWindow</code> class will swap out the <code>BrowserPanel</code> for the <code>ReportPanel</code>.
+We achieve this by posting <code>ToggleReportPanelEvent</code> (showing in the below sequence diagram).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EventInteraction.jpg" alt="EventInteraction" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure. Posting event when we execute Report commands.</p>
+</div>
+<div class="paragraph">
+<p>The <code>EventsCenters</code> then handles this <code>Event</code> and then triggers the update of <code>Report</code> instance (as shown in the below seqence diagram).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ComponentInteractions.jpg" alt="ComponentInteractions" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure. Update <code>Report</code> instance after the <code>ToggleReportPanelEvent</code> is posted</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">5.8.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Where calculation of statistics in the <code>Report</code> should be placed<br>
+<strong>Alternative 1 (current choice):</strong> in <code>ModelManager</code><br>
+<strong>Pros:</strong>
+Since the calculation requires fetching the list of all Persons in Infinity Book, Defining it in the <code>ModelManager</code> to reduce dependency among components.<br>
+<strong>Cons:</strong>
+Have to modify multiple components such as <code>LogicManager</code>, <code>ModelManager</code>, <code>Event</code>.<br>
+<strong>Alternative 2:</strong> in <code>Report</code> class itself<br>
+<strong>Pros:</strong> Do not require a <code>Report</code> instance in Infinity Book, which can be redundant when user does not use.<br>
+<strong>Cons:</strong> Have to write setter and getter to get the list of Persons from <code>Model</code>.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Choosing the region to show <code>ReportPanel</code><br>
+<strong>Alternative 1 (current choice):</strong> <code>ReportPanel</code> shares the same region with <code>BrowserPanel</code><br>
+<strong>Pros:</strong> Do not take additional area<br>
+<strong>Cons:</strong> Have to implement <code>Event</code> handling to swap panel<br>
+<strong>Alternative 2:</strong> Use a new panel<br>
+<strong>Pros:</strong> User can view reports and the browser at the same time.  <br>
+<strong>Cons:</strong> Add one more panel to the interface.<br></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tag-colors-since-v1-0"><a class="link" href="#tag-colors-since-v1-0">5.9. Tag colors [since v1.0]</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">5.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Use different colors for different tags inside person cards. For example, <code>friends</code> tags can be all in red and <code>colleagues</code> tags can be all in blue
 Pre-defined colors are included in <code>DarkTheme.css</code> and <code>LightTheme.css</code>
@@ -1249,7 +1429,7 @@ We use hash code of the tag names to generate a color. This is deliberately desi
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">5.11.2. Design considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">5.9.2. Design considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of color for tags<br></p>
 </div>
@@ -1266,7 +1446,7 @@ We use hash code of the tag names to generate a color. This is deliberately desi
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-relevant-github-or-resume-page-coming-in-v1-4"><a class="link" href="#display-relevant-github-or-resume-page-coming-in-v1-4">5.12. Display relevant Github or resume page.[coming in v1.4]</a></h3>
+<h3 id="display-relevant-github-or-resume-page-coming-in-v1-4"><a class="link" href="#display-relevant-github-or-resume-page-coming-in-v1-4">5.10. Display relevant Github or resume page.[coming in v1.4]</a></h3>
 <div class="paragraph">
 <p>As a candidate may have linked online resume or github page. The recruiter may want
 to consider these pages.
@@ -1287,7 +1467,7 @@ Hard to maintain the hard code URL.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-and-match-job-postings-to-candidates-since-v1-3"><a class="link" href="#add-and-match-job-postings-to-candidates-since-v1-3">5.13. Add and match job postings to candidates. [Since v1.3]</a></h3>
+<h3 id="add-and-match-job-postings-to-candidates-since-v1-3"><a class="link" href="#add-and-match-job-postings-to-candidates-since-v1-3">5.11. Add and match job postings to candidates. [Since v1.3]</a></h3>
 <div class="paragraph">
 <p>As there might be several candidates with varying suitability for a position, the reccruiter should be able to
 filter candidates by ability, location and some other basic filters.</p>
@@ -1298,7 +1478,7 @@ and then might be matched with candidates using index displayed in the panel. Th
 through the command <code>matchjob INDEX</code>, which displays the suitable candidates in the person panel.</p>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">5.13.1. Design Considerations*</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">5.11.1. Design Considerations*</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of Job-Person Matching<br></p>
 </div>
@@ -1315,7 +1495,7 @@ through the command <code>matchjob INDEX</code>, which displays the suitable can
 </div>
 </div>
 <div class="sect2">
-<h3 id="theming-mechanism-since-v1-3"><a class="link" href="#theming-mechanism-since-v1-3">5.14. Theming Mechanism [since v1.3]</a></h3>
+<h3 id="theming-mechanism-since-v1-3"><a class="link" href="#theming-mechanism-since-v1-3">5.12. Theming Mechanism [since v1.3]</a></h3>
 <div class="paragraph">
 <p>The theme mechanism is facilitated by a singleton class <code>UiStyle</code> which will be called inside the <code>MainWindow</code> constructor where it passes its <code>scene</code> into the <code>UiStyle</code> class.
 The <code>scene</code> is necessary for changing the CSS at runtime.</p>
@@ -1358,7 +1538,7 @@ The <code>scene</code> is necessary for changing the CSS at runtime.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">5.14.1. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">5.12.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Ways to change the application theme<br>
 <strong>Alternative 1 (current choice):</strong> Use a dedicated singleton class <code>UiStyle</code> to change the theme<br>
@@ -1371,9 +1551,9 @@ The <code>scene</code> is necessary for changing the CSS at runtime.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="interview-management"><a class="link" href="#interview-management">5.15. Interview Management</a></h3>
+<h3 id="interview-management"><a class="link" href="#interview-management">5.13. Interview Management</a></h3>
 <div class="sect3">
-<h4 id="adding-an-interview-since-v1-4"><a class="link" href="#adding-an-interview-since-v1-4">5.15.1. Adding an interview (Since v1.4)</a></h4>
+<h4 id="adding-an-interview-since-v1-4"><a class="link" href="#adding-an-interview-since-v1-4">5.13.1. Adding an interview (Since v1.4)</a></h4>
 <div class="paragraph">
 <p>The recruiter may want to conduct an interview with candidates, and maintain
 an interview lists.</p>
@@ -1396,7 +1576,7 @@ according to each candidates.<br>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-interview-coming-v1-5"><a class="link" href="#list-interview-coming-v1-5">5.15.2. List interview (coming v1.5)</a></h4>
+<h4 id="list-interview-coming-v1-5"><a class="link" href="#list-interview-coming-v1-5">5.13.2. List interview (coming v1.5)</a></h4>
 <div class="paragraph">
 <p>The recruiter may want to take a look at all of the interviews.</p>
 </div>
@@ -1416,7 +1596,7 @@ interview when listing all candidates.<br>
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-question-answer-coming-v2-0"><a class="link" href="#adding-question-answer-coming-v2-0">5.15.3. Adding question/answer (coming v2.0)</a></h4>
+<h4 id="adding-question-answer-coming-v2-0"><a class="link" href="#adding-question-answer-coming-v2-0">5.13.3. Adding question/answer (coming v2.0)</a></h4>
 <div class="paragraph">
 <p>The recruiter may want to maintain a list of questions and keep track of candidate&#8217;s
 answer of each interview.</p>
@@ -1689,7 +1869,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <div class="sect2">
 <h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">8.6. Managing Dependencies</a></h3>
 <div class="paragraph">
-<p>A project often depends on third-party libraries. For example, Address Book depends on the <a href="http://wiki.fasterxml.com/JacksonHome">Jackson library</a> for XML parsing. Managing these <em>dependencies</em> can be automated using Gradle. For example, Gradle can download the dependencies automatically, which is better than these alternatives.<br>
+<p>A project often depends on third-party libraries. For example, Infinity Book depends on the <a href="http://wiki.fasterxml.com/JacksonHome">Jackson library</a> for XML parsing. Managing these <em>dependencies</em> can be automated using Gradle. For example, Gradle can download the dependencies automatically, which is better than these alternatives.<br>
 a. Include those libraries in the repo (this bloats the repo size)<br>
 b. Require developers to download those libraries manually (this creates extra work for developers)</p>
 </div>
@@ -1785,7 +1965,7 @@ Do take a look at <a href="#Design-Logic">Section 4.3, &#8220;Logic component&#8
 </div>
 <h4 id="code-model-code-component" class="discrete"><code>Model</code> component</h4>
 <div class="paragraph">
-<p><strong>Scenario:</strong> You are in charge of <code>model</code>. One day, the <code>logic</code>-in-charge approaches you for help. He wants to implement a command such that the user is able to remove a particular tag from everyone in the address book, but the model API does not support such a functionality at the moment. Your job is to implement an API method, so that your teammate can use your API to implement his command.</p>
+<p><strong>Scenario:</strong> You are in charge of <code>model</code>. One day, the <code>logic</code>-in-charge approaches you for help. He wants to implement a command such that the user is able to remove a particular tag from everyone in the Infinity Book, but the model API does not support such a functionality at the moment. Your job is to implement an API method, so that your teammate can use your API to implement his command.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1802,7 +1982,7 @@ Do take a look at <a href="#Design-Model">Section 4.4, &#8220;Model component&#8
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add a <code>removeTag(Tag)</code> method. The specified tag will be removed from everyone in the address book.</p>
+<p>Add a <code>removeTag(Tag)</code> method. The specified tag will be removed from everyone in the Infinity Book.</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -1861,7 +2041,7 @@ Do take a look at <a href="#Design-Model">Section 4.4, &#8220;Model component&#8
 </div>
 <h4 id="code-ui-code-component" class="discrete"><code>Ui</code> component</h4>
 <div class="paragraph">
-<p><strong>Scenario:</strong> You are in charge of <code>ui</code>. During a beta testing session, your team is observing how the users use your address book application. You realize that one of the users occasionally tries to delete non-existent tags from a contact, because the tags all look the same visually, and the user got confused. Another user made a typing mistake in his command, but did not realize he had done so because the error message wasn&#8217;t prominent enough. A third user keeps scrolling down the list, because he keeps forgetting the index of the last person in the list. Your job is to implement improvements to the UI to solve all these problems.</p>
+<p><strong>Scenario:</strong> You are in charge of <code>ui</code>. During a beta testing session, your team is observing how the users use your Infinity Book application. You realize that one of the users occasionally tries to delete non-existent tags from a contact, because the tags all look the same visually, and the user got confused. Another user made a typing mistake in his command, but did not realize he had done so because the error message wasn&#8217;t prominent enough. A third user keeps scrolling down the list, because he keeps forgetting the index of the last candidate in the list. Your job is to implement improvements to the UI to solve all these problems.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1878,7 +2058,7 @@ Do take a look at <a href="#Design-Ui">Section 4.2, &#8220;UI component&#8221;</
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Use different colors for different tags inside person cards. For example, <code>friends</code> tags can be all in brown, and <code>colleagues</code> tags can be all in yellow.</p>
+<p>Use different colors for different tags inside candidate cards. For example, <code>friends</code> tags can be all in brown, and <code>colleagues</code> tags can be all in yellow.</p>
 <div class="paragraph">
 <p><strong>Before</strong></p>
 </div>
@@ -2017,7 +2197,7 @@ Do take a look at <a href="#Design-Ui">Section 4.2, &#8220;UI component&#8221;</
 </div>
 </li>
 <li>
-<p>Modify the <a href="https://github.com/CS2103JAN2018-W11-B3/main/src/main/java/seedu/address/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> to show the total number of people in the address book.</p>
+<p>Modify the <a href="https://github.com/CS2103JAN2018-W11-B3/main/src/main/java/seedu/address/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> to show the total number of people in the Infinity Book.</p>
 <div class="paragraph">
 <p><strong>Before</strong></p>
 </div>
@@ -2046,7 +2226,7 @@ Do take a look at <a href="#Design-Ui">Section 4.2, &#8220;UI component&#8221;</
 <p><a href="https://github.com/CS2103JAN2018-W11-B3/main/src/main/resources/view/StatusBarFooter.fxml"><code>StatusBarFooter.fxml</code></a> will need a new <code>StatusBar</code>. Be sure to set the <code>GridPane.columnIndex</code> properly for each <code>StatusBar</code> to avoid misalignment!</p>
 </li>
 <li>
-<p><a href="https://github.com/CS2103JAN2018-W11-B3/main/src/main/java/seedu/address/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> needs to initialize the status bar on application start, and to update it accordingly whenever the address book is updated.</p>
+<p><a href="https://github.com/CS2103JAN2018-W11-B3/main/src/main/java/seedu/address/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> needs to initialize the status bar on application start, and to update it accordingly whenever the Infinity Book is updated.</p>
 </li>
 </ul>
 </div>
@@ -2082,7 +2262,7 @@ Do take a look at <a href="#Design-Ui">Section 4.2, &#8220;UI component&#8221;</
 </div>
 <h4 id="code-storage-code-component" class="discrete"><code>Storage</code> component</h4>
 <div class="paragraph">
-<p><strong>Scenario:</strong> You are in charge of <code>storage</code>. For your next project milestone, your team plans to implement a new feature of saving the address book to the cloud. However, the current implementation of the application constantly saves the address book after the execution of each command, which is not ideal if the user is working on limited internet connection. Your team decided that the application should instead save the changes to a temporary local backup file first, and only upload to the cloud after the user closes the application. Your job is to implement a backup API for the address book storage.</p>
+<p><strong>Scenario:</strong> You are in charge of <code>storage</code>. For your next project milestone, your team plans to implement a new feature of saving the Infinity Book to the cloud. However, the current implementation of the application constantly saves the Infinity Book after the execution of each command, which is not ideal if the user is working on limited internet connection. Your team decided that the application should instead save the changes to a temporary local backup file first, and only upload to the cloud after the user closes the application. Your job is to implement a backup API for the Infinity Book storage.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -2099,7 +2279,7 @@ Do take a look at <a href="#Design-Storage">Section 4.5, &#8220;Storage componen
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add a new method <code>backupAddressBook(ReadOnlyAddressBook)</code>, so that the address book can be saved in a fixed temporary location.</p>
+<p>Add a new method <code>backupAddressBook(ReadOnlyAddressBook)</code>, so that the Infinity Book can be saved in a fixed temporary location.</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -2146,7 +2326,7 @@ Do take a look at <a href="#Design-Storage">Section 4.5, &#8220;Storage componen
 <div class="sect3">
 <h4 id="description"><a class="link" href="#description">A.2.1. Description</a></h4>
 <div class="paragraph">
-<p>Edits the remark for a person specified in the <code>INDEX</code>.<br>
+<p>Edits the remark for a candidate specified in the <code>INDEX</code>.<br>
 Format: <code>remark INDEX r/[REMARK]</code></p>
 </div>
 <div class="paragraph">
@@ -2156,7 +2336,7 @@ Format: <code>remark INDEX r/[REMARK]</code></p>
 <ul>
 <li>
 <p><code>remark 1 r/Likes to drink coffee.</code><br>
-Edits the remark for the first person to <code>Likes to drink coffee.</code></p>
+Edits the remark for the first candidate to <code>Likes to drink coffee.</code></p>
 </li>
 <li>
 <p><code>remark 1 r/</code><br>
@@ -2241,7 +2421,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-3-ui-add-a-placeholder-for-remark-in-code-personcard-code"><a class="link" href="#step-3-ui-add-a-placeholder-for-remark-in-code-personcard-code">[Step 3] Ui: Add a placeholder for remark in <code>PersonCard</code></a></h5>
 <div class="paragraph">
-<p>Let&#8217;s add a placeholder on all our <a href="https://github.com/CS2103JAN2018-W11-B3/main/src/main/java/seedu/address/ui/PersonCard.java"><code>PersonCard</code></a> s to display a remark for each person later.</p>
+<p>Let&#8217;s add a placeholder on all our <a href="https://github.com/CS2103JAN2018-W11-B3/main/src/main/java/seedu/address/ui/PersonCard.java"><code>PersonCard</code></a> s to display a remark for each candidate later.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2310,7 +2490,7 @@ for <code>RemarkCommandParser</code>.</p>
 <p>Add <code>getRemark()</code> in <a href="https://github.com/CS2103JAN2018-W11-B3/main/src/main/java/seedu/address/model/person/Person.java"><code>Person</code></a>.</p>
 </li>
 <li>
-<p>You may assume that the user will not be able to use the <code>add</code> and <code>edit</code> commands to modify the remarks field (i.e. the person will be created without a remark).</p>
+<p>You may assume that the user will not be able to use the <code>add</code> and <code>edit</code> commands to modify the remarks field (i.e. the candidate will be created without a remark).</p>
 </li>
 <li>
 <p>Modify <a href="https://github.com/CS2103JAN2018-W11-B3/main/src/main/java/seedu/address/model/util/SampleDataUtil.java/"><code>SampleDataUtil</code></a> to add remarks for the sample data (delete your <code>addressBook.xml</code> so that the application will load the sample data when you launch it.)</p>
@@ -2355,7 +2535,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add a new method <code>withRemark()</code> for <a href="https://github.com/CS2103JAN2018-W11-B3/main/src/test/java/seedu/address/testutil/PersonBuilder.java"><code>PersonBuilder</code></a>. This method will create a new <code>Remark</code> for the person that it is currently building.</p>
+<p>Add a new method <code>withRemark()</code> for <a href="https://github.com/CS2103JAN2018-W11-B3/main/src/test/java/seedu/address/testutil/PersonBuilder.java"><code>PersonBuilder</code></a>. This method will create a new <code>Remark</code> for the candidate that it is currently building.</p>
 </li>
 <li>
 <p>Try and use the method on any sample <code>Person</code> in <a href="https://github.com/CS2103JAN2018-W11-B3/main/src/test/java/seedu/address/testutil/TypicalPersons.java"><code>TypicalPersons</code></a>.</p>
@@ -2461,7 +2641,7 @@ Tech recruiters who have the need for finding and acquiring skilled Computing st
 <p>This allows the user to add job postings and receive suggestions about most suitable candidates based on various parameters.</p>
 </div>
 <div class="paragraph">
-<p>For example, when the need arises to hire a new fresh graduate for a backend software development role with proficiency in MYSQL and Javascript, with location restrictions as well, the user may create such a job posting. As candidates are added and removed, the application displays an updated list of matching candidates, until removed from address book.</p>
+<p>For example, when the need arises to hire a new fresh graduate for a backend software development role with proficiency in MYSQL and Javascript, with location restrictions as well, the user may create such a job posting. As candidates are added and removed, the application displays an updated list of matching candidates, until removed from Infinity Book.</p>
 </div>
 <div class="paragraph">
 <p>Implementations needed:</p>
@@ -2591,7 +2771,7 @@ person. The recruiters can search about the interview based on the candidates.</
 <div class="sect4">
 <h5 id="major-enhancement-make-several-enhancements-to-the-ui-so-that-it-is-much-more-user-friendly"><a class="link" href="#major-enhancement-make-several-enhancements-to-the-ui-so-that-it-is-much-more-user-friendly">Major Enhancement: Make several enhancements to the UI so that it is much more user-friendly.</a></h5>
 <div class="paragraph">
-<p>This allows tech recruiters who need to manage big address books to save time by using the app more efficiently
+<p>This allows tech recruiters who need to manage big Infinity Books to save time by using the app more efficiently
 and feel more comfortable.</p>
 </div>
 <div class="paragraph">
@@ -2616,7 +2796,7 @@ and feel more comfortable.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Allow users to add remarks for people in their address books.</p>
+<p>Allow users to add remarks for people in their Infinity Books.</p>
 </li>
 <li>
 <p>This allows tech recruiters to have a more flexible field to use for their candidates</p>
@@ -2656,25 +2836,25 @@ and feel more comfortable.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add a new person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add a new candidate</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Delete a person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete a candidate</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Remove entries that I no longer need</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Find a person by name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find a candidate by name</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Locate details of persons without having to go through the entire list</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User who wants to record notes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add a note entry for a person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add a note entry for a candidate</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Record more information about the person</p></td>
 </tr>
 <tr>
@@ -2692,7 +2872,7 @@ and feel more comfortable.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Delete a tag from address book</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete a tag from Infinity Book</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">To remove tags I am no longer interested in</p></td>
 </tr>
 <tr>
@@ -2757,32 +2937,32 @@ and feel more comfortable.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User with multiple address books</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User with multiple Infinity Books</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Export my contacts</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Import into another address book application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Import into another Infinity Book application</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User with multiple devices</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Back up my address book in the cloud</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Back up my Infinity Book in the cloud</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Data is accessible from other devices</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User with many persons in the address book</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User with many persons in the Infinity Book</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sort persons by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Locate a person easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Locate a candidate easily</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User concerned about confidentiality</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Set a password for the AddressBook</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">My address book will be secure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">My Infinity Book will be secure</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User with frequently changing contacts</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Clear the entire address book</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clear the entire Infinity Book</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">To start with new candidates when required</p></td>
 </tr>
 <tr>
@@ -2820,10 +3000,10 @@ and feel more comfortable.</p>
 <p>User requests to list persons</p>
 </li>
 <li>
-<p>InfinityBook shows a list of persons</p>
+<p>Infinity Book shows a list of persons</p>
 </li>
 <li>
-<p>User requests to delete a specific person in the list</p>
+<p>User requests to delete a specific candidate in the list</p>
 </li>
 <li>
 <p>InfinityBook deletes the person</p>
@@ -2849,7 +3029,7 @@ and feel more comfortable.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. InfinityBook shows an error message.</p>
+<p>3a1. Infinity Book shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -2860,7 +3040,7 @@ and feel more comfortable.</p>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="use-case-search-a-person-by-tag"><a class="link" href="#use-case-search-a-person-by-tag">D.1. Use case: Search a person by tag</a></h3>
+<h3 id="use-case-search-a-candidate-by-tag"><a class="link" href="#use-case-search-a-candidate-by-tag">D.1. Use case: Search a candidate by tag</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2870,7 +3050,7 @@ and feel more comfortable.</p>
 <p>User requests to search and provides search params</p>
 </li>
 <li>
-<p>Addr	essBook shows a list of person fitting the given criteria</p>
+<p>Infinity Book shows a list of candidate fitting the given criteria</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2886,16 +3066,16 @@ and feel more comfortable.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to search the person by name</p>
+<p>User requests to search the candidate by name</p>
 </li>
 <li>
-<p>AddressBook shows a list of person</p>
+<p>Infinity Book shows a list of person</p>
 </li>
 <li>
-<p>User chooses a person by index in the list</p>
+<p>User chooses a candidate by index in the list</p>
 </li>
 <li>
-<p>AddressBook shows the linkedin page of that person</p>
+<p>Infinity Book shows the linkedin page of that person</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2923,7 +3103,7 @@ and feel more comfortable.</p>
 <p>Should not use more than 11% CPU resources for executing commands</p>
 </li>
 <li>
-<p>Data storage for address book with 1000 contacts should not exceed 500 Gb</p>
+<p>Data storage for Infinity Book with 1000 contacts should not exceed 500 Gb</p>
 </li>
 <li>
 <p>Should be able to work even on older 32-bit system</p>
@@ -3111,7 +3291,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-12 18:02:21 UTC
+Last updated 2018-04-12 18:30:46 UTC
 </div>
 </div>
 </body>

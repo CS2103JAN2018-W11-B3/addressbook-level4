@@ -42,8 +42,8 @@
 </li>
 <li><a href="#navigating-infinity-book">4.2. Navigating Infinity Book</a>
 <ul class="sectlevel3">
-<li><a href="#listing-all-persons-code-list-code">4.2.1. Listing all persons : <code>list</code></a></li>
-<li><a href="#locating-persons-by-name-phone-email-and-tags-code-find-code">4.2.2. Locating persons by name, phone, email, and tags: <code>find</code></a></li>
+<li><a href="#listing-all-candidates-code-list-code">4.2.1. Listing all candidates : <code>list</code></a></li>
+<li><a href="#finding-candidates-by-name-phone-email-and-tags-code-find-code">4.2.2. Finding candidates by name, phone, email, and tags: <code>find</code></a></li>
 <li><a href="#viewing-a-person-code-view-code">4.2.3. Viewing a person: <code>view</code></a></li>
 <li><a href="#selecting-a-person-code-select-code">4.2.4. Selecting a person : <code>select</code></a></li>
 <li><a href="#auto-correct-and-auto-complete">4.2.5. Auto-correct and auto-complete</a></li>
@@ -99,10 +99,13 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Infinity Book (IB) is for those Tech recruiters who <strong>prefer to use a desktop app for managing candidates</strong>. <br></p>
+<p>Infinity Book is an address book application for Tech recruiters who <strong>prefer to use a desktop app to keep track candidates' information, job postings, and interview</strong>. <br></p>
 </div>
 <div class="paragraph">
-<p>More importantly, IB is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (<a href="#cli">CLI</a>) while still having the benefits of a Graphical User Interface (<a href="#gui">GUI</a>). If you can type fast, IB can get your candidates management tasks done faster than traditional GUI apps.<br></p>
+<p>Infinity Book provides end-to-end support, from searching for candidates,to adding job postings and saving their resumes and interviews.<br></p>
+</div>
+<div class="paragraph">
+<p>More importantly, Infinity Book is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (<a href="#cli">CLI</a>) while still having the benefits of a Graphical User Interface (<a href="#gui">GUI</a>). If you can type fast, Infinity Book can get your candidates management tasks done faster than traditional GUI apps.<br></p>
 </div>
 <div class="paragraph">
 <p>Interested?<br>
@@ -160,7 +163,7 @@ Refer to <a href="#faq">Section 5, &#8220;FAQ&#8221;</a> for instructions to che
 <p>Download the latest <code>infinitybook.jar</code> <a href="https://github.com/CS2103JAN2018-W11-B3/main/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Copy the file to the folder you want to use as the home folder for your Infinity Book.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -183,7 +186,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all contacts</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
+<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Infinity Book.</p>
 </li>
 <li>
 <p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
@@ -347,7 +350,8 @@ Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all 
 <div class="sect3">
 <h4 id="add-new-tags-to-a-person-code-edit-add-tag-code"><a class="link" href="#add-new-tags-to-a-person-code-edit-add-tag-code">4.1.3. Add new tags to a person : <code>edit -add-tag</code></a></h4>
 <div class="paragraph">
-<p>To add new tags to an existing person in Infinity Book, use the edit -add-tag command.</p>
+<p>Infinity Book helps you process candidate&#8217;s information faster.
+Summarize each candidate in a few keywords using the <code>edit -add-tag</code> command to save time for your future reference.</p>
 </div>
 <div class="paragraph">
 <p><strong>Format:</strong> <code>edit -add-tag INDEX [t/TAG]&#8230;&#8203;</code></p>
@@ -359,31 +363,72 @@ Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="paragraph">
-<p>Tag name comparision is case sensitive.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Each candidate<br></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Can have any number (including zero) of tags.</p>
+</li>
+<li>
+<p>Cannot have duplicated tags. Tag name comparision is case sensitive, which means the list of tags of a candidate can be
+<code>Java</code> <code>JAVA</code> <code>JAVa</code>, for example, but cannot be <code>JAVA</code> <code>JAVA</code>.</p>
+</li>
+<li>
+<p>Cannot have tags with empty tag name.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>When you provide invalid tags, Infinity Book will ignore them. To verify, you can look at all tags shown under the candidate&#8217;s name in the list.</p>
+</li>
+<li>
+<p>Ensure that the specified <code>INDEX</code> is a positive integer that is smaller or equal to the total number of candidates shown in the list.</p>
+</li>
+</ul>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Example:</strong><br>
-<code>edit -add-tag 1 t/Year2 t/SpeakVietnamese</code><br>
-Adds tag <code>Year2</code> and <code>SpeakVietnamese</code> to the first person.</p>
+<p><strong>Examples:</strong><br>
+* <code>edit -add-tag 1 t/Year2 t/SpeakVietnamese</code><br>
+Adds tag <code>Year2</code> and <code>SpeakVietnamese</code> to the first candidate.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/addtag.png" alt="addtag" width="600">
+<img src="images/canaddtag.png" alt="canaddtag" width="900">
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure.</em> Added new tags to the first person.</p>
+<p>Figure. Added new tags to the first candidate.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit -add-tag 1 t/Year2</code><br>
+Adds a new tag <code>Year2</code> to the first candidate, but it is not successful since this candidate already has tag <code>Year2</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/cannotaddtag.png" alt="cannotaddtag" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure. Cannot add a new duplicated tag to the first candidate. The candidate&#8217;s details will not be updated,
+and Infinity Book will not show any warning.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="delete-tags-from-a-person-code-edit-delete-tag-code"><a class="link" href="#delete-tags-from-a-person-code-edit-delete-tag-code">4.1.4. Delete tags from a person : <code>edit -delete-tag</code></a></h4>
 <div class="paragraph">
-<p>To remove tags from an existing person in Infinity Book, use the edit -delete-tag command.</p>
+<p>Some tags are no longer seems to be relevant to the candidate? Remove them using the <code>edit -delete-tag</code> command.</p>
 </div>
 <div class="paragraph">
 <p><strong>Format:</strong> <code>edit -delete-tag INDEX [t/TAG]&#8230;&#8203;</code></p>
@@ -395,25 +440,50 @@ Adds tag <code>Year2</code> and <code>SpeakVietnamese</code> to the first person
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="paragraph">
-<p>Tag name comparision is case sensitive.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Tag name comparision is case sensitive, which means when the first candidate has tags <code>COMPUTING</code> <code>computing</code>, for example,
+<code>edit -delete-tag 1 t/computing</code> will only remove tag <code>computing</code>.</p>
+</li>
+<li>
+<p>Ensure that the specified <code>INDEX</code> is a positive integer that is smaller or equal to the total number of candidates shown in the list.</p>
+</li>
+</ol>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Example:</strong><br>
-<code>edit -delete-tag 1 t/Year2 t/SpeakVietnamese</code><br>
-Deletes tag <code>Year2</code> and <code>SpeakVietnamese</code> from the first person.</p>
+<p><strong>Examples:</strong><br>
+* <code>edit -delete-tag 1 t/computing</code><br>
+Deletes tag <code>computing</code> from the first candidate.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/deletetag.png" alt="deletetag" width="600">
+<img src="images/candeletetag.png" alt="candeletetag" width="600">
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure.</em> Deleted tags from the first person.</p>
+<p>Figure. Remove tags from the first candidate.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit -delete-tag 1 t/computing</code><br>
+Removes tag <code>computing</code> from the first candidate, but it is not successful since this candidate does not have tag <code>computing</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/cannotdeletetag.png" alt="cannotdeletetag" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure. Cannot delete tag <code>computing</code> from the first candidate. The candidate&#8217;s details will not be updated,
+and Infinity Book will not show any warning.</p>
 </div>
 </div>
 <div class="sect3">
@@ -511,11 +581,11 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 <div class="sect2">
 <h3 id="navigating-infinity-book"><a class="link" href="#navigating-infinity-book">4.2. Navigating Infinity Book</a></h3>
 <div class="sect3">
-<h4 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">4.2.1. Listing all persons : <code>list</code></a></h4>
+<h4 id="listing-all-candidates-code-list-code"><a class="link" href="#listing-all-candidates-code-list-code">4.2.1. Listing all candidates : <code>list</code></a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Description:</strong> Shows a list of all persons in the Infinity Book.<br></p>
+<p><strong>Description:</strong> Shows a list of all candidates in the Infinity Book.<br></p>
 </li>
 <li>
 <p><strong>Format:</strong> <code>list</code></p>
@@ -524,9 +594,9 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="locating-persons-by-name-phone-email-and-tags-code-find-code"><a class="link" href="#locating-persons-by-name-phone-email-and-tags-code-find-code">4.2.2. Locating persons by name, phone, email, and tags: <code>find</code></a></h4>
+<h4 id="finding-candidates-by-name-phone-email-and-tags-code-find-code"><a class="link" href="#finding-candidates-by-name-phone-email-and-tags-code-find-code">4.2.2. Finding candidates by name, phone, email, and tags: <code>find</code></a></h4>
 <div class="paragraph">
-<p>Finds persons whose names, phone numbers, emails, or tags contain any of the given keywords.<br></p>
+<p>Finds candidates whose names, phone numbers, emails, or tags contain any of the given keywords.<br></p>
 </div>
 <div class="paragraph">
 <p><strong>Format:</strong> <code>find KEYWORD [MORE_KEYWORDS]</code><br></p>
@@ -536,19 +606,19 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code>.</p>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code>.</p>
 </li>
 <li>
-<p>Only the name, phone number, email, and tags are searched.</p>
+<p>Only candidate&#8217;s name, phone number, email, and tags are searched.</p>
 </li>
 <li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code>.</p>
 </li>
 <li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p>Candidates matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
 </li>
 </ul>
 </div>
@@ -706,8 +776,8 @@ Corrects command word to <code>list</code>.</p>
 <div class="sect2">
 <h3 id="dashboard-reporting"><a class="link" href="#dashboard-reporting">4.3. Dashboard Reporting</a></h3>
 <div class="paragraph">
-<p>Infinity Book is tailored for people who are obsessed with speed. Aligning with this vision, our Report feature enables
-you to get insights of your huge list of contacts in a few keystrokes.</p>
+<p>Infinity Book is tailored to optimize recruiters' speed.
+Aligning with this vision, Report feature offers you an easy way to get statistics of the group of candidates tagged with a specific tag (which we call Population Tag) in few keystrokes.</p>
 </div>
 <div class="paragraph">
 <p>Each report is identified with a Population Tag:<br></p>
@@ -715,23 +785,23 @@ you to get insights of your huge list of contacts in a few keystrokes.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Represented with the prefix <code>pop/</code> followed by the tag name of the population tag. Example: <code>pop/SEIntern</code>.</p>
+<p>Represented with the prefix <code>pop/</code> followed by the tag name of the Population Tag. Example: <code>pop/SEIntern</code>.</p>
 </li>
 <li>
-<p>The population tag name must be an alphanumeric string.</p>
+<p>The name of Population Tag must be an alphanumeric string.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>In the report, you will find statistics of the group of all Persons tagged with <code>POPULATION TAG</code>:<br></p>
+<p>In the report, you will find statistics of the group of all candidates tagged with Population Tag:<br></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>A bar chart showing all other Tags owned by this group and number of owners for each Tag.</p>
+<p>A bar chart showing all other tags owned by this group and number of owners for each tag.</p>
 </li>
 <li>
-<p>A pie chart illustrating the numerical proportion of each Tag.</p>
+<p>A pie chart illustrating the numerical proportion of each tag.</p>
 </li>
 <li>
 <p>A history panel listing statistics of this group at earlier points of time.</p>
@@ -747,12 +817,12 @@ Screening, Interviewing, Offered, or Rejected. Given the a significant pool of a
 our Report feature is a solution.  <br></p>
 </div>
 <div class="paragraph">
-<p>Using our Report with population tag <code>SEIntern</code>,<br></p>
+<p>Using our Report with Population Tag <code>SEIntern</code>,<br></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>You can monitor recruiting pipeline:</p>
+<p>To ensure your team keeps up with deadlines, you can monitor the whole recruiting pipeline using Report bar chart.</p>
 </li>
 </ul>
 </div>
@@ -769,7 +839,7 @@ are tagged with <code>Interviewing</code>, 1 of them is tagged with <code>Reject
 <div class="ulist">
 <ul>
 <li>
-<p>You can evaluate the amount of workload:</p>
+<p>To see the progress of your interns recruitment, you can view percentages of candidates in each stage using Report pie chart.</p>
 </li>
 </ul>
 </div>
@@ -786,29 +856,46 @@ are tagged with <code>Interviewing</code>, 1 of them is tagged with <code>Reject
 <div class="ulist">
 <ul>
 <li>
-<p>You can track of the progress of your team:</p>
+<p>To analyze your team&#8217;s productivity, you can track the speed at which tasks are done using the history list.</p>
 </li>
 </ul>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/history.png" alt="history" width="400">
+<img src="images/history%20copy.png" alt="history copy" width="400">
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure.</em> History panel in <code>SEIntern</code> report<br></p>
+<p><em>Figure.</em> History list in <code>SEIntern</code> report<br>
+<em>Example in the firgure:</em> At 14:10:24 04/06/2018, there are 9 candidates tagged with <code>Screening</code> in Infinity Book,
+then at 16:36:55 04/12/2018, there are only 5 <code>Screening</code> candidates left.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Date format is in <strong>"hh/mm/ss mm/dd/yyyy""</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="viewing-a-report-code-viewreport-code-or-code-vr-code-since-v1-4"><a class="link" href="#viewing-a-report-code-viewreport-code-or-code-vr-code-since-v1-4">4.3.1. Viewing a report : <code>viewreport</code> or <code>vr</code> [Since v1.4]</a></h4>
 <div class="paragraph">
-<p>Want to have bird&#8217;s view statistics of a certain group of candidates? View a report using <code>viewreport</code> or <code>vr</code> command.+</p>
+<p>Want to have bird&#8217;s view statistics of a certain group of candidates? View a report using <code>viewreport</code> or <code>vr</code> command.<br></p>
 </div>
 <div class="paragraph">
 <p><strong>Format:</strong>  <code>viewreport pop/POPULATION_TAG</code> or <code>vr pop/POPULATION_TAG</code></p>
 </div>
 <div class="paragraph">
-<p><strong>Example:</strong>
-<code>viewreport pop/SEIntern</code></p>
+<p><strong>Example:</strong><br>
+<code>viewreport pop/SEIntern</code><br>
+Displays statistics for candidates tagged with <code>SEIntern</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -816,19 +903,65 @@ are tagged with <code>Interviewing</code>, 1 of them is tagged with <code>Reject
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure.</em> Report with population Tag <code>SEIntern</code> is displayed.</p>
+<p><em>Figure.</em> Infinity Book has displayed Report with Population Tag <code>SEIntern</code> in the right-most column.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Regarding displaying the Report,<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In the right-most column, Infinity Book will show you a bar chart, a pie chart, and a history list.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If there are no candidates tagged with the Population Tag you provide, Inifinity Book will not show you the pie chart.</p>
+</li>
+<li>
+<p>If you provide multiple <code>POPULATION_TAG</code>, Infinity Book will take the last one.
+For example, when you execute <code>viewreport pop/SEIntern pop/Computing</code>, Infinity Book will display the report for <code>Computing</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
 <h4 id="saving-a-report-code-savereport-code-or-code-sr-code-since-v1-4"><a class="link" href="#saving-a-report-code-savereport-code-or-code-sr-code-since-v1-4">4.3.2. Saving a report : <code>savereport</code> or <code>sr</code> [Since v1.4]</a></h4>
 <div class="paragraph">
-<p>Wish to save the current statistics for future reference? Saving the report using <code>savereport</code> or <code>sr</code> command.<br>
-<strong>Format:</strong>  <code>savereport pop/REPORT_NAME</code>  <code>sr pop/REPORT_NAME</code></p>
+<p>Wish to save the current statistics for future reference? Saving the report using <code>savereport</code> or <code>sr</code> command.<br></p>
 </div>
 <div class="paragraph">
-<p><strong>Example:</strong>
-<code>savereport pop/SEIntern</code>
-Saves the current statistics of the report. A new entry will be added at the end of history panel in the report.</p>
+<p><strong>Format:</strong>  <code>savereport pop/REPORT_NAME</code> or <code>sr pop/REPORT_NAME</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong><br>
+<code>savereport pop/SEIntern</code><br>
+Saves the current statistics for candidates tagged with <code>SEIntern</code> at this current time.
+Infinity Book will add a new entry to the history list in the report.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -836,7 +969,49 @@ Saves the current statistics of the report. A new entry will be added at the end
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure.</em> Report with population Tag <code>SEIntern</code> is saved.</p>
+<p><em>Figure.</em> Infinity Book has saved Report with population Tag <code>SEIntern</code>. In the right-most column,
+the history list includes all statistics you have saved.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Date format is in <strong>"hh/mm/ss mm/dd/yyyy""</strong>.</p>
+</li>
+<li>
+<p>To keep transparency, saved reports in Inifnity Book are immutable,
+which means you cannot edit or delete saved reports. You also cannot undo <code>savereport</code> command.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If you provide multiple <code>POPULATION_TAG</code>, Infinity Book will take the last one.
+For example, when you execute <code>viewreport pop/SEIntern pop/Computing</code>, Infinity Book will save the report for <code>Computing</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -1220,7 +1395,7 @@ There is no need to save manually.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Infinity Book folder.</p>
 </div>
 <div class="paragraph">
 <p><strong>Q</strong>: How do I check if Infinity Book is compatible with my computer?<br>
@@ -1436,7 +1611,7 @@ d/04.05.2018 l/Suntex City `</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-12 18:02:21 UTC
+Last updated 2018-04-12 18:30:46 UTC
 </div>
 </div>
 </body>

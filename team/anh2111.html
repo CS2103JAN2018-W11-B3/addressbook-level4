@@ -139,8 +139,8 @@
 <div class="sect2">
 <h3 id="dashboard-reporting"><a class="link" href="#dashboard-reporting">Dashboard Reporting</a></h3>
 <div class="paragraph">
-<p>Infinity Book is tailored for people who are obsessed with speed. Aligning with this vision, our Report feature enables
-you to get insights of your huge list of contacts in a few keystrokes.</p>
+<p>Infinity Book is tailored to optimize recruiters' speed.
+Aligning with this vision, Report feature offers you an easy way to get statistics of the group of candidates tagged with a specific tag (which we call Population Tag) in few keystrokes.</p>
 </div>
 <div class="paragraph">
 <p>Each report is identified with a Population Tag:<br></p>
@@ -148,23 +148,23 @@ you to get insights of your huge list of contacts in a few keystrokes.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Represented with the prefix <code>pop/</code> followed by the tag name of the population tag. Example: <code>pop/SEIntern</code>.</p>
+<p>Represented with the prefix <code>pop/</code> followed by the tag name of the Population Tag. Example: <code>pop/SEIntern</code>.</p>
 </li>
 <li>
-<p>The population tag name must be an alphanumeric string.</p>
+<p>The name of Population Tag must be an alphanumeric string.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>In the report, you will find statistics of the group of all Persons tagged with <code>POPULATION TAG</code>:<br></p>
+<p>In the report, you will find statistics of the group of all candidates tagged with Population Tag:<br></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>A bar chart showing all other Tags owned by this group and number of owners for each Tag.</p>
+<p>A bar chart showing all other tags owned by this group and number of owners for each tag.</p>
 </li>
 <li>
-<p>A pie chart illustrating the numerical proportion of each Tag.</p>
+<p>A pie chart illustrating the numerical proportion of each tag.</p>
 </li>
 <li>
 <p>A history panel listing statistics of this group at earlier points of time.</p>
@@ -180,12 +180,12 @@ Screening, Interviewing, Offered, or Rejected. Given the a significant pool of a
 our Report feature is a solution.  <br></p>
 </div>
 <div class="paragraph">
-<p>Using our Report with population tag <code>SEIntern</code>,<br></p>
+<p>Using our Report with Population Tag <code>SEIntern</code>,<br></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>You can monitor recruiting pipeline:</p>
+<p>To ensure your team keeps up with deadlines, you can monitor the whole recruiting pipeline using Report bar chart.</p>
 </li>
 </ul>
 </div>
@@ -202,7 +202,7 @@ are tagged with <code>Interviewing</code>, 1 of them is tagged with <code>Reject
 <div class="ulist">
 <ul>
 <li>
-<p>You can evaluate the amount of workload:</p>
+<p>To see the progress of your interns recruitment, you can view percentages of candidates in each stage using Report pie chart.</p>
 </li>
 </ul>
 </div>
@@ -219,29 +219,46 @@ are tagged with <code>Interviewing</code>, 1 of them is tagged with <code>Reject
 <div class="ulist">
 <ul>
 <li>
-<p>You can track of the progress of your team:</p>
+<p>To analyze your team&#8217;s productivity, you can track the speed at which tasks are done using the history list.</p>
 </li>
 </ul>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/history.png" alt="history" width="400">
+<img src="../images/history%20copy.png" alt="history copy" width="400">
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure.</em> History panel in <code>SEIntern</code> report<br></p>
+<p><em>Figure.</em> History list in <code>SEIntern</code> report<br>
+<em>Example in the firgure:</em> At 14:10:24 04/06/2018, there are 9 candidates tagged with <code>Screening</code> in Infinity Book,
+then at 16:36:55 04/12/2018, there are only 5 <code>Screening</code> candidates left.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Date format is in <strong>"hh/mm/ss mm/dd/yyyy""</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="viewing-a-report-code-viewreport-code-or-code-vr-code-since-v1-4"><a class="link" href="#viewing-a-report-code-viewreport-code-or-code-vr-code-since-v1-4">Viewing a report : <code>viewreport</code> or <code>vr</code> [Since v1.4]</a></h4>
 <div class="paragraph">
-<p>Want to have bird&#8217;s view statistics of a certain group of candidates? View a report using <code>viewreport</code> or <code>vr</code> command.+</p>
+<p>Want to have bird&#8217;s view statistics of a certain group of candidates? View a report using <code>viewreport</code> or <code>vr</code> command.<br></p>
 </div>
 <div class="paragraph">
 <p><strong>Format:</strong>  <code>viewreport pop/POPULATION_TAG</code> or <code>vr pop/POPULATION_TAG</code></p>
 </div>
 <div class="paragraph">
-<p><strong>Example:</strong>
-<code>viewreport pop/SEIntern</code></p>
+<p><strong>Example:</strong><br>
+<code>viewreport pop/SEIntern</code><br>
+Displays statistics for candidates tagged with <code>SEIntern</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -249,19 +266,65 @@ are tagged with <code>Interviewing</code>, 1 of them is tagged with <code>Reject
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure.</em> Report with population Tag <code>SEIntern</code> is displayed.</p>
+<p><em>Figure.</em> Infinity Book has displayed Report with Population Tag <code>SEIntern</code> in the right-most column.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Regarding displaying the Report,<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In the right-most column, Infinity Book will show you a bar chart, a pie chart, and a history list.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If there are no candidates tagged with the Population Tag you provide, Inifinity Book will not show you the pie chart.</p>
+</li>
+<li>
+<p>If you provide multiple <code>POPULATION_TAG</code>, Infinity Book will take the last one.
+For example, when you execute <code>viewreport pop/SEIntern pop/Computing</code>, Infinity Book will display the report for <code>Computing</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
 <h4 id="saving-a-report-code-savereport-code-or-code-sr-code-since-v1-4"><a class="link" href="#saving-a-report-code-savereport-code-or-code-sr-code-since-v1-4">Saving a report : <code>savereport</code> or <code>sr</code> [Since v1.4]</a></h4>
 <div class="paragraph">
-<p>Wish to save the current statistics for future reference? Saving the report using <code>savereport</code> or <code>sr</code> command.<br>
-<strong>Format:</strong>  <code>savereport pop/REPORT_NAME</code>  <code>sr pop/REPORT_NAME</code></p>
+<p>Wish to save the current statistics for future reference? Saving the report using <code>savereport</code> or <code>sr</code> command.<br></p>
 </div>
 <div class="paragraph">
-<p><strong>Example:</strong>
-<code>savereport pop/SEIntern</code>
-Saves the current statistics of the report. A new entry will be added at the end of history panel in the report.</p>
+<p><strong>Format:</strong>  <code>savereport pop/REPORT_NAME</code> or <code>sr pop/REPORT_NAME</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong><br>
+<code>savereport pop/SEIntern</code><br>
+Saves the current statistics for candidates tagged with <code>SEIntern</code> at this current time.
+Infinity Book will add a new entry to the history list in the report.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -269,7 +332,49 @@ Saves the current statistics of the report. A new entry will be added at the end
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure.</em> Report with population Tag <code>SEIntern</code> is saved.</p>
+<p><em>Figure.</em> Infinity Book has saved Report with population Tag <code>SEIntern</code>. In the right-most column,
+the history list includes all statistics you have saved.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Date format is in <strong>"hh/mm/ss mm/dd/yyyy""</strong>.</p>
+</li>
+<li>
+<p>To keep transparency, saved reports in Inifnity Book are immutable,
+which means you cannot edit or delete saved reports. You also cannot undo <code>savereport</code> command.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If you provide multiple <code>POPULATION_TAG</code>, Infinity Book will take the last one.
+For example, when you execute <code>viewreport pop/SEIntern pop/Computing</code>, Infinity Book will save the report for <code>Computing</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -296,7 +401,7 @@ Saves the current statistics of the report. A new entry will be added at the end
 <div class="sect3">
 <h4 id="implementation-details"><a class="link" href="#implementation-details">Implementation Details</a></h4>
 <div class="paragraph">
-<p>During execution of this command, IB will do the following:</p>
+<p>During execution of this command, Infinity Book will do the following:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -309,7 +414,7 @@ Saves the current statistics of the report. A new entry will be added at the end
 </ol>
 </div>
 <div class="paragraph">
-<p>The condition for a Person to be matched with given keywords is defined in <code>PersonContainsKeywordsPredicate</code>.</p>
+<p>The condition for a candidate to be matched with given keywords is defined in <code>PersonContainsKeywordsPredicate</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -349,7 +454,7 @@ Saves the current statistics of the report. A new entry will be added at the end
 <h3 id="add-remove-tags-since-v1-3"><a class="link" href="#add-remove-tags-since-v1-3">Add/Remove Tags (Since v1.3)</a></h3>
 <div class="paragraph">
 <p>The mechanics of <code>EditCommand</code> is that a new <code>Person</code> will be first created with the same information as the <code>Person</code> to edit.
-Then edited fields of the new <code>Person</code> will be determined based on user inputs, then it will be used to update the persons list of IB.</p>
+Then edited fields of the new <code>Person</code> will be determined based on user inputs, then it will be used to update the persons list of Infinity Book.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -362,7 +467,7 @@ editedPerson = editPersonDescriptor.createEditedPerson(personToEdit);
 </div>
 </div>
 <div class="paragraph">
-<p>From v1.0, user can overwrite any field of a person using <code>edit</code> command. Enhancing on top of this, the creation of the new <code>Person</code> is updated
+<p>From v1.0, user can overwrite any field of a candidate using <code>edit</code> command. Enhancing on top of this, the creation of the new <code>Person</code> is updated
 so that user can add new tags by <code>edit -add-tag INDEX [t/TAG]&#8230;&#8203;</code> command and remove existing tags by <code>edit -delete-tag [t/TAG]&#8230;&#8203;</code> command.</p>
 </div>
 <div class="paragraph">
@@ -512,7 +617,7 @@ args = argWithOption.getArgs();
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-12 18:02:21 UTC
+Last updated 2018-04-12 18:30:46 UTC
 </div>
 </div>
 </body>
