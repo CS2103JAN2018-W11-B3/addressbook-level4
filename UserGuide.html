@@ -953,10 +953,10 @@ Saves the current statistics of the report. A new entry will be added at the end
 <p><strong>Description:</strong> Add a Interview to Infinity Book.</p>
 </li>
 <li>
-<p><strong>Format:</strong> <code>addInterview n/Interviewee l/LOCATION d/DATE</code></p>
+<p><strong>Format:</strong> <code>addInterview i/Interview Title n/Interviewee l/LOCATION d/DATE</code></p>
 </li>
 <li>
-<p><strong>Examples:</strong> <code>addInterview n/John l/One North d/30.1.2018</code></p>
+<p><strong>Examples:</strong> <code>addInterview i/SE Interview n/John l/One North d/30.1.2018</code></p>
 </li>
 </ul>
 </div>
@@ -1310,7 +1310,14 @@ There is no need to save manually.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/James Ho p/22224444 e/jamesho@example.com a/123,
+ Clementi Rd, 1234665 t/friend t/colleague</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add Interview</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addInterview i/INTERVIEW_TITLE n/INTERVIEWEE d/DATE l/INTERVIEW_LOCATION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">`addInterview i/SE Interview n/David
+d/04.05.2018 l/Suntex City `</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Clear</p></td>
@@ -1321,6 +1328,11 @@ There is no need to save manually.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Delete</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete INDEX</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete Interview</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">`delete INDEX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteInterview 3</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Edit</p></td>
@@ -1341,6 +1353,11 @@ There is no need to save manually.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Find</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>find James Jake</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find Interview</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>FindInterview n/INTERVIEWEE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>FindInterview David</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Help</p></td>
@@ -1371,6 +1388,11 @@ There is no need to save manually.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Undo</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">View</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view emailID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view <a href="mailto:johnd@example.com">johnd@example.com</a></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">View Report</p></td>
@@ -1414,7 +1436,7 @@ There is no need to save manually.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-11 18:07:23 UTC
+Last updated 2018-04-12 02:15:10 UTC
 </div>
 </div>
 </body>
