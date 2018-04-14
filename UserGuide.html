@@ -71,8 +71,8 @@
 <li><a href="#managing-interview">5.5. Managing Interview</a>
 <ul class="sectlevel3">
 <li><a href="#add-interview-command">5.5.1. Add Interview Command</a></li>
-<li><a href="#list-interview-coming-in-v1-5">5.5.2. List Interview [Coming in v1.5]</a></li>
-<li><a href="#add-question-coming-in-v1-5">5.5.3. Add Question [Coming in v1.5]</a></li>
+<li><a href="#list-interview">5.5.2. List Interview</a></li>
+<li><a href="#delete-interview">5.5.3. Delete Interview</a></li>
 </ul>
 </li>
 <li><a href="#social-media-fb-linkedin-integration-since-v1-4">5.6. Social Media (FB, Linkedin) Integration [Since v1.4]</a>
@@ -706,10 +706,10 @@ Returns <code>Alex Yeoh</code>, <code>Charlotte Oliveiro</code>, and <code>Alex 
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Description:</strong> Displays the person whose email is the same as given email.<br></p>
+<p><strong>Description:</strong> viewing the person records and linking page locating by emailID<br></p>
 </li>
 <li>
-<p><strong>Format:</strong> <code>view email</code></p>
+<p><strong>Format:</strong> <code>view EmailID</code></p>
 </li>
 <li>
 <p><strong>Examples:</strong> <code>view <a href="mailto:abcd@gmail.com">abcd@gmail.com</a></code></p>
@@ -1190,6 +1190,9 @@ At least one field must be provided for the edit command to function as expected
 <img src="images/viewCommand.png" alt="viewCommand" width="300">
 </div>
 </div>
+<div class="paragraph">
+<p>Figure 5.1: Add Interview command adds a new interview, as shown above.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1202,12 +1205,69 @@ At least one field must be provided for the edit command to function as expected
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-interview-coming-in-v1-5"><a class="link" href="#list-interview-coming-in-v1-5">5.5.2. List Interview [Coming in v1.5]</a></h4>
-
+<h4 id="list-interview"><a class="link" href="#list-interview">5.5.2. List Interview</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> List all interviews of Infinity Book.</p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>listInterview</code></p>
+</li>
+<li>
+<p><strong>Example:</strong> <code>listInterview</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListInterview.JPG" alt="ListInterview" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 5.2: List Interview command lists all interviews, as shown above.</p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="add-question-coming-in-v1-5"><a class="link" href="#add-question-coming-in-v1-5">5.5.3. Add Question [Coming in v1.5]</a></h4>
-
+<h4 id="delete-interview"><a class="link" href="#delete-interview">5.5.3. Delete Interview</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Remove an interview from Infinity Book using the index from latest listing.</p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>deleteInterview INDEX</code></p>
+</li>
+<li>
+<p><strong>Examples:</strong> <code>deleteInterview 1</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListInterview.JPG" alt="ListInterview" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 5.3: List Interview command lists all interviews, as shown above.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the interview at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1661,7 +1721,7 @@ d/04.05.2018 l/Suntex City `</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 09:14:43 UTC
+Last updated 2018-04-14 12:32:25 UTC
 </div>
 </div>
 </body>
