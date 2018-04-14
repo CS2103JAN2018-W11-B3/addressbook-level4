@@ -55,10 +55,10 @@
 <li><a href="#accept-option-for-commands-since-v1-2">5.7. Accept Option for Commands (Since v1.2)</a></li>
 <li><a href="#report-since-v1-4">5.8. Report (Since v1.4)</a></li>
 <li><a href="#tag-colors-since-v1-0">5.9. Tag colors [since v1.0]</a></li>
-<li><a href="#display-relevant-github-or-resume-page">5.10. Display relevant Github or resume page.</a></li>
+<li><a href="#display-relevant-github-or-resume-page-since-v1-3">5.10. Display relevant Github or resume page. (Since v1.3)</a></li>
 <li><a href="#add-and-match-job-postings-to-candidates-since-v1-3">5.11. Add and match job postings to candidates. [Since v1.3]</a></li>
 <li><a href="#theming-mechanism-since-v1-3">5.12. Theming Mechanism [since v1.3]</a></li>
-<li><a href="#interview-management">5.13. Interview Management</a></li>
+<li><a href="#interview-management-since-v1-5rc">5.13. Interview Management (Since v1.5rc)</a></li>
 </ul>
 </li>
 <li><a href="#documentation">6. Documentation</a>
@@ -1446,24 +1446,65 @@ We use hash code of the tag names to generate a color. This is deliberately desi
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-relevant-github-or-resume-page"><a class="link" href="#display-relevant-github-or-resume-page">5.10. Display relevant Github or resume page.</a></h3>
+<h3 id="display-relevant-github-or-resume-page-since-v1-3"><a class="link" href="#display-relevant-github-or-resume-page-since-v1-3">5.10. Display relevant Github or resume page. (Since v1.3)</a></h3>
 <div class="paragraph">
 <p>As a candidate may have linked online resume or github page. The recruiter may want
-to consider these pages.
-Aspects: Implementation of removing/adding a linked page.</p>
+to consider these pages.</p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">5.10.1. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect</strong>: Aspects: Implementation of removing/adding a linked page.</p>
 </div>
 <div class="paragraph">
-<p><strong>Alternative 1:</strong> (current choice): Each person has a page, which is resume or github.
-Add the view command to view a specific person, and view the linked page
-on the browser panel.
-Pros: The page can be linked to the person.</p>
+<p><strong>Alternative 1:</strong>(current choice) Each person has a page, which is resume or github.
+Add the view command to view a specific person, and view the linked page on the browser panel.+
+<strong>Pros:</strong> The page can be linked to the person, and it is easier to view by person&#8217;s email+
+<strong>Cons:</strong><br>
+<strong>Alternative 2:</strong> Add a new command to view specific page, which is hard code URL.
+<strong>Pros:</strong> No need to modify current person<br>
+<strong>Cons:</strong> Hard to maintain the hard code URL</p>
 </div>
-<div class="paragraph">
-<p><strong>Alternative 2:</strong> Add a new command to view specific page, which is hard code URL.
-Hard to maintain the hard code URL.</p>
 </div>
-<div class="paragraph">
-<p><a href="#top">Back to top</a></p>
+<div class="sect3">
+<h4 id="implementation-details-4"><a class="link" href="#implementation-details-4">5.10.2. Implementation details</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ViewCommandParser</code> class will extract emails ID from user input, form a predicate,
+then pass it to <code>ViewCommand</code> class.</p>
+</li>
+<li>
+<p><code>ViewCommand</code> will take in the predicate and update the list of Persons by email ID,
+and change the browser panel accordingly.
+source, java]</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>public class EmailFilter implements Predicate&lt;Person&gt; {
+    private final String email;
+
+    public EmailFilter (Email email) {
+        this.email = email.toString();
+    }
+
+    @Override
+    public boolean test(Person person) {
+        return person.getEmail().toString().equals(this.email);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof EmailFilter // instanceof handles nulls
+                &amp;&amp; this.email.equals(((EmailFilter) other).email)); // state check
+    }
+
+}</pre>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1478,7 +1519,7 @@ and then might be matched with candidates using index displayed in the panel. Th
 through the command <code>matchjob INDEX</code>, which displays the suitable candidates in the person panel.</p>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">5.11.1. Design Considerations*</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">5.11.1. Design Considerations*</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of Job-Person Matching<br></p>
 </div>
@@ -1538,7 +1579,7 @@ The <code>scene</code> is necessary for changing the CSS at runtime.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">5.12.1. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">5.12.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Ways to change the application theme<br>
 <strong>Alternative 1 (current choice):</strong> Use a dedicated singleton class <code>UiStyle</code> to change the theme<br>
@@ -1551,9 +1592,27 @@ The <code>scene</code> is necessary for changing the CSS at runtime.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="interview-management"><a class="link" href="#interview-management">5.13. Interview Management</a></h3>
+<h3 id="interview-management-since-v1-5rc"><a class="link" href="#interview-management-since-v1-5rc">5.13. Interview Management (Since v1.5rc)</a></h3>
+<div class="paragraph">
+<p>Interviewing is one of the important steps in recruiting process.
+HR may need a tool to manage interview efficiently. The Infinity Book will
+need interview model with basic features including adding interview, listing
+interview, and deleting interview.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Interview Model:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/InterviewModel.png" alt="InterviewModel" width="700">
+</div>
+</div>
 <div class="sect3">
-<h4 id="adding-an-interview-since-v1-4"><a class="link" href="#adding-an-interview-since-v1-4">5.13.1. Adding an interview (Since v1.4)</a></h4>
+<h4 id="adding-an-interview"><a class="link" href="#adding-an-interview">5.13.1. Adding an interview</a></h4>
 <div class="paragraph">
 <p>The recruiter may want to conduct an interview with candidates, and maintain
 an interview lists.</p>
@@ -1574,9 +1633,29 @@ according to each candidates.<br>
 <strong>Pros:</strong> It is easier to implement.<br>
 <strong>Cons:</strong> It is difficult to search specific interview effectively.</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>Current implementation details</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddInterviewCommandParser</code> class will extract interview title, interviewee name, date,
+and interview location from user input, form a new interview,
+then pass it to <code>AddInterviewCommand</code> class.</p>
+</li>
+<li>
+<p><code>AddInterviewCommand</code> will take in the interview and add new Interview to
+storage.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
-<h4 id="list-interview-coming-v1-5"><a class="link" href="#list-interview-coming-v1-5">5.13.2. List interview (coming v1.5)</a></h4>
+<h4 id="list-interview"><a class="link" href="#list-interview">5.13.2. List interview</a></h4>
 <div class="paragraph">
 <p>The recruiter may want to take a look at all of the interviews.</p>
 </div>
@@ -1586,13 +1665,31 @@ according to each candidates.<br>
 <div class="paragraph">
 <p><strong>Alternative 1:</strong> (current choice) create a new command to listing all the interview.<br>
 <strong>Pros:</strong> It is easier to use and modify.<br>
-<strong>Cons:</strong> Have to create new comamnd.</p>
+<strong>Cons:</strong> New command is needed.</p>
 </div>
 <div class="paragraph">
 <p><strong>Alternative 2:</strong> each candidate has been linked to an interview, listing all the
 interview when listing all candidates.<br>
 <strong>Pros:</strong> No need to create new command, just need to edit current list comamnd<br>
 <strong>Cons:</strong> It increases coupling and it is harder to implement.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Current implementation details</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddressBookParser</code> class will parse the command <code>listInterview</code> from CLI
+and call ListInterviewCommand.</p>
+</li>
+<li>
+<p><code>ListInterviewCommnad</code> will list all the interviews in storage.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -1605,7 +1702,30 @@ interview when listing all candidates.<br>
 </div>
 <div class="paragraph">
 <p><strong>Alternative 1:</strong> (current choice) create deleting command for deleting interview by index<br>
-<strong>Pros:</strong> It can be easily to use follow the index of listing interview command<br></p>
+<strong>Pros:</strong> It can be easily to use follow the index of listing interview command<br>
+<strong>Cons:</strong> It requires users to use two commands<br>
+<strong>Alternative 2:</strong> create deleting command for deleting interview by name.<br>
+<strong>Pros:</strong> It requires addtional tools to match interview<br>
+<strong>Cons:</strong> It is easier for user to use.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Current implementation details</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeletingInterviewParser</code> class will extract the index of the interview needed
+to be deleted and pass in to <code>DeleteInterviewCommand</code>.</p>
+</li>
+<li>
+<p><code>DeleteInterviewCommand</code> will take in the index and update the interview list
+accordingly.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -3283,7 +3403,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 15:58:35 UTC
+Last updated 2018-04-14 17:22:22 UTC
 </div>
 </div>
 </body>
