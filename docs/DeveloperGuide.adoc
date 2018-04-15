@@ -712,10 +712,7 @@ so that they are accessible by people who are color blind and obvious for everyo
 **Alternative 2:** Use a the default JavaFX chart color palettes +
 **Pros:** Do not need to implement.   +
 **Cons:** Do not have the control over visual effect. +
-
-//end::report[]
-
-//tag:tagcolor[]
+// end::report[]
 === Tag colors [since v1.0]
 
 ==== Current Implementation
@@ -734,8 +731,6 @@ Pre-defined colors are included in `DarkTheme.css`, `LightTheme.css` and `Mornin
 **Alternative 2:** Have tag colors to be a random hexadecimal color value +
 **Pros:** Number of different color is very big (i.e. there is less repetitive color used)   +
 **Cons:** The color for each tag value might be different between app launchs +
-
-//end:tagcolor[]
 
 //tag::viewcommand[]
 === Display relevant Github or resume page. (Since v1.3)
