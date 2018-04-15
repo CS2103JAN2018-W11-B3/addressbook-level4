@@ -54,12 +54,13 @@
 <li><a href="#add-remove-tags-since-v1-3">5.6. Add/Remove Tags (Since v1.3)</a></li>
 <li><a href="#accept-option-for-commands-since-v1-2">5.7. Accept Option for Commands (Since v1.2)</a></li>
 <li><a href="#report-since-v1-4">5.8. Report (Since v1.4)</a></li>
-<li><a href="#display-relevant-github-or-resume-page-since-v1-3">5.9. Display relevant Github or resume page. (Since v1.3)</a></li>
-<li><a href="#auto-correct-and-auto-complete-since-v1-4">5.10. Auto-correct and Auto-complete [since v1.4]</a></li>
-<li><a href="#job-postings-since-v1-3">5.11. Job Postings [Since v1.3]</a></li>
-<li><a href="#theming-mechanism-since-v1-3">5.12. Theming Mechanism [since v1.3]</a></li>
-<li><a href="#interview-management-since-v1-5rc">5.13. Interview Management [Since v1.5rc]</a></li>
-<li><a href="#facebook-integration">5.14. Facebook Integration</a></li>
+<li><a href="#tag-colors-since-v1-0">5.9. Tag colors [since v1.0]</a></li>
+<li><a href="#display-relevant-github-or-resume-page-since-v1-3">5.10. Display relevant Github or resume page. (Since v1.3)</a></li>
+<li><a href="#auto-correct-and-auto-complete-since-v1-4">5.11. Auto-correct and Auto-complete [since v1.4]</a></li>
+<li><a href="#job-postings-since-v1-3">5.12. Job Postings [Since v1.3]</a></li>
+<li><a href="#theming-mechanism-since-v1-3">5.13. Theming Mechanism [since v1.3]</a></li>
+<li><a href="#interview-management-since-v1-5rc">5.14. Interview Management [Since v1.5rc]</a></li>
+<li><a href="#facebook-integration">5.15. Facebook Integration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">6. Documentation</a>
@@ -1353,19 +1354,21 @@ so that they are accessible by people who are color blind and obvious for everyo
 <div class="paragraph">
 <p><strong>Alternative 2:</strong> Use a the default JavaFX chart color palettes<br>
 <strong>Pros:</strong> Do not need to implement.  <br>
-<strong>Cons:</strong> Do not have the control over visual effect.<br>
-=== Tag colors [since v1.0]</p>
+<strong>Cons:</strong> Do not have the control over visual effect.<br></p>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="tag-colors-since-v1-0"><a class="link" href="#tag-colors-since-v1-0">5.9. Tag colors [since v1.0]</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">5.8.3. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">5.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Use different colors for different tags inside person cards. For example, <code>friends</code> tags can be all in red and <code>colleagues</code> tags can be all in blue.
 Pre-defined colors are included in <code>DarkTheme.css</code>, <code>LightTheme.css</code> and <code>MorningTheme.css</code>. We use hash code of the tag names to generate a color. This is deliberately designed to ensure consistent colors each time the application runs.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">5.8.4. Design considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">5.9.2. Design considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of color for tags<br></p>
 </div>
@@ -1382,13 +1385,13 @@ Pre-defined colors are included in <code>DarkTheme.css</code>, <code>LightTheme.
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-relevant-github-or-resume-page-since-v1-3"><a class="link" href="#display-relevant-github-or-resume-page-since-v1-3">5.9. Display relevant Github or resume page. (Since v1.3)</a></h3>
+<h3 id="display-relevant-github-or-resume-page-since-v1-3"><a class="link" href="#display-relevant-github-or-resume-page-since-v1-3">5.10. Display relevant Github or resume page. (Since v1.3)</a></h3>
 <div class="paragraph">
 <p>As a candidate may have linked online resume or github page. The recruiter may want
 to consider these pages.</p>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">5.9.1. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">5.10.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect</strong>: Aspects: Implementation of removing/adding a linked page.</p>
 </div>
@@ -1403,7 +1406,7 @@ Add the view command to view a specific person, and view the linked page on the 
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-details-4"><a class="link" href="#implementation-details-4">5.9.2. Implementation details</a></h4>
+<h4 id="implementation-details-4"><a class="link" href="#implementation-details-4">5.10.2. Implementation details</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1444,7 +1447,7 @@ source, java]</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="auto-correct-and-auto-complete-since-v1-4"><a class="link" href="#auto-correct-and-auto-complete-since-v1-4">5.10. Auto-correct and Auto-complete [since v1.4]</a></h3>
+<h3 id="auto-correct-and-auto-complete-since-v1-4"><a class="link" href="#auto-correct-and-auto-complete-since-v1-4">5.11. Auto-correct and Auto-complete [since v1.4]</a></h3>
 <div class="paragraph">
 <p>Infinity Book enhances the user&#8217;s interaction with the application, with built in auto-correct and auto-complete. Command
 words that are typed in are examined for spelling errors and completions upon <code>SPACE</code> and <code>TAB</code> press respectively.</p>
@@ -1464,7 +1467,7 @@ CommandCorrection#createDictionary() as shown in code snippet.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="auto-complete-implementation"><a class="link" href="#auto-complete-implementation">5.10.1. Auto-complete Implementation</a></h4>
+<h4 id="auto-complete-implementation"><a class="link" href="#auto-complete-implementation">5.11.1. Auto-complete Implementation</a></h4>
 <div class="paragraph">
 <p>The user input is recorded in CommandBox, and upon <code>TAB</code> keypress, the CommandBox#navigateToCompletedCommand() method looks for command
 words containing the entered string as the first substring.</p>
@@ -1502,7 +1505,7 @@ made by auto-complete and original user input. Here, the user has pressed the <c
 </div>
 </div>
 <div class="sect3">
-<h4 id="auto-correct-implementation"><a class="link" href="#auto-correct-implementation">5.10.2. Auto-correct Implementation</a></h4>
+<h4 id="auto-correct-implementation"><a class="link" href="#auto-correct-implementation">5.11.2. Auto-correct Implementation</a></h4>
 <div class="paragraph">
 <p>Auto-correct searches command word input for potential one edit distance errors, including missed,swapped and stray characters.</p>
 </div>
@@ -1545,14 +1548,14 @@ belief that these are the most common kinds of errors.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="job-postings-since-v1-3"><a class="link" href="#job-postings-since-v1-3">5.11. Job Postings [Since v1.3]</a></h3>
+<h3 id="job-postings-since-v1-3"><a class="link" href="#job-postings-since-v1-3">5.12. Job Postings [Since v1.3]</a></h3>
 <div class="paragraph">
 <p>Recruiters may have several job openings available with varying required skills, location and tags. These are represented in the Infinity
 Book as Job Postings. Job postings may be added or removed at any time. Existing job postings can be listed, searched, edited and deleted.
 Any existing job postings may be matched with the list of candidates to filter potential matches.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-specifics"><a class="link" href="#implementation-specifics">5.11.1. Implementation Specifics</a></h4>
+<h4 id="implementation-specifics"><a class="link" href="#implementation-specifics">5.12.1. Implementation Specifics</a></h4>
 <div class="sect4">
 <h5 id="model-component-2"><a class="link" href="#model-component-2">Model Component</a></h5>
 <div class="paragraph">
@@ -1858,7 +1861,7 @@ these operations ensures the new Job object is updated in the Infinity Book.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">5.11.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">5.12.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of additional Skill parameter for Person and Job<br></p>
 </div>
@@ -1892,7 +1895,7 @@ these operations ensures the new Job object is updated in the Infinity Book.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="theming-mechanism-since-v1-3"><a class="link" href="#theming-mechanism-since-v1-3">5.12. Theming Mechanism [since v1.3]</a></h3>
+<h3 id="theming-mechanism-since-v1-3"><a class="link" href="#theming-mechanism-since-v1-3">5.13. Theming Mechanism [since v1.3]</a></h3>
 <div class="paragraph">
 <p>The theme mechanism is facilitated by a singleton class <code>UiTheme</code> which will be called inside the <code>MainWindow</code> constructor where it passes its <code>scene</code> into the <code>UiTheme</code> class.
 The <code>scene</code> is necessary for changing the CSS at runtime.</p>
@@ -1937,7 +1940,7 @@ The <code>scene</code> is necessary for changing the CSS at runtime.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">5.12.1. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">5.13.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Ways to change the application theme<br>
 <strong>Alternative 1 (current choice):</strong> Use a dedicated singleton class <code>UiTheme</code> to change the theme<br>
@@ -1950,7 +1953,7 @@ The <code>scene</code> is necessary for changing the CSS at runtime.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="interview-management-since-v1-5rc"><a class="link" href="#interview-management-since-v1-5rc">5.13. Interview Management [Since v1.5rc]</a></h3>
+<h3 id="interview-management-since-v1-5rc"><a class="link" href="#interview-management-since-v1-5rc">5.14. Interview Management [Since v1.5rc]</a></h3>
 <div class="paragraph">
 <p>Interviewing is one of the important steps in recruiting process.
 HR may need a tool to manage interview efficiently. The Infinity Book will
@@ -1984,7 +1987,7 @@ interview, and deleting interview.</p>
 <div class="title">Figure 36. add XmlAdaptedInterview to Storage Component</div>
 </div>
 <div class="sect3">
-<h4 id="adding-an-interview"><a class="link" href="#adding-an-interview">5.13.1. Adding an interview</a></h4>
+<h4 id="adding-an-interview"><a class="link" href="#adding-an-interview">5.14.1. Adding an interview</a></h4>
 <div class="paragraph">
 <p>The recruiter may want to conduct an interview with candidates, and maintain
 an interview lists.</p>
@@ -2042,7 +2045,7 @@ storage in model management.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-interview"><a class="link" href="#list-interview">5.13.2. List interview</a></h4>
+<h4 id="list-interview"><a class="link" href="#list-interview">5.14.2. List interview</a></h4>
 <div class="paragraph">
 <p>The recruiter may want to take a look at all of the interviews.</p>
 </div>
@@ -2094,7 +2097,7 @@ and call ListInterviewCommand.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-interview"><a class="link" href="#deleting-interview">5.13.3. Deleting Interview</a></h4>
+<h4 id="deleting-interview"><a class="link" href="#deleting-interview">5.14.3. Deleting Interview</a></h4>
 <div class="paragraph">
 <p>After conducted interview, the HR may want to delete the interview from the Infinity Book.</p>
 </div>
@@ -2147,12 +2150,12 @@ accordingly.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="facebook-integration"><a class="link" href="#facebook-integration">5.14. Facebook Integration</a></h3>
+<h3 id="facebook-integration"><a class="link" href="#facebook-integration">5.15. Facebook Integration</a></h3>
 <div class="paragraph">
 <p>The Facebook features (facebooklogin and facebookpost) are facilitated by Facebook Graph API and RestFB API. The Graph API is low-level HTTP-based API used to get data into and out of the Facebook platform while RestAPI is a high level third-party Graph API client.</p>
 </div>
 <div class="sect3">
-<h4 id="preparation"><a class="link" href="#preparation">5.14.1. Preparation</a></h4>
+<h4 id="preparation"><a class="link" href="#preparation">5.15.1. Preparation</a></h4>
 <div class="paragraph">
 <p>Firstly, we need to build a Graddle dependency in the <code>graddle.properties</code> file for RestFB API</p>
 </div>
@@ -2175,7 +2178,7 @@ accordingly.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">5.14.2. Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">5.15.2. Implementation</a></h4>
 <div class="sect4">
 <h5 id="facebooklogin"><a class="link" href="#facebooklogin">Facebooklogin</a></h5>
 <div class="paragraph">
@@ -2244,7 +2247,7 @@ fbClient.publish(<span class="string"><span class="delimiter">&quot;</span><span
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-details-5"><a class="link" href="#implementation-details-5">5.14.3. Implementation details</a></h4>
+<h4 id="implementation-details-5"><a class="link" href="#implementation-details-5">5.15.3. Implementation details</a></h4>
 <div class="paragraph">
 <p>'FacebookPanel' extends <code>UiPart&lt;Region&gt;</code> and shares the same region with <code>BrowserPanel</code> or <code>ReportPanel</code>. When <code>facebooklogin</code> is executed,
  <code>MainWindow</code> class will swap out the <code>BrowserPanel</code> or <code>ReportPanel</code> and replace by <code>FacebookPanel</code>.
@@ -2268,7 +2271,7 @@ We achieve this by posting <code>ToggleFacebookPanelEvent</code> (showing in the
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">5.14.4. Design considerations</a></h4>
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">5.15.4. Design considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Choice of client API for Facebook Graph API<br>
 <strong>Alternative 1 (current choice):</strong> Use <code>RestFB</code><br>
@@ -4330,7 +4333,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 14:02:10 UTC
+Last updated 2018-04-15 14:07:02 UTC
 </div>
 </div>
 </body>
