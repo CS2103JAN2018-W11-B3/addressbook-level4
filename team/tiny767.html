@@ -140,56 +140,175 @@
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="social-media-fb-linkedin-integration-since-v1-4"><a class="link" href="#social-media-fb-linkedin-integration-since-v1-4">Social Media (FB, Linkedin) Integration [Since v1.4]</a></h3>
+<h3 id="social-media-fb-linkedin-integration"><a class="link" href="#social-media-fb-linkedin-integration">Social Media (FB, Linkedin) Integration</a></h3>
 <div class="sect3">
-<h4 id="facebook-integration"><a class="link" href="#facebook-integration">Facebook integration</a></h4>
-<div class="paragraph">
-<p>Connecting to Facebook [Since v1.4]: <code>facebooklogin</code></p>
+<h4 id="facebook-login-since-v1-4"><a class="link" href="#facebook-login-since-v1-4">Facebook Login [Since v1.4]</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Connect your Facebook account to InfinityBook</p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>facebooklogin</code></p>
+</li>
+<li>
+<p><strong>Alias:</strong> <code>fblogin</code></p>
+</li>
+<li>
+<p><strong>Example:</strong> <code>facebooklogin</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Any arguments supplied after <code>facebooklogin</code> or <code>fblogin</code> will be ignored<br></p>
+</li>
+<li>
+<p>For example, <code>facebooklogin a b c 1 2 3</code> will be treated the same as <code>facebooklogin</code></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>To connect your Facebook account to Infinity Book, use the <code>facebooklogin</code> command.</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p><strong>Command format</strong>: <code><span class="red">facebooklogin</span></code><br>
-<strong>Alias</strong>: <code><span class="red">fb</span></code><br></p>
-</div>
-</div>
+<p>You will be prompted by a Facebook authorization page (displayed in the right-most panel)</p>
 </div>
 <div class="paragraph">
-<p>You will be prompted by a Facebook authorization page (displayed in the browser panel)</p>
-</div>
-<div class="paragraph">
-<p>You can key in your facebook credentials. Infinity Book is then connected to that facebook account and you can use other
+<p>You can key in your facebook credentials. InfinityBook is then connected to that facebook account and you can use other
 features that Infinity Book offers.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If there is no Internet connection, the right-most panel will display a blank page. You can try login again at a later time.</p>
+</li>
+<li>
+<p>If you are already logged-in, the command will simple re-direct you to your facebook page instead of displaying the login page</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
 <h4 id="make-a-post-to-facebook-wall-code-facebookpost-code-since-v1-5rc"><a class="link" href="#make-a-post-to-facebook-wall-code-facebookpost-code-since-v1-5rc">Make a post to facebook wall: <code>facebookpost</code> [Since v1.5rc]</a></h4>
-<div class="paragraph">
-<p><strong>Command format</strong>: <code>facebookpost</code> [MESSAGE]<br>
-<strong>Alias</strong>: <code>fbpost</code> [MESSAGE]<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Posting a message to your facebook wall</p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>facebookpost [MESSAGE]</code><br>
+[MESSAGE] is the message that users wants to post</p>
+</li>
+<li>
+<p><strong>Alias:</strong> <code>fbpost [MESSAGE]</code></p>
+</li>
+<li>
+<p><strong>Example:</strong> <code>facebookpost Good morning!</code></p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>[MESSAGE] is the message that users wants to post</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Note that the current Facebook API does not allow an app to post on your behalf. Thus, we need to add your facebook account
+manually to our app in the Facebook Developer platform.<br></p>
+</li>
+<li>
+<p>We have nevertheless created a test facebook account for you to try this feature<br></p>
+</li>
+<li>
+<p>username: <a href="mailto:infinitybook6@gmail.com">infinitybook6@gmail.com</a><br></p>
+</li>
+<li>
+<p>password: 1d2c3b4a<br></p>
+</li>
+<li>
+<p>If you have logged in to your personal account and want to switch to this account. Simple re-launch the app.</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p><strong>Examples</strong>:</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If you are not yet logged in to facebook (by using the command <code>facebooklogin</code>), you will be re-directed to the login page.<br></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+After logging in, you need to make the <code>facebookpost</code> command again to post the message.<br>
+</td>
+</tr>
+</table>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>facebookpost</code> Good morning!</p>
+<p>You can use the facebook page in the right-most panel to review your post</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Note that if you are not yet logged in to facebook (by using the command <code>facebooklogin</code>), you will be
-asked to login.</p>
+</td>
+</tr>
+</table>
 </div>
-<div class="paragraph">
-<p>Otherwise,  the post will be made to facebook wall and you will see a success message</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Even when you are logged in and you use the correct syntax, your message might not be posted to Facebook if it is
+rejected at Facebook&#8217;s end. This might be due to errors such as duplicate post, 'not enough permission' or change in Facebook API.
+However, under normal circumstances, you can expect that the message will be posted.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -211,25 +330,23 @@ asked to login.</p>
 <div class="sect2">
 <h3 id="theming-mechanism-since-v1-3"><a class="link" href="#theming-mechanism-since-v1-3">Theming Mechanism [since v1.3]</a></h3>
 <div class="paragraph">
-<p>The theme mechanism is facilitated by a singleton class <code>UiStyle</code> which will be called inside the <code>MainWindow</code> constructor where it passes its <code>scene</code> into the <code>UiStyle</code> class.
+<p>The theme mechanism is facilitated by a singleton class <code>UiTheme</code> which will be called inside the <code>MainWindow</code> constructor where it passes its <code>scene</code> into the <code>UiTheme</code> class.
 The <code>scene</code> is necessary for changing the CSS at runtime.</p>
 </div>
 <div class="paragraph">
-<p>The class <code>UiStyle</code> requires the scene to be set at <code>MainWindow</code> class so that it can be used to edit themes.</p>
+<p>The class <code>UiTheme</code> requires the scene to be set at <code>MainWindow</code> class so that it can be used to edit themes.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>public class UiStyle {
+<pre>public class UiTheme {
     ...
-    private static Scene scene = null;
-
     public static void setScene(Scene s) {
         scene = s;
         setDefaultTheme();
     }
 
     private static void setDefaultTheme() {
-        scene.getStylesheets().add(DARK_THEME_STYLE);
+        setToMorningTheme();
     }
 
     public static void setToLightTheme() {
@@ -238,6 +355,10 @@ The <code>scene</code> is necessary for changing the CSS at runtime.</p>
 
     public static void setToDarkTheme() {
         scene.getStylesheets().setAll(DARK_THEME_STYLE);
+    }
+
+    public static void setToMorningTheme() {
+        scene.getStylesheets().setAll(MORNING_THEME_STYLE);
     }
     ...
 }</pre>
@@ -248,15 +369,15 @@ The <code>scene</code> is necessary for changing the CSS at runtime.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>UiStyle.getInstance().setToLightTheme();</pre>
+<pre>UiTheme.getInstance().setToLightTheme();</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Ways to change the application theme<br>
-<strong>Alternative 1 (current choice):</strong> Use a dedicated singleton class <code>UiStyle</code> to change the theme<br>
-<strong>Pros:</strong> Provide a dedicated class that manages all the changing of themes. <code>UiStyle</code> can contain many CSS theme file paths and thus the theme mechanism is more scalable . It is easier for <code>ThemeCommand</code> class to call <code>UiStyle</code> instance and use its methods directly.<br>
+<strong>Alternative 1 (current choice):</strong> Use a dedicated singleton class <code>UiTheme</code> to change the theme<br>
+<strong>Pros:</strong> Provide a dedicated class that manages all the changing of themes. <code>UiTheme</code> can contain many CSS theme file paths and thus the theme mechanism is more scalable . It is easier for <code>ThemeCommand</code> class to call <code>UiTheme</code> instance and use its methods directly.<br>
 <strong>Cons:</strong> Increases coupling<br>
 <strong>Alternative 2:</strong> Change the themes in <code>MainWindow</code> class directly<br>
 <strong>Pros:</strong> Decreases coupling<br>
@@ -270,7 +391,7 @@ The <code>scene</code> is necessary for changing the CSS at runtime.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 10:39:53 UTC
+Last updated 2018-04-15 11:39:12 UTC
 </div>
 </div>
 </body>
