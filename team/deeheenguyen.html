@@ -416,9 +416,7 @@ interview, and deleting interview.</p>
 <div class="content">
 <img src="../images/InterviewModel.png" alt="InterviewModel" width="700">
 </div>
-</div>
-<div class="paragraph">
-<p>Figure 5.13.1: add Interview Model to Model Component</p>
+<div class="title">Figure 1. add Interview Model to Model Component</div>
 </div>
 <div class="ulist">
 <ul>
@@ -431,9 +429,7 @@ interview, and deleting interview.</p>
 <div class="content">
 <img src="../images/InterviewStorage.png" alt="InterviewStorage" width=""700">
 </div>
-</div>
-<div class="paragraph">
-<p>Figure 5.13.2 add XmlAdaptedInterview to Storage Component</p>
+<div class="title">Figure 2. add XmlAdaptedInterview to Storage Component</div>
 </div>
 <div class="sect3">
 <h4 id="adding-an-interview"><a class="link" href="#adding-an-interview">4.2.1. Adding an interview</a></h4>
@@ -469,13 +465,19 @@ and interview location from user input, form a new interview,
 then pass it to <code>AddInterviewCommand</code> class.</p>
 </li>
 <li>
-<p><code>AddInterviewCommand</code> will take in the interview and call add new Interview to
-storage in model.</p>
+<p><code>AddInterviewCommand</code> will take in the interview and call add new interview to
+storage in model management.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/addInterviewSequence.png" alt="addInterviewSequence" width="700">
+</div>
+<div class="title">Figure 3. Adding an interview sequence diagram</div>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -524,6 +526,12 @@ and call ListInterviewCommand.</p>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListInterviewSequence.png" alt="ListInterviewSequence" width="700">
+</div>
+<div class="title">Figure 4. Listing an interview sequence diagram</div>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">void</span> updateFilteredInterviewList(<span class="predefined-type">Predicate</span>&lt;Interview&gt; predicate) {
@@ -550,6 +558,12 @@ and call ListInterviewCommand.</p>
 <p><strong>Alternative 2:</strong> create deleting command for deleting interview by name.<br>
 <strong>Pros:</strong> It requires addtional tools to match interview<br>
 <strong>Cons:</strong> It is easier for user to use.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteInterviewSequence.png" alt="DeleteInterviewSequence" width="700">
+</div>
+<div class="title">Figure 5. Delete an interview sequence diagram</div>
 </div>
 <div class="ulist">
 <ul>
@@ -585,7 +599,7 @@ accordingly.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 09:00:43 UTC
+Last updated 2018-04-15 09:14:22 UTC
 </div>
 </div>
 </body>
