@@ -54,12 +54,11 @@
 <li><a href="#add-remove-tags-since-v1-3">5.6. Add/Remove Tags (Since v1.3)</a></li>
 <li><a href="#accept-option-for-commands-since-v1-2">5.7. Accept Option for Commands (Since v1.2)</a></li>
 <li><a href="#report-since-v1-4">5.8. Report (Since v1.4)</a></li>
-<li><a href="#tag-colors-since-v1-0">5.9. Tag colors [since v1.0]</a></li>
-<li><a href="#display-relevant-github-or-resume-page-since-v1-3">5.10. Display relevant Github or resume page. (Since v1.3)</a></li>
-<li><a href="#auto-correct-and-auto-complete">5.11. Auto-correct and Auto-complete</a></li>
-<li><a href="#job-postings-since-v1-3">5.12. Job Postings [Since v1.3]</a></li>
-<li><a href="#theming-mechanism-since-v1-3">5.13. Theming Mechanism [since v1.3]</a></li>
-<li><a href="#interview-management-since-v1-5rc">5.14. Interview Management (Since v1.5rc)</a></li>
+<li><a href="#display-relevant-github-or-resume-page-since-v1-3">5.9. Display relevant Github or resume page. (Since v1.3)</a></li>
+<li><a href="#auto-correct-and-auto-complete">5.10. Auto-correct and Auto-complete</a></li>
+<li><a href="#job-postings-since-v1-3">5.11. Job Postings [Since v1.3]</a></li>
+<li><a href="#theming-mechanism-since-v1-3">5.12. Theming Mechanism [since v1.3]</a></li>
+<li><a href="#interview-management-since-v1-5rc">5.13. Interview Management (Since v1.5rc)</a></li>
 </ul>
 </li>
 <li><a href="#documentation">6. Documentation</a>
@@ -112,8 +111,6 @@
 <li><a href="#launch-and-shutdown">H.1. Launch and Shutdown</a></li>
 <li><a href="#deleting-a-person">H.2. Deleting a person</a></li>
 <li><a href="#saving-data">H.3. Saving data</a></li>
-<li><a href="#viewing-a-person">H.4. Viewing a person</a></li>
-<li><a href="#interview-management">H.5. Interview Management</a></li>
 </ul>
 </li>
 </ul>
@@ -1042,8 +1039,10 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <p><strong>Aspect:</strong> How user should specify the field to search<br>
 <strong>Alternative 1 (current choice):</strong> Search for all <code>Name</code>, <code>Tags</code>, <code>Email</code>, and <code>Phone</code><br>
 <strong>Pros:</strong> User does not need to learn additional commands.<br>
-<strong>Cons:</strong> There can be unintended results, but since the set of keywords to search for each field does not overlap with each other, so such unintended results are very rare.<br>
-<strong>Alternative 2:</strong> Allow users to opt searching for one field in <code>Name</code>, <code>Tags</code>, <code>Email</code>, or <code>Phone</code> <br>
+<strong>Cons:</strong> There can be unintended results, but since the set of keywords to search for each field does not overlap with each other, so such unintended results are very rare.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Allow users to opt searching for one field in <code>Name</code>, <code>Tags</code>, <code>Email</code>, or <code>Phone</code> <br>
 <strong>Pros:</strong> User can narrow down the search result.<br>
 <strong>Cons:</strong> User has to remember additional syntax.</p>
 </div>
@@ -1052,8 +1051,10 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <p><strong>Aspect:</strong>  The matching condition<br>
 <strong>Alternative 1 (current choice):</strong> Return Persons whose <code>Name</code>, <code>Tags</code>, <code>Email</code>, or <code>Phone</code> have at least one keyword in the input keywords.<br>
 <strong>Pros:</strong> User can do a wider search when he or she does not remember candidates' information clearly.<br>
-<strong>Cons:</strong> User hardly does a detailed search.<br>
-<strong>Alternative 2:</strong> Return Persons whose <code>Name</code>, <code>Tags</code>, <code>Email</code>, or <code>Phone</code> have all input keywords.<br>
+<strong>Cons:</strong> User hardly does a detailed search.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Return Persons whose <code>Name</code>, <code>Tags</code>, <code>Email</code>, or <code>Phone</code> have all input keywords.<br>
 <strong>Pros:</strong> User can narrow down the search results.<br>
 <strong>Cons:</strong> In some cases, user cannot do a more general search.</p>
 </div>
@@ -1131,13 +1132,15 @@ so that user can add new tags by <code>edit -add-tag INDEX [t/TAG]&#8230;&#8203;
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">5.6.1. Design Considerations*</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">5.6.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of removing/adding tags<br>
 <strong>Alternative 1 (current choice):</strong> Modify <code>EditPersonDescriptor</code> in <code>EditCommand</code><br>
 <strong>Pros:</strong> Prevent overlapping codes.<br>
-<strong>Cons:</strong> Modify other details (e.g. Name, Phone, Address,&#8230;&#8203;) apart from Tags.<br>
-<strong>Alternative 2:</strong> Write a new EditPersonDescriptor for this command<br>
+<strong>Cons:</strong> Modify other details (e.g. Name, Phone, Address,&#8230;&#8203;) apart from Tags.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Write a new EditPersonDescriptor for this command<br>
 <strong>Pros:</strong> Maintain the current <code>edit</code> logic and behaviour.<br>
 <strong>Cons:</strong> Duplicate the exact code, which may cause a lot of hassles in future development.</p>
 </div>
@@ -1146,8 +1149,10 @@ so that user can add new tags by <code>edit -add-tag INDEX [t/TAG]&#8230;&#8203;
 <p><strong>Aspect:</strong> Choosing command to add or remove tags<br>
 <strong>Alternative 1 (current choice):</strong> Add <code>COMMAND_OPTION</code> (<code>-add-tag</code> and <code>-delete-tag</code>) to the current <code>edit</code> command.<br>
 <strong>Pros:</strong> Adding or removing tags is indeed editing a Person&#8217;s details, so it makes complete sense to perform this action using <code>edit</code> command and reduces the number of commands that user has to remember. <br>
-<strong>Cons:</strong> Have to modify the parser so that it can extract the option.<br>
-<strong>Alternative 2:</strong> Using two new commands for adding and removing tags<br>
+<strong>Cons:</strong> Have to modify the parser so that it can extract the option.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Using two new commands for adding and removing tags<br>
 <strong>Pros:</strong> It is easier to parse the command.  <br>
 <strong>Cons:</strong> User has to remember more commands.</p>
 </div>
@@ -1375,7 +1380,7 @@ We achieve this by posting <code>ToggleReportPanelEvent</code> (showing in the b
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/EventInteraction.jpg" alt="EventInteraction" width="700">
+<img src="images/ComponentInteractions.jpg" alt="ComponentInteractions" width="700">
 </div>
 <div class="title">Figure 21. Posting event when we execute Report commands.</div>
 </div>
@@ -1384,7 +1389,7 @@ We achieve this by posting <code>ToggleReportPanelEvent</code> (showing in the b
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ComponentInteractions.jpg" alt="ComponentInteractions" width="700">
+<img src="images/EventInteraction.jpg" alt="EventInteraction" width="700">
 </div>
 <div class="title">Figure 22. Update <code>Report</code> instance after the <code>ToggleReportPanelEvent</code> is posted</div>
 </div>
@@ -1397,8 +1402,10 @@ We achieve this by posting <code>ToggleReportPanelEvent</code> (showing in the b
 <strong>Alternative 1 (current choice):</strong> in <code>ModelManager</code><br>
 <strong>Pros:</strong>
 Since the calculation requires fetching the list of all Persons in Infinity Book, Defining it in the <code>ModelManager</code> to reduce dependency among components.<br>
-<strong>Cons:</strong>
-Have to modify multiple components such as <code>LogicManager</code>, <code>ModelManager</code>, <code>Event</code>.<br>
+<strong>Cons:</strong></p>
+</div>
+<div class="paragraph">
+<p>Have to modify multiple components such as <code>LogicManager</code>, <code>ModelManager</code>, <code>Event</code>.<br>
 <strong>Alternative 2:</strong> in <code>Report</code> class itself<br>
 <strong>Pros:</strong> Do not require a <code>Report</code> instance in Infinity Book, which can be redundant when user does not use.<br>
 <strong>Cons:</strong> Have to write setter and getter to get the list of Persons from <code>Model</code>.</p>
@@ -1408,17 +1415,31 @@ Have to modify multiple components such as <code>LogicManager</code>, <code>Mode
 <p><strong>Aspect:</strong> Choosing the region to show <code>ReportPanel</code><br>
 <strong>Alternative 1 (current choice):</strong> <code>ReportPanel</code> shares the same region with <code>BrowserPanel</code><br>
 <strong>Pros:</strong> Do not take additional area<br>
-<strong>Cons:</strong> Have to implement <code>Event</code> handling to swap panel<br>
-<strong>Alternative 2:</strong> Use a new panel<br>
+<strong>Cons:</strong> Have to implement <code>Event</code> handling to swap panel<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Use a new panel<br>
 <strong>Pros:</strong> User can view reports and the browser at the same time.  <br>
 <strong>Cons:</strong> Add one more panel to the interface.<br></p>
 </div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Choosing the chart color in Report<br>
+<strong>Alternative 1 (current choice):</strong> Define a new color palettes<br>
+<strong>Pros:</strong>
+We are able to use color palettes that are vary in both hue and brightness
+so that they are accessible by people who are color blind and obvious for everyone.<br>
+<strong>Cons:</strong> Have to write code to overwrite the default color palettes.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Use a the default JavaFX chart color palettes<br>
+<strong>Pros:</strong> Do not need to implement.  <br>
+<strong>Cons:</strong> Do not have the control over visual effect.<br>
+=== Tag colors [since v1.0]</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="tag-colors-since-v1-0"><a class="link" href="#tag-colors-since-v1-0">5.9. Tag colors [since v1.0]</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">5.9.1. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">5.8.3. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Use different colors for different tags inside person cards. For example, <code>friends</code> tags can be all in red and <code>colleagues</code> tags can be all in blue
 Pre-defined colors are included in <code>DarkTheme.css</code> and <code>LightTheme.css</code>
@@ -1426,7 +1447,7 @@ We use hash code of the tag names to generate a color. This is deliberately desi
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">5.9.2. Design considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">5.8.4. Design considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of color for tags<br></p>
 </div>
@@ -1443,13 +1464,13 @@ We use hash code of the tag names to generate a color. This is deliberately desi
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-relevant-github-or-resume-page-since-v1-3"><a class="link" href="#display-relevant-github-or-resume-page-since-v1-3">5.10. Display relevant Github or resume page. (Since v1.3)</a></h3>
+<h3 id="display-relevant-github-or-resume-page-since-v1-3"><a class="link" href="#display-relevant-github-or-resume-page-since-v1-3">5.9. Display relevant Github or resume page. (Since v1.3)</a></h3>
 <div class="paragraph">
 <p>As a candidate may have linked online resume or github page. The recruiter may want
 to consider these pages.</p>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">5.10.1. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">5.9.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect</strong>: Aspects: Implementation of removing/adding a linked page.</p>
 </div>
@@ -1464,7 +1485,7 @@ Add the view command to view a specific person, and view the linked page on the 
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-details-4"><a class="link" href="#implementation-details-4">5.10.2. Implementation details</a></h4>
+<h4 id="implementation-details-4"><a class="link" href="#implementation-details-4">5.9.2. Implementation details</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1505,7 +1526,7 @@ source, java]</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="auto-correct-and-auto-complete"><a class="link" href="#auto-correct-and-auto-complete">5.11. Auto-correct and Auto-complete</a></h3>
+<h3 id="auto-correct-and-auto-complete"><a class="link" href="#auto-correct-and-auto-complete">5.10. Auto-correct and Auto-complete</a></h3>
 <div class="paragraph">
 <p>Infinity Book enhances the user&#8217;s interaction with the application, with built in auto-correct and auto-complete. Command
 words that are typed in are examined for spelling errors and completions upon <code>SPACE</code> and <code>TAB</code> press respectively.</p>
@@ -1525,7 +1546,7 @@ CommandCorrection#createDictionary() as shown in code snippet.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="auto-complete-implementation"><a class="link" href="#auto-complete-implementation">5.11.1. Auto-complete Implementation</a></h4>
+<h4 id="auto-complete-implementation"><a class="link" href="#auto-complete-implementation">5.10.1. Auto-complete Implementation</a></h4>
 <div class="paragraph">
 <p>The user input is recorded in CommandBox, and upon <code>TAB</code> keypress, the CommandBox#navigateToCompletedCommand() method looks for command
 words containing the entered string as the first substring.</p>
@@ -1563,7 +1584,7 @@ made by auto-complete and original user input. Here, the user has pressed the <c
 </div>
 </div>
 <div class="sect3">
-<h4 id="auto-correct-implementation"><a class="link" href="#auto-correct-implementation">5.11.2. Auto-correct Implementation</a></h4>
+<h4 id="auto-correct-implementation"><a class="link" href="#auto-correct-implementation">5.10.2. Auto-correct Implementation</a></h4>
 <div class="paragraph">
 <p>Auto-correct searches command word input for potential one edit distance errors, including missed,swapped and stray characters.</p>
 </div>
@@ -1606,14 +1627,14 @@ belief that these are the most common kinds of errors.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="job-postings-since-v1-3"><a class="link" href="#job-postings-since-v1-3">5.12. Job Postings [Since v1.3]</a></h3>
+<h3 id="job-postings-since-v1-3"><a class="link" href="#job-postings-since-v1-3">5.11. Job Postings [Since v1.3]</a></h3>
 <div class="paragraph">
 <p>Recruiters may have several job openings available with varying required skills, location and tags. These are represented in the Infinity
 Book as Job Postings. Job postings may be added or removed at any time. Existing job postings can be listed, searched, edited and deleted.
 Any existing job postings may be matched with the list of candidates to filter potential matches.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-specifics"><a class="link" href="#implementation-specifics">5.12.1. Implementation Specifics</a></h4>
+<h4 id="implementation-specifics"><a class="link" href="#implementation-specifics">5.11.1. Implementation Specifics</a></h4>
 <div class="sect4">
 <h5 id="model-component-2"><a class="link" href="#model-component-2">Model Component</a></h5>
 <div class="paragraph">
@@ -1925,7 +1946,7 @@ these operations ensures the new Job object is updated in the Infinity Book.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">5.12.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">5.11.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of additional Skill parameter for Person and Job<br></p>
 </div>
@@ -1959,7 +1980,7 @@ these operations ensures the new Job object is updated in the Infinity Book.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="theming-mechanism-since-v1-3"><a class="link" href="#theming-mechanism-since-v1-3">5.13. Theming Mechanism [since v1.3]</a></h3>
+<h3 id="theming-mechanism-since-v1-3"><a class="link" href="#theming-mechanism-since-v1-3">5.12. Theming Mechanism [since v1.3]</a></h3>
 <div class="paragraph">
 <p>The theme mechanism is facilitated by a singleton class <code>UiStyle</code> which will be called inside the <code>MainWindow</code> constructor where it passes its <code>scene</code> into the <code>UiStyle</code> class.
 The <code>scene</code> is necessary for changing the CSS at runtime.</p>
@@ -2002,7 +2023,7 @@ The <code>scene</code> is necessary for changing the CSS at runtime.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">5.13.1. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">5.12.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Ways to change the application theme<br>
 <strong>Alternative 1 (current choice):</strong> Use a dedicated singleton class <code>UiStyle</code> to change the theme<br>
@@ -2015,7 +2036,7 @@ The <code>scene</code> is necessary for changing the CSS at runtime.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="interview-management-since-v1-5rc"><a class="link" href="#interview-management-since-v1-5rc">5.14. Interview Management (Since v1.5rc)</a></h3>
+<h3 id="interview-management-since-v1-5rc"><a class="link" href="#interview-management-since-v1-5rc">5.13. Interview Management (Since v1.5rc)</a></h3>
 <div class="paragraph">
 <p>Interviewing is one of the important steps in recruiting process.
 HR may need a tool to manage interview efficiently. The Infinity Book will
@@ -2053,7 +2074,7 @@ interview, and deleting interview.</p>
 <p>Figure 5.13.2 add XmlAdaptedInterview to Storage Component</p>
 </div>
 <div class="sect3">
-<h4 id="adding-an-interview"><a class="link" href="#adding-an-interview">5.14.1. Adding an interview</a></h4>
+<h4 id="adding-an-interview"><a class="link" href="#adding-an-interview">5.13.1. Adding an interview</a></h4>
 <div class="paragraph">
 <p>The recruiter may want to conduct an interview with candidates, and maintain
 an interview lists.</p>
@@ -2105,7 +2126,7 @@ storage in model.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-interview"><a class="link" href="#list-interview">5.14.2. List interview</a></h4>
+<h4 id="list-interview"><a class="link" href="#list-interview">5.13.2. List interview</a></h4>
 <div class="paragraph">
 <p>The recruiter may want to take a look at all of the interviews.</p>
 </div>
@@ -2151,7 +2172,7 @@ and call ListInterviewCommand.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-interview"><a class="link" href="#deleting-interview">5.14.3. Deleting Interview</a></h4>
+<h4 id="deleting-interview"><a class="link" href="#deleting-interview">5.13.3. Deleting Interview</a></h4>
 <div class="paragraph">
 <p>After conducted interview, the HR may want to delete the interview from the Infinity Book.</p>
 </div>
@@ -3862,19 +3883,46 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+=== Add new tags to candidates</p>
 </div>
-<div class="sect2">
-<h3 id="viewing-a-person"><a class="link" href="#viewing-a-person">H.4. Viewing a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Viewing a person by emailID</p>
+<p>Deleting a person while all persons are listed</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Test case: <code>view <a href="mailto:notexisted@example.com">notexisted@example.com</a></code><br>
-Expected: person found and no new url display on browser panel</p>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
 </li>
+<li>
+<p>Test case: <code>delete 1</code><br>
+Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>delete 0</code><br>
+Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Viewing a person
+. Viewing a person by emailID
+.. Test case: <code>view <a href="mailto:notexisted@example.com">notexisted@example.com</a></code><br>
+   Expected: person found and no new url display on browser panel</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>Test case: <code>view <a href="mailto:a@example.com">a@example.com</a></code><br>
 Prerequisites: the person with email <a href="mailto:a@example.com">a@example.com</a> exists on Infinity Book.<br>
@@ -3883,60 +3931,30 @@ and the corresponding linking page has been displayed on the browser panel.</p>
 </li>
 </ol>
 </div>
-</li>
-</ol>
+<div class="paragraph">
+<p>=== Interview Management</p>
 </div>
+<div class="paragraph">
+<p>==== Add interview
+. Add an interview to current infinity book.
+.. Test case: <code>addInterview</code><br>
+   Expected:  Invalid format showing in the status message<br>
+.. Test case:  <code>addInterview i/SE INTERVIEW n/DAVID d/04.05.2018 l/NUS SOC</code><br>
+   Expected: new interview added in the status message.
+   New interview added in the browser panel.</p>
 </div>
-<div class="sect2">
-<h3 id="interview-management"><a class="link" href="#interview-management">H.5. Interview Management</a></h3>
-<div class="sect3">
-<h4 id="add-interview"><a class="link" href="#add-interview">H.5.1. Add interview</a></h4>
+<div class="paragraph">
+<p>==== List interview
+. List all interviews of infinity book
+.. Test case: <code>listInterview</code>
+   Expected: Showing all the interviews in the interview panel</p>
+</div>
+<div class="paragraph">
+<p>==== Delete Interview
+. Prerequisites: List all interviews using the <code>listInterview</code> command. Multiple interviews in the list.<br></p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
-<li>
-<p>Add an interview to current infinity book.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Test case: <code>addInterview</code><br>
-Expected:  Invalid format showing in the status message<br></p>
-</li>
-<li>
-<p>Test case:  <code>addInterview i/SE INTERVIEW n/DAVID d/04.05.2018 l/NUS SOC</code><br>
-Expected: new interview added in the status message.
-New interview added in the browser panel.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="list-interview-2"><a class="link" href="#list-interview-2">H.5.2. List interview</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>List all interviews of infinity book</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Test case: <code>listInterview</code>
-Expected: Showing all the interviews in the interview panel</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="delete-interview"><a class="link" href="#delete-interview">H.5.3. Delete Interview</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Prerequisites: List all interviews using the <code>listInterview</code> command. Multiple interviews in the list.<br></p>
-</li>
 <li>
 <p>Deleting an interview while all interviews are listed</p>
 <div class="olist loweralpha">
@@ -3952,7 +3970,8 @@ Expected: No interview is deleted. Error details shown in the status message.</p
 </li>
 <li>
 <p>Other incorrect delete commands to try: <code>deleteInterview</code>, <code>deleteInterview x</code> (where x is larger than the list size)<br>
-Expected: Similar to previous.</p>
+   Expected: Similar to previous.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; master</p>
 </li>
 </ol>
 </div>
@@ -3967,9 +3986,10 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 07:34:16 UTC
+Last updated 2018-04-15 09:00:42 UTC
 </div>
 </div>
 </body>

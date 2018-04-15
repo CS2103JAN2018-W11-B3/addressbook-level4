@@ -46,9 +46,8 @@
 <li><a href="#editing-a-person-code-edit-code">5.1.2. Editing a person : <code>edit</code></a></li>
 <li><a href="#add-new-tags-to-a-person-code-edit-add-tag-code">5.1.3. Add new tags to a person : <code>edit -add-tag</code></a></li>
 <li><a href="#delete-tags-from-a-person-code-edit-delete-tag-code">5.1.4. Delete tags from a person : <code>edit -delete-tag</code></a></li>
-<li><a href="#add-a-remark-code-remark-code-since-v1-1">5.1.5. Add a remark : <code>remark</code> [Since v1.1]</a></li>
-<li><a href="#deleting-a-person-code-delete-code">5.1.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">5.1.7. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#deleting-a-person-code-delete-code">5.1.5. Deleting a person : <code>delete</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">5.1.6. Clearing all entries : <code>clear</code></a></li>
 </ul>
 </li>
 <li><a href="#navigating-infinity-book">5.2. Navigating Infinity Book</a>
@@ -533,7 +532,7 @@ Summarize each candidate in a few keywords using the <code>edit -add-tag</code> 
 <div class="ulist">
 <ul>
 <li>
-<p>Each candidate<br></p>
+<p>Each candidate:<br></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -550,10 +549,25 @@ Summarize each candidate in a few keywords using the <code>edit -add-tag</code> 
 </div>
 </li>
 <li>
-<p>When you provide invalid tags, Infinity Book will ignore them. To verify, you can look at all tags shown under the candidate&#8217;s name in the list.</p>
-</li>
-<li>
 <p>Ensure that the specified <code>INDEX</code> is a positive integer that is smaller or equal to the total number of candidates shown in the list.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>When you provide invalid tags, Infinity Book will ignore them. To verify, you can look at all tags shown under candidate&#8217;s name in the list.</p>
 </li>
 </ul>
 </div>
@@ -595,7 +609,7 @@ and Infinity Book will not show any warning.</p>
 <div class="sect3">
 <h4 id="delete-tags-from-a-person-code-edit-delete-tag-code"><a class="link" href="#delete-tags-from-a-person-code-edit-delete-tag-code">5.1.4. Delete tags from a person : <code>edit -delete-tag</code></a></h4>
 <div class="paragraph">
-<p>Some tags are no longer seems to be relevant to the candidate? Remove them using the <code>edit -delete-tag</code> command.</p>
+<p>Some tags are no longer seem to be relevant to the candidate? Remove them using the <code>edit -delete-tag</code> command.</p>
 </div>
 <div class="paragraph">
 <p><strong>Format:</strong> <code>edit -delete-tag INDEX [t/TAG]&#8230;&#8203;</code></p>
@@ -623,9 +637,15 @@ and Infinity Book will not show any warning.</p>
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Examples:</strong><br>
-* <code>edit -delete-tag 1 t/computing</code><br>
+<p><strong>Examples:</strong><br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit -delete-tag 1 t/computing</code><br>
 Deletes tag <code>computing</code> from the first candidate.</p>
+</li>
+</ul>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -650,13 +670,9 @@ Removes tag <code>computing</code> from the first candidate, but it is not succe
 </div>
 <div class="paragraph">
 <p>Figure. Cannot delete tag <code>computing</code> from the first candidate. The candidate&#8217;s details will not be updated,
-and Infinity Book will not show any warning.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="add-a-remark-code-remark-code-since-v1-1"><a class="link" href="#add-a-remark-code-remark-code-since-v1-1">5.1.5. Add a remark : <code>remark</code> [Since v1.1]</a></h4>
-<div class="paragraph">
-<p>Adds or edits remarks to the person identified by the INDEX</p>
+and Infinity Book will not show any warning.
+==== Add a remark : <code>remark</code> [Since v1.1]
+Adds or edits remarks to the person identified by the INDEX</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -685,7 +701,7 @@ Removes the remark for the second person.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">5.1.6. Deleting a person : <code>delete</code></a></h4>
+<h4 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">5.1.5. Deleting a person : <code>delete</code></a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -732,7 +748,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">5.1.7. Clearing all entries : <code>clear</code></a></h4>
+<h4 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">5.1.6. Clearing all entries : <code>clear</code></a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1083,40 +1099,30 @@ Displays statistics for candidates tagged with <code>SEIntern</code>.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Regarding displaying the Report,<br></p>
+<p>When you execute a Report command, Infinity Book will show you a bar chart, a pie chart, and a history list in the right-most column.</p>
 </div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>In the right-most column, Infinity Book will show you a bar chart, a pie chart, and a history list.</p>
+<p>If there are no candidates tagged with the Population Tag you provide, Inifinity Book will not show you the pie chart.<br></p>
+</li>
+<li>
+<p>If you provide multiple <code>POPULATION_TAG</code>, Infinity Book will take the last one.
+For example, when you execute <code>viewreport pop/SEIntern pop/Computing</code>, Infinity Book will display the report for <code>Computing</code>.<br></p>
 </li>
 </ul>
 </div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-If there are no candidates tagged with the Population Tag you provide, Inifinity Book will not show you the pie chart.<br>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-If you provide multiple <code>POPULATION_TAG</code>, Infinity Book will take the last one.
-For example, when you execute <code>viewreport pop/SEIntern pop/Computing</code>, Infinity Book will display the report for <code>Computing</code>.<br>
 </td>
 </tr>
 </table>
@@ -1167,11 +1173,11 @@ which means you cannot edit or delete saved reports. You also cannot undo <code>
 </tr>
 </table>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock warning">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
 If you provide multiple <code>POPULATION_TAG</code>, Infinity Book will take the last one. For example, when you execute <code>viewreport pop/SEIntern pop/Computing</code>, Infinity Book will save the report for <code>Computing</code>.
@@ -1963,7 +1969,7 @@ There is no need to save manually.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 07:34:16 UTC
+Last updated 2018-04-15 09:00:42 UTC
 </div>
 </div>
 </body>
