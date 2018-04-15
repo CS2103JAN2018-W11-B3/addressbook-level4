@@ -111,6 +111,8 @@
 <li><a href="#launch-and-shutdown">H.1. Launch and Shutdown</a></li>
 <li><a href="#deleting-a-person">H.2. Deleting a person</a></li>
 <li><a href="#saving-data">H.3. Saving data</a></li>
+<li><a href="#viewing-a-person">H.4. Viewing a person</a></li>
+<li><a href="#interview-management">H.5. Interview Management</a></li>
 </ul>
 </li>
 </ul>
@@ -1673,11 +1675,11 @@ storage in model.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>public synchronized void addInterview(Interview interview) throws DuplicateInterviewException {
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">synchronized</span> <span class="type">void</span> addInterview(Interview interview) <span class="directive">throws</span> DuplicateInterviewException {
         addressBook.addInterview(interview);
         updateFilteredInterviewList(PREDICATE_SHOW_ALL_INTERVIEWS);
         indicateAddressBookChanged();
-}</pre>
+}</code></pre>
 </div>
 </div>
 </div>
@@ -1720,10 +1722,10 @@ and call ListInterviewCommand.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>public void updateFilteredInterviewList(Predicate&lt;Interview&gt; predicate) {
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">void</span> updateFilteredInterviewList(<span class="predefined-type">Predicate</span>&lt;Interview&gt; predicate) {
         requireNonNull(predicate);
         filteredInterviews.setPredicate(predicate);
-}</pre>
+}</code></pre>
 </div>
 </div>
 </div>
@@ -1766,10 +1768,10 @@ accordingly.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>public synchronized void deleteInterview(Interview target) throws InterviewNotFoundException {
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">synchronized</span> <span class="type">void</span> deleteInterview(Interview target) <span class="directive">throws</span> InterviewNotFoundException {
         addressBook.removeInterview(target);
         indicateAddressBookChanged();
-}</pre>
+}</code></pre>
 </div>
 </div>
 </div>
@@ -3439,6 +3441,103 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
+</div>
+<div class="sect2">
+<h3 id="viewing-a-person"><a class="link" href="#viewing-a-person">H.4. Viewing a person</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing a person by emailID</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>view <a href="mailto:notexisted@example.com">notexisted@example.com</a></code><br>
+Expected: person found and no new url display on browser panel</p>
+</li>
+<li>
+<p>Test case: <code>view <a href="mailto:a@example.com">a@example.com</a></code><br>
+Prerequisites: the person with email <a href="mailto:a@example.com">a@example.com</a> exists on Infinity Book.<br>
+Expected: the person with email <a href="mailto:a@example.com">a@example.com</a> returned,
+and the corresponding linking page has been displayed on the browser panel.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="interview-management"><a class="link" href="#interview-management">H.5. Interview Management</a></h3>
+<div class="sect3">
+<h4 id="add-interview"><a class="link" href="#add-interview">H.5.1. Add interview</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add an interview to current infinity book.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>addInterview</code><br>
+Expected:  Invalid format showing in the status message<br></p>
+</li>
+<li>
+<p>Test case:  <code>addInterview i/SE INTERVIEW n/DAVID d/04.05.2018 l/NUS SOC</code><br>
+Expected: new interview added in the status message.
+New interview added in the browser panel.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-interview-2"><a class="link" href="#list-interview-2">H.5.2. List interview</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>List all interviews of infinity book</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>listInterview</code>
+Expected: Showing all the interviews in the interview panel</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-interview"><a class="link" href="#delete-interview">H.5.3. Delete Interview</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prerequisites: List all interviews using the <code>listInterview</code> command. Multiple interviews in the list.<br></p>
+</li>
+<li>
+<p>Deleting an interview while all interviews are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>deleteInterview 1</code>
+Expected: First interview deleted from the interview list.
+Details of the deleted contact shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>deleteInterview 0</code>
+Expected: No interview is deleted. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>deleteInterview</code>, <code>deleteInterview x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 <div class="paragraph">
 <p><a href="#top">Back to top</a></p>
 </div>
@@ -3446,9 +3545,10 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 05:40:38 UTC
+Last updated 2018-04-15 06:32:14 UTC
 </div>
 </div>
 </body>

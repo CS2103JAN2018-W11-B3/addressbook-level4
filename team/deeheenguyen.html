@@ -479,11 +479,11 @@ storage in model.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>public synchronized void addInterview(Interview interview) throws DuplicateInterviewException {
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">synchronized</span> <span class="type">void</span> addInterview(Interview interview) <span class="directive">throws</span> DuplicateInterviewException {
         addressBook.addInterview(interview);
         updateFilteredInterviewList(PREDICATE_SHOW_ALL_INTERVIEWS);
         indicateAddressBookChanged();
-}</pre>
+}</code></pre>
 </div>
 </div>
 </div>
@@ -526,10 +526,10 @@ and call ListInterviewCommand.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>public void updateFilteredInterviewList(Predicate&lt;Interview&gt; predicate) {
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">void</span> updateFilteredInterviewList(<span class="predefined-type">Predicate</span>&lt;Interview&gt; predicate) {
         requireNonNull(predicate);
         filteredInterviews.setPredicate(predicate);
-}</pre>
+}</code></pre>
 </div>
 </div>
 </div>
@@ -572,10 +572,10 @@ accordingly.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>public synchronized void deleteInterview(Interview target) throws InterviewNotFoundException {
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">synchronized</span> <span class="type">void</span> deleteInterview(Interview target) <span class="directive">throws</span> InterviewNotFoundException {
         addressBook.removeInterview(target);
         indicateAddressBookChanged();
-}</pre>
+}</code></pre>
 </div>
 </div>
 </div>
@@ -585,7 +585,7 @@ accordingly.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 05:40:38 UTC
+Last updated 2018-04-15 06:32:14 UTC
 </div>
 </div>
 </body>
