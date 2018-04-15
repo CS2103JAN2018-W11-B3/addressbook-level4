@@ -209,7 +209,7 @@ Job postings are matched to candidates on the basis of location, skills and tags
 <p>Want to change the parameters of a job after creating? IB provides the flexibility to edit an existing job posting through the <code>editjob</code> command.</p>
 </div>
 <div class="paragraph">
-<p><strong>Format:</strong> ` editjob [-add-tag/-delete-tag] INDEX [j/JOBTITLE] [l/LOCATION] [s/SKILLS] [t/TAG]`</p>
+<p><strong>Format:</strong> <code>editjob [-add-tag/-delete-tag] INDEX [j/JOBTITLE] [l/LOCATION] [s/SKILLS] [t/TAG]</code></p>
 </div>
 <div class="paragraph">
 <p>Specifying -add-tag or -delete-tag causes editjob command to specifically add or delete the specified tag for the index specified tag. If unspecified, the tag list is over-written
@@ -239,40 +239,7 @@ At least one field must be provided for the edit command to function as expected
 <div class="paragraph">
 <p>Figure : <code>editjob</code> edits the first job posting as marked in diagram.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="delete-job-command"><a class="link" href="#delete-job-command">Delete Job Command</a></h4>
-<div class="paragraph">
-<p>Remove a job posting from Infinity Book using the index from latest listing.</p>
-</div>
-<div class="paragraph">
-<p><strong>Format:</strong> <code>deletejob INDEX</code></p>
-</div>
-<div class="paragraph">
-<p><strong>Examples:</strong> <code>deletejob 1</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/deletejob.JPG.png" alt="deletejob.JPG" width="500">
-</div>
-</div>
-<div class="paragraph">
-<p>Figure : <code>deletejob</code> deletes the job posting at the specified index in the most recent listing from Figure as shown.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Index to be used as displayed in the panel.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
+<hr>
 </div>
 <div class="sect3">
 <h4 id="match-job-command"><a class="link" href="#match-job-command">Match Job Command</a></h4>
@@ -296,63 +263,7 @@ At least one field must be provided for the edit command to function as expected
 <div class="paragraph">
 <p>Figure : MatchJob command filters the Candidates as per Job, as shown above.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="listing-all-jobs-code-listjobs-code"><a class="link" href="#listing-all-jobs-code-listjobs-code">Listing all jobs : <code>listjobs</code></a></h4>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Description:</strong> Shows a list of all jobs posted in the Infinity Book.<br></p>
-</li>
-<li>
-<p><strong>Format:</strong> <code>listjobs</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="finding-jobs-by-job-title-location-and-tags-code-findjob-code"><a class="link" href="#finding-jobs-by-job-title-location-and-tags-code-findjob-code">Finding jobs by Job Title, Location, and tags: <code>findjob</code></a></h4>
-<div class="paragraph">
-<p>Finds jobs whose job titles, locations, or tags contain any of the given keywords.<br></p>
-</div>
-<div class="paragraph">
-<p><strong>Format:</strong> <code>find KEYWORD [MORE_KEYWORDS]</code><br></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive. e.g <code>backend</code> will match <code>Backend</code>.</p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>Engineer Backend</code> will match <code>Backend Engineer</code>.</p>
-</li>
-<li>
-<p>Only job&#8217;s title, location and tags are searched.</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Eng</code> will not match <code>Engineer</code>.</p>
-</li>
-<li>
-<p>Jobs matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Engineer</code> will return <code>Backend Engineer</code>, <code>Frontend Engineer</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Example:</strong> <code>findjob Backend Geylang</code><br>
-Returns <code>Backend Engineer</code>, <code>Frontend Engineer</code>, and <code>Backend Tester</code> whose job titles and locations match with the given keywords.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/findjob.png" alt="findjob" width="700">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure.</em> Job list after finding with keywords <code>backend</code> and <code>geylang</code>.</p>
-</div>
+<hr>
 </div>
 </div>
 <div class="sect2">
@@ -364,7 +275,7 @@ how you can use these features to speed up your CLI experience.</p>
 <div class="sect3">
 <h4 id="auto-complete"><a class="link" href="#auto-complete">Auto-complete</a></h4>
 <div class="paragraph">
-<p>Auto completes command words being typed into Infinity Book<br></p>
+<p>Auto completes command words being typed into Infinity Book.<br></p>
 </div>
 <div class="paragraph">
 <p>To auto-complete a command word:</p>
@@ -460,7 +371,7 @@ If no corrections are available, no change is made to the input text.
 <td class="content">
 <div class="paragraph">
 <p>If a copy-pasted command may contain a spelling error in the command word, press <kbd>SPACE</kbd> to
-correct the command word without affecting the argumets entered.</p>
+correct the command word without affecting the arguments entered.</p>
 </div>
 </td>
 </tr>
@@ -523,76 +434,6 @@ correct the command word without affecting the argumets entered.</p>
 Book as Job Postings. Job postings may be added or removed at any time. Existing job postings can be listed, searched, edited and deleted.
 Any existing job postings may be matched with the list of candidates to filter potential matches.</p>
 </div>
-<div class="sect3">
-<h4 id="implementation-specifics"><a class="link" href="#implementation-specifics">Implementation Specifics</a></h4>
-<div class="sect4">
-<h5 id="model-component"><a class="link" href="#model-component">Model Component</a></h5>
-<div class="paragraph">
-<p>Job postings are maintained in the Model in a UniqueJobList, enforcing uniqueness among the stored individual job postings.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UniqueJobListUML.png" alt="UniqueJobListUML" width="300">
-</div>
-<div class="title">Figure 1. UML diagram showing representation of UniqueJobList in Infinity Book.</div>
-</div>
-<div class="paragraph">
-<p>Individual job postings are represented by the Job object with attributes <code>Job Title</code>, <code>Location</code>, <code>Skills</code> and <code>Tags</code>. The class relationship is shown
-in Figure <em>{num}</em> .</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/JobUMLDiagram.png" alt="JobUMLDiagram" width="400">
-</div>
-<div class="title">Figure 2. UML diagram showing representation of Job in Infinity Book.</div>
-</div>
-<div class="paragraph">
-<p>In addition, the Person and Job class have been modified to maintain Skills as an additional field to offer better functionality
-during candidate-job matching. The <code>add</code> and <code>edit</code> commands reflect these changes as well.</p>
-</div>
-<div class="paragraph">
-<p>Together, this modifies the Model to the state shown in the following diagram.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ModelWithJobUML.png" alt="ModelWithJobUML" width="700">
-</div>
-<div class="title">Figure 3. A complete picture of the model as mantained by Infinity Book.</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="storage-component"><a class="link" href="#storage-component">Storage Component</a></h5>
-<div class="paragraph">
-<p>Job postings are stored in <code>XmlAdaptedJob</code> objects, which maintain a class relationship as shown in this diagram.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/JobStorageDiagram.png" alt="JobStorageDiagram" width="700">
-</div>
-<div class="title">Figure 4. Job objects are saved using XmlAdaptedJob objects as shown above.</div>
-</div>
-<div class="paragraph">
-<p>An example job stored in this format is reproduced below:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;jobs&gt;
-        &lt;jobTitle&gt;Backend Engineer&lt;/jobTitle&gt;
-        &lt;location&gt;Geylang&lt;/location&gt;
-        &lt;skills&gt;Java,SQL&lt;/skills&gt;
-        &lt;tagged&gt;SEIntern&lt;/tagged&gt;
-        &lt;tagged&gt;ATAP&lt;/tagged&gt;
-&lt;/jobs&gt;</pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="ui-component"><a class="link" href="#ui-component">UI Component</a></h5>
-<div class="paragraph">
-<p>The main window contains a JobListPanel, which contains individual jobs represented using JobListCards.
-JobListCards represent the fields in each Job using Labels and flowPanes.</p>
-</div>
-</div>
 <div class="sect4">
 <h5 id="job-operations-and-logic"><a class="link" href="#job-operations-and-logic">Job Operations and Logic</a></h5>
 <div class="paragraph">
@@ -621,7 +462,7 @@ JobListCards represent the fields in each Job using Labels and flowPanes.</p>
 <div class="content">
 <img src="../images/SequenceDiagramJobPosting.png" alt="SequenceDiagramJobPosting" width="700">
 </div>
-<div class="title">Figure 5. A high level sequence diagram showing events triggered by the <code>postjob</code> command.</div>
+<div class="title">Figure 1. A high level sequence diagram showing events triggered by the <code>postjob</code> command.</div>
 </div>
 <div class="paragraph">
 <p>The following job posting commands are implemented extending <code>UndoableCommand</code> and <code>Command</code>:</p>
@@ -655,7 +496,7 @@ JobListCards represent the fields in each Job using Labels and flowPanes.</p>
 <div class="content">
 <img src="../images/CommandsStructure.png" alt="CommandsStructure" width="300">
 </div>
-<div class="title">Figure 6. UML Diagram depicting the class relationship between command classes.</div>
+<div class="title">Figure 2. UML Diagram depicting the class relationship between command classes.</div>
 </div>
 <hr>
 <div class="paragraph">
@@ -668,7 +509,7 @@ JobListCards represent the fields in each Job using Labels and flowPanes.</p>
 <div class="content">
 <img src="../images/PostJobCommandSequenceDiagram.png" alt="PostJobCommandSequenceDiagram" width="700">
 </div>
-<div class="title">Figure 7. Adding a job posting is executed as shown above.</div>
+<div class="title">Figure 3. Adding a job posting is executed as shown above.</div>
 </div>
 <div class="paragraph">
 <p>The PostJobCommand#executeUndoableCommand triggers addition of the Job to <code>UniqueJobList</code> in AddressBook#add
@@ -696,7 +537,7 @@ The following code snippet demonstrates the prevention of duplicates in the Uniq
 <div class="content">
 <img src="../images/EditJobCommandSequenceDiagram.png" alt="EditJobCommandSequenceDiagram" width="700">
 </div>
-<div class="title">Figure 8. Editing a job posting is executed as shown above.</div>
+<div class="title">Figure 4. Editing a job posting is executed as shown above.</div>
 </div>
 <div class="paragraph">
 <p>The EditJobCommand#executeUndoableCommand triggers editing of a existing Job in <code>UniqueJobList</code> in AddressBook#add
@@ -729,7 +570,6 @@ Editing jobs to cause duplicates in the UniqueJobList is prevented by throwing a
 these operations ensures the new Job object is updated in the Infinity Book.</p>
 </div>
 <hr>
-<hr>
 <div class="paragraph">
 <p><strong>Matching Job Postings</strong></p>
 </div>
@@ -743,7 +583,7 @@ these operations ensures the new Job object is updated in the Infinity Book.</p>
 <div class="content">
 <img src="../images/matchJobSequenceDiagram.png" alt="matchJobSequenceDiagram" width="700">
 </div>
-<div class="title">Figure 9. <code>matchjob</code> uses predicate based filtering similar to <code>findjob</code> and <code>listjobs</code></div>
+<div class="title">Figure 5. <code>matchjob</code> uses predicate based filtering similar to <code>findjob</code> and <code>listjobs</code></div>
 </div>
 <div class="paragraph">
 <p>The MatchJobCommand selects a Job object by matching the index with the last shown job list. A PersonMatchesJobPredicate is used to find matches, by looking for matches between tags, location and skills fields of the Job and Person.</p>
@@ -778,65 +618,6 @@ these operations ensures the new Job object is updated in the Infinity Book.</p>
 <p>The PersonListPanel is populated with a list of candidates who match the job according to the set parameters.</p>
 </div>
 <hr>
-<div class="paragraph">
-<p><strong>Listing Job Postings</strong></p>
-</div>
-<div class="paragraph">
-<p>Listing all job postings in the Infinity Book is performed by the FindJobCommand. The sequence of events triggered while listing all job postings are shown in the diagram below:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/listjobcommandSequenceDiagram.png" alt="listjobcommandSequenceDiagram" width="700">
-</div>
-<div class="title">Figure 10. Sequence diagram above shows the sequence of events triggered on execution of <code>listjobs</code></div>
-</div>
-<div class="paragraph">
-<p>The ListJobCommand selects displays all Job objects from UniqueJobList in the JobListPanel.</p>
-</div>
-<hr>
-<div class="paragraph">
-<p><strong>Finding Job Postings</strong></p>
-</div>
-<div class="paragraph">
-<p>Finding job postings by keywords in the Infinity Book is performed by the FindJobCommand. The sequence of events triggered while finding a job posting are extremely similar to listing all job postings as in Figure above, differing only in the specifics of the predicate used.</p>
-</div>
-<div class="paragraph">
-<p>The FindJobCommand selects Job objects to display by matching the keyword with the Job Title, Location or Tags, and lists all matches in the JobListPanel.</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="paragraph">
-<p><strong>Aspect:</strong> Implementation of additional Skill parameter for Person and Job<br></p>
-</div>
-<div class="paragraph">
-<p><strong>Alternative 1 (current choice):</strong> Maintain skills as list of strings.<br>
-<strong>Pros:</strong> Allows recruiter freedom in creating a skills list as they need.<br>
-<strong>Cons:</strong> Searching requires complex string operations. Duplicates of the same skill will be found under different persons.<br></p>
-</div>
-<div class="paragraph">
-<p><strong>Alternative 2:</strong> Maintain a UniqueSkillsList similar to tags.<br>
-<strong>Pros:</strong> Different candidates with similar skills will utilize the same object.<br>
-<strong>Cons:</strong> The list of skills must be synchronized with both person list and job list, removing any skills that are not used by both.</p>
-</div>
-<hr>
-<div class="paragraph">
-<p><strong>Aspect:</strong> Implementation of Job-Person Matching<br></p>
-</div>
-<div class="paragraph">
-<p><strong>Alternative 1 (current choice):</strong> Match as many keywords in an OR search as possible<br>
-<strong>Pros:</strong> Maintains existing search predicates with minor modifications.<br>
-<strong>Cons:</strong> May not provide effective filtering.<br></p>
-</div>
-<div class="paragraph">
-<p><strong>Alternative 2:</strong> Indicate required and optional matches in job posting.<br>
-<strong>Pros:</strong> Search can be customized to be as accurate as required.<br>
-<strong>Cons:</strong> Spelling differences may still cause diminished effectiveness.</p>
-</div>
-<div class="paragraph">
-<p><a href="#top">Back to top</a></p>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -869,7 +650,7 @@ words containing the entered string as the first substring.</p>
 <div class="content">
 <img src="../images/AutocompleteActivityDiagram.png" alt="AutocompleteActivityDiagram" width="700">
 </div>
-<div class="title">Figure 11. This activity diagram demonstrates the high level behavior of the autocomplete feature.</div>
+<div class="title">Figure 6. This activity diagram demonstrates the high level behavior of the autocomplete feature.</div>
 </div>
 <div class="paragraph">
 <p>When CommandCorrection#updateSuggestionsList() method is called, it searches through all command words for suitable matches.</p>
@@ -943,8 +724,10 @@ belief that these are the most common kinds of errors.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="additional-contributions"><a class="link" href="#additional-contributions">Additional Contributions</a></h2>
+<h2 id="appendix-additional-contributions"><a class="link" href="#appendix-additional-contributions">Appendix: Additional Contributions</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="user-guide"><a class="link" href="#user-guide">User Guide</a></h3>
 <div class="paragraph">
 <p><strong>Q</strong>: How do I check if Infinity Book is compatible with my computer?<br>
 <strong>A</strong>: Infinity Book is compatible with Windows, Mac OS and Ubuntu with Java <code>1.8.0_60</code> or later installed. Compatibility with other <a href="#unix">UNIX</a> distributions is not guaranteed.<br></p>
@@ -1008,15 +791,238 @@ belief that these are the most common kinds of errors.</p>
 </div>
 </div>
 </div>
+<hr>
+<div class="sect3">
+<h4 id="listing-all-jobs-code-listjobs-code"><a class="link" href="#listing-all-jobs-code-listjobs-code">Listing all jobs : <code>listjobs</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Shows a list of all jobs posted in the Infinity Book.<br></p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>listjobs</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-jobs-by-job-title-location-and-tags-code-findjob-code"><a class="link" href="#finding-jobs-by-job-title-location-and-tags-code-findjob-code">Finding jobs by Job Title, Location, and tags: <code>findjob</code></a></h4>
 <div class="paragraph">
-<p>include::../</p>
+<p>Finds jobs whose job titles, locations, or tags contain any of the given keywords.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong> <code>find KEYWORD [MORE_KEYWORDS]</code><br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>backend</code> will match <code>Backend</code>.</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Engineer Backend</code> will match <code>Backend Engineer</code>.</p>
+</li>
+<li>
+<p>Only job&#8217;s title, location and tags are searched.</p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Eng</code> will not match <code>Engineer</code>.</p>
+</li>
+<li>
+<p>Jobs matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Engineer</code> will return <code>Backend Engineer</code>, <code>Frontend Engineer</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong> <code>findjob Backend Geylang</code><br>
+Returns <code>Backend Engineer</code>, <code>Frontend Engineer</code>, and <code>Backend Tester</code> whose job titles and locations match with the given keywords.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/findjob.png" alt="findjob" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure.</em> Job list after finding with keywords <code>backend</code> and <code>geylang</code>.</p>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="delete-job-command"><a class="link" href="#delete-job-command">Delete Job Command</a></h4>
+<div class="paragraph">
+<p>Want to remove a job posting from IB after creating? IB provides a <code>deletejob</code> command to delete any existing job posting from memory.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong> <code>deletejob INDEX</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Examples:</strong> <code>deletejob 1</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/deletejob.JPG.png" alt="deletejob.JPG" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure : <code>deletejob</code> deletes the job posting at the specified index in the most recent listing from Figure as shown.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Index to be used as displayed in the panel.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="developer-guide"><a class="link" href="#developer-guide">Developer Guide</a></h3>
+<div class="sect3">
+<h4 id="implementation-specifics"><a class="link" href="#implementation-specifics">Implementation Specifics</a></h4>
+<div class="sect4">
+<h5 id="model-component"><a class="link" href="#model-component">Model Component</a></h5>
+<div class="paragraph">
+<p>Job postings are maintained in the Model in a UniqueJobList, enforcing uniqueness among the stored individual job postings.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UniqueJobListUML.png" alt="UniqueJobListUML" width="300">
+</div>
+<div class="title">Figure 7. UML diagram showing representation of UniqueJobList in Infinity Book.</div>
+</div>
+<div class="paragraph">
+<p>Individual job postings are represented by the Job object with attributes <code>Job Title</code>, <code>Location</code>, <code>Skills</code> and <code>Tags</code>. The class relationship is shown
+in Figure 2 below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/JobUMLDiagram.png" alt="JobUMLDiagram" width="400">
+</div>
+<div class="title">Figure 8. UML diagram showing representation of Job in Infinity Book.</div>
+</div>
+<div class="paragraph">
+<p>In addition, the Person and Job class have been modified to maintain Skills as an additional field to offer better functionality
+during candidate-job matching. The <code>add</code> and <code>edit</code> commands reflect these changes as well.</p>
+</div>
+<div class="paragraph">
+<p>Together, this modifies the Model to the state shown in the following diagram.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModelWithJobUML.png" alt="ModelWithJobUML" width="700">
+</div>
+<div class="title">Figure 9. A complete picture of the model as maintained by Infinity Book.</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="storage-component"><a class="link" href="#storage-component">Storage Component</a></h5>
+<div class="paragraph">
+<p>Job postings are stored in <code>XmlAdaptedJob</code> objects, which maintain a class relationship as shown in this diagram.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/JobStorageDiagram.png" alt="JobStorageDiagram" width="700">
+</div>
+<div class="title">Figure 10. Job objects are saved using XmlAdaptedJob objects as shown above.</div>
+</div>
+<div class="paragraph">
+<p>An example job stored in this format is reproduced below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;jobs&gt;
+        &lt;jobTitle&gt;Backend Engineer&lt;/jobTitle&gt;
+        &lt;location&gt;Geylang&lt;/location&gt;
+        &lt;skills&gt;Java,SQL&lt;/skills&gt;
+        &lt;tagged&gt;SEIntern&lt;/tagged&gt;
+        &lt;tagged&gt;ATAP&lt;/tagged&gt;
+&lt;/jobs&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="ui-component"><a class="link" href="#ui-component">UI Component</a></h5>
+<div class="paragraph">
+<p>The main window contains a JobListPanel, which contains individual jobs represented using JobListCards.
+JobListCards represent the fields in each Job using Labels and flowPanes.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Listing Job Postings</strong></p>
+</div>
+<div class="paragraph">
+<p>Listing all job postings in the Infinity Book is performed by the FindJobCommand. The sequence of events triggered while listing all job postings are shown in the diagram below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/listjobcommandSequenceDiagram.png" alt="listjobcommandSequenceDiagram" width="700">
+</div>
+<div class="title">Figure 11. Sequence diagram above shows the sequence of events triggered on execution of <code>listjobs</code></div>
+</div>
+<div class="paragraph">
+<p>The ListJobCommand selects displays all Job objects from UniqueJobList in the JobListPanel.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Finding Job Postings</strong></p>
+</div>
+<div class="paragraph">
+<p>Finding job postings by keywords in the Infinity Book is performed by the FindJobCommand. The sequence of events triggered while finding a job posting are extremely similar to listing all job postings as in Figure above, differing only in the specifics of the predicate used.</p>
+</div>
+<div class="paragraph">
+<p>The FindJobCommand selects Job objects to display by matching the keyword with the Job Title, Location or Tags, and lists all matches in the JobListPanel.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Delete Job Postings</strong></p>
+</div>
+<div class="paragraph">
+<p>Deleting job postings in the Infinity Book is performed by the DeleteJobCommand. The sequence of events triggered while deleting a job posting are shown in the diagram below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteJobCommandSequenceDiagram.png" alt="DeleteJobCommandSequenceDiagram" width="700">
+</div>
+<div class="title">Figure 12. Deleting a job posting is executed as shown above.</div>
+</div>
+<div class="paragraph">
+<p>The DeleteJobCommand selects a Job object by matching the index with the last shown job list, and checks the index as shown in the following code snippet.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre> protected void preprocessUndoableCommand() throws CommandException {
+        List&lt;Job&gt; lastShownList = model.getFilteredJobList();
+
+        if (targetIndex.getZeroBased() &gt;= lastShownList.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_JOB_DISPLAYED_INDEX);
+        }
+
+        jobToDelete = lastShownList.get(targetIndex.getZeroBased());</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The changes to the UniqueJobList are enacted by AddressBook#removeJob, which completes the removal of the object and triggers Storage to update the data.</p>
+</div>
+<hr>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 09:16:34 UTC
+Last updated 2018-04-15 10:39:53 UTC
 </div>
 </div>
 </body>

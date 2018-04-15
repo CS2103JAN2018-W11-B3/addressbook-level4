@@ -1648,7 +1648,7 @@ Any existing job postings may be matched with the list of candidates to filter p
 </div>
 <div class="paragraph">
 <p>Individual job postings are represented by the Job object with attributes <code>Job Title</code>, <code>Location</code>, <code>Skills</code> and <code>Tags</code>. The class relationship is shown
-in Figure <em>{num}</em> .</p>
+in Figure 2 below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1667,7 +1667,7 @@ during candidate-job matching. The <code>add</code> and <code>edit</code> comman
 <div class="content">
 <img src="images/ModelWithJobUML.png" alt="ModelWithJobUML" width="700">
 </div>
-<div class="title">Figure 26. A complete picture of the model as mantained by Infinity Book.</div>
+<div class="title">Figure 26. A complete picture of the model as maintained by Infinity Book.</div>
 </div>
 </div>
 <div class="sect4">
@@ -4010,6 +4010,115 @@ Expected: No interview is deleted. Error details shown in the status message.</p
 </ol>
 </div>
 <div class="paragraph">
+<p>=== Job Management</p>
+</div>
+<div class="paragraph">
+<p>==== Add Job
+. Post a job to infinity book.
+.. Test case: <code>postjob</code><br>
+   Expected:  Invalid format showing in the status message<br>
+.. Test case:  <code>postjob j/JobTitle l/location s/skill t/NewTag</code><br>
+   Expected: new job posted in the status message.
+   New job card displauyed in the JobListPanel.</p>
+</div>
+<div class="paragraph">
+<p>==== List Jobs
+. List all jobs of infinity book
+.. Test case: <code>listjobs</code>
+   Expected: Showing all jobs in the job panel.</p>
+</div>
+<div class="paragraph">
+<p>==== Delete Job
+. Prerequisites: List all jobs using the <code>listjobs</code> command. All entries are displayed in JobListPanel.<br></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a job while all jobs are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>deletejob 1</code>
+Expected: First job deleted from the job list.
+Details of the deleted job shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>deletejob 0</code>
+Expected: No interview is deleted. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>deletejob</code>, <code>deletejob x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>==== Edit Job
+. Prerequisites: List all jobs using the <code>listjobs</code> command. All entries are displayed in JobListPanel.<br></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing a job while all jobs are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>editjob 1 j/newTitle l/newLocation s/newSkill t/NewTag</code>
+Expected: First job edited to contain new job title.
+Details of the deleted job shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>editjob 1 j/newTitle l/newLocation s/newSkill t/NewTag</code> + editjob 2 j/newTitle l/newLocation s/newSkill t/NewTag
+Expected: Second job is not edited, but first is. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>editjob 1</code>, <code>deletejob x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>==== Find Job
+. Find a job by keyword[s].
+.. Test case: <code>findjob keyword</code>
+   Expected: Showing all jobs matching keyword in the job panel.
+.. Test case: <code>findjob</code>
+   Expected: No job list change is made. Error details shown in the status message.</p>
+</div>
+<div class="paragraph">
+<p>==== Match Job
+. Prerequisites: List all jobs using the <code>listjobs</code> command. All entries are displayed in JobListPanel.<br></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Matching a job to candidates while all jobs are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>matchjob 1</code>
+Expected: All candidates matching the first job are displayed in the PersonListPanel.</p>
+</li>
+<li>
+<p>Test case: <code>matchjob 0</code>
+Expected: No change is seen in the panels. Error message shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>matchjob</code>, <code>matchjob x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
 <p><a href="#top">Back to top</a></p>
 </div>
 </div>
@@ -4020,7 +4129,7 @@ Expected: No interview is deleted. Error details shown in the status message.</p
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 09:16:33 UTC
+Last updated 2018-04-15 10:39:53 UTC
 </div>
 </div>
 </body>
