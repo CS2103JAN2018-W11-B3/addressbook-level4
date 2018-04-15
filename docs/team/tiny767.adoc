@@ -1,0 +1,73 @@
+= tiny767 - Project Portfolio
+:imagesDir: ../images
+:stylesDir: ../stylesheets
+
+== PROJECT: Infinity Book
+
+---
+
+== Overview
+
+Infinity Book is a desktop address book application used for HR management recruiting candidates. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
+
+== Summary of contributions
+
+* *Major enhancement*: Implementation of Facebook integration.
+
+** Description: Facebook integration allows tech recruiters to integrate their facebook accounts to InfinityBook so that they conveniently use Facebook features on InfinityBook itself.
+** Justification: Infinity Book is an end-to-end application designed for tech recruiters. We understand that many tech recruiters use social network platform to screen their candidates.
+With this in mind, we want to improve their productivity by integrating facebook into Infinity itself. Recruiters no longer need to switch between different applications.
+Instead, they can mostly rely on InfinityBook alone.
+** Highlights: This enhancement touches multiple components:
+*** Added a new panel to UI component to handle authorisation and to act as a GUI for facebook page.
+*** Modified Logic component to accept new commands.
+*** Register InfinityBook as an application under Facebook for Developer page to make use of Facebook Graph API
+*** Made use of RestFB API as a Facebook Graph client API to communicate with Facebook
+
+* *Minor enhancement*: Added a command to change theme.
+
+** Description: Previously, InfinityBook has a single dark theme that might not be very appealing to tech recruiters. This feature allows
+recruiters to switch between different pre-defined theme.
+** Justification: This feature is much needed to improve the look of the app. Moreover, we can continue working on building better-looking themes to release in future iterations.
+
+* *Minor enhancement*: Added a 'remark' field to person.
+
+** Description: Added a flexible 'remark' field and the command to edit it.
+** Justification: Tech recruiters might have additional information for their contacts and relying on tags alone is not enough.
+
+* *Code contributed*: [https://github.com/CS2103JAN2018-W11-B3/main/blob/master/collated/functional/tiny767.md[Functional code]][https://github.com/CS2103JAN2018-W11-B3/main/blob/master/collated/test/tiny767.md[Test code]]
+
+* *Other contributions*:
+
+** Project management:
+*** Managed releases `v1.4` on GitHub
+** Enhancements to existing features:
+*** Made an enhancement to color of tags. Tags with the same content will have the same color.
+** Community:
+*** Reported bugs and suggestions for other teams in the class (examples:  https://github.com/CS2103JAN2018-W13-B1/main/issues/162,
+https://github.com/CS2103JAN2018-W13-B1/main/issues/147, https://github.com/CS2103JAN2018-W13-B1/main/issues/156, https://github.com/CS2103JAN2018-W13-B1/main/issues/160)
+** Tools:
+*** Integrated a third party library (RestFB) to the project
+
+== Contributions to the User Guide
+
+
+|===
+|_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
+|===
+
+include::../UserGuide.adoc[tag=facebook]
+include::../UserGuide.adoc[tag=theme]
+include::../UserGuide.adoc[tag=remark]
+
+== Contributions to the Developer Guide
+
+|===
+|_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
+|===
+
+include::../DeveloperGuide.adoc[tag=facebook]
+include::../DeveloperGuide.adoc[tag=theme]
+include::../DeveloperGuide.adoc[tagcolor]
+
+---
