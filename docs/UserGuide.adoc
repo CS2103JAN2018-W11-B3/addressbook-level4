@@ -98,6 +98,7 @@ Infinity Book uses a command line interface that follows the command format give
 * Items with `…`​ after them can be used multiple times including zero times e.g. `[t/TAG]...` can be used as `{nbsp}` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
 * Parameters can be in any order e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 //tag::autocomplete[]
+
 === Auto-complete and auto-correct
 
 To enhance your experience with the Command Line Interface(CLI), Infinity Book comes with built in auto-correct and auto-complete. This section explains
