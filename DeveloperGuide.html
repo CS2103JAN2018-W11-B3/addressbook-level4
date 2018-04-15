@@ -50,15 +50,15 @@
 <li><a href="#proposed-data-encryption">5.2. [Proposed] Data Encryption</a></li>
 <li><a href="#logging">5.3. Logging</a></li>
 <li><a href="#Implementation-Configuration">5.4. Configuration</a></li>
-<li><a href="#search-by-name-tags-email-and-phone-since-v1-2">5.5. Search by Name, Tags, Email, and Phone (Since v1.2)</a></li>
+<li><a href="#search-by-name-tags-email-and-phone-since-v1-2">5.5. Search by Name, Tags, Email, and Phone [Since v1.2]</a></li>
 <li><a href="#add-remove-tags-since-v1-3">5.6. Add/Remove Tags (Since v1.3)</a></li>
 <li><a href="#accept-option-for-commands-since-v1-2">5.7. Accept Option for Commands (Since v1.2)</a></li>
 <li><a href="#report-since-v1-4">5.8. Report (Since v1.4)</a></li>
 <li><a href="#display-relevant-github-or-resume-page-since-v1-3">5.9. Display relevant Github or resume page. (Since v1.3)</a></li>
-<li><a href="#auto-correct-and-auto-complete">5.10. Auto-correct and Auto-complete</a></li>
+<li><a href="#auto-correct-and-auto-complete-since-v1-4">5.10. Auto-correct and Auto-complete [since v1.4]</a></li>
 <li><a href="#job-postings-since-v1-3">5.11. Job Postings [Since v1.3]</a></li>
 <li><a href="#theming-mechanism-since-v1-3">5.12. Theming Mechanism [since v1.3]</a></li>
-<li><a href="#interview-management-since-v1-5rc">5.13. Interview Management (Since v1.5rc)</a></li>
+<li><a href="#interview-management-since-v1-5rc">5.13. Interview Management [Since v1.5rc]</a></li>
 </ul>
 </li>
 <li><a href="#documentation">6. Documentation</a>
@@ -1000,7 +1000,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="search-by-name-tags-email-and-phone-since-v1-2"><a class="link" href="#search-by-name-tags-email-and-phone-since-v1-2">5.5. Search by Name, Tags, Email, and Phone (Since v1.2)</a></h3>
+<h3 id="search-by-name-tags-email-and-phone-since-v1-2"><a class="link" href="#search-by-name-tags-email-and-phone-since-v1-2">5.5. Search by Name, Tags, Email, and Phone [Since v1.2]</a></h3>
 <div class="paragraph">
 <p>This <code>find</code> command allows the user to search through the list of all candidates and output all whose  <code>Name</code>, <code>Tags</code>, <code>Email</code>, and <code>Phone</code> match with the given keywords.</p>
 </div>
@@ -1526,7 +1526,7 @@ source, java]</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="auto-correct-and-auto-complete"><a class="link" href="#auto-correct-and-auto-complete">5.10. Auto-correct and Auto-complete</a></h3>
+<h3 id="auto-correct-and-auto-complete-since-v1-4"><a class="link" href="#auto-correct-and-auto-complete-since-v1-4">5.10. Auto-correct and Auto-complete [since v1.4]</a></h3>
 <div class="paragraph">
 <p>Infinity Book enhances the user&#8217;s interaction with the application, with built in auto-correct and auto-complete. Command
 words that are typed in are examined for spelling errors and completions upon <code>SPACE</code> and <code>TAB</code> press respectively.</p>
@@ -2036,7 +2036,7 @@ The <code>scene</code> is necessary for changing the CSS at runtime.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="interview-management-since-v1-5rc"><a class="link" href="#interview-management-since-v1-5rc">5.13. Interview Management (Since v1.5rc)</a></h3>
+<h3 id="interview-management-since-v1-5rc"><a class="link" href="#interview-management-since-v1-5rc">5.13. Interview Management [Since v1.5rc]</a></h3>
 <div class="paragraph">
 <p>Interviewing is one of the important steps in recruiting process.
 HR may need a tool to manage interview efficiently. The Infinity Book will
@@ -3251,12 +3251,12 @@ Tech recruiters who have the need for finding and acquiring skilled Computing st
 <div class="sect3">
 <h4 id="sashankh-chengavalli-kumar-chengsashankh"><a class="link" href="#sashankh-chengavalli-kumar-chengsashankh">B.1.1. Sashankh Chengavalli Kumar (@ChengSashankh)</a></h4>
 <div class="sect4">
-<h5 id="major-enhancement-adding-job-postings"><a class="link" href="#major-enhancement-adding-job-postings">Major Enhancement: Adding job postings</a></h5>
+<h5 id="major-enhancement-job-postings"><a class="link" href="#major-enhancement-job-postings">Major Enhancement: Job postings</a></h5>
 <div class="paragraph">
-<p>This allows the user to add job postings and receive suggestions about most suitable candidates based on various parameters.</p>
+<p>This allows the recruiter to add and manage job postings and receive automated suggestions about most suitable candidates based on various parameters.</p>
 </div>
 <div class="paragraph">
-<p>For example, when the need arises to hire a new fresh graduate for a backend software development role with proficiency in MYSQL and Javascript, with location restrictions as well, the user may create such a job posting. As candidates are added and removed, the application displays an updated list of matching candidates, until removed from Infinity Book.</p>
+<p>For example, when the need arises to hire a new fresh graduate for a backend software development role with proficiency in SQL and Javascript, with location restrictions as well, the recruiter creates a job posting. As candidates are added and removed, the application displays an updated list of matching candidates, until removed from Infinity Book.</p>
 </div>
 <div class="paragraph">
 <p>Implementations needed:</p>
@@ -3264,29 +3264,46 @@ Tech recruiters who have the need for finding and acquiring skilled Computing st
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Creating a postjob command that creates a job posting.</p>
+<p>Creating command such as postjob, editjob, deletejob, findjob and listjob to manage jobposting.</p>
 </li>
 <li>
-<p>Creating an edit and delete command that does said operations to job posting.</p>
+<p>Creating a matchjob command that displays the list of matched candidates in the Infinity Book.</p>
 </li>
 <li>
 <p>Display pane for showing the list of jobs currently active.</p>
+</li>
+<li>
+<p>Adding skills field to Person and Job to enhance matching.</p>
 </li>
 </ol>
 </div>
 </div>
 <div class="sect4">
-<h5 id="minor-enhancement-add-a-skills-field-to-the-infinity-book-to-allow-users-to-make"><a class="link" href="#minor-enhancement-add-a-skills-field-to-the-infinity-book-to-allow-users-to-make">Minor Enhancement: Add a skills field to the Infinity Book to allow users to make</a></h5>
-<div class="ulist">
-<ul>
+<h5 id="minor-enhancement-auto-correct-and-auto-complete"><a class="link" href="#minor-enhancement-auto-correct-and-auto-complete">Minor Enhancement: Auto-correct and auto-complete</a></h5>
+<div class="paragraph">
+<p>This allows users to interact with Infinity Book with enhanced speed and accuracy. This implementation provides
+users the ability to auto-correct trivial spelling errors and complete partial command words.</p>
+</div>
+<div class="paragraph">
+<p>For example, when <code>li</code> is typed, the command enables completion to either <code>list</code> , <code>listinterview</code> or <code>listjob</code>. Similarly
+<code>lsit</code> is corrected to <code>list</code> by the command.</p>
+</div>
+<div class="paragraph">
+<p>Implementations needed:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>Allows the recruiter to tag each user with a set of skills which are used for other candidate matching purposes.</p>
+<p>Complete list of command words used by Infinity Book has to be updated and maintained when features are added.</p>
 </li>
 <li>
-<p>In account of the multiple roles that each candidate might be suitable for, skills allow recruiter to choose the best match.
-This feature addresses this core need for recruiters.</p>
+<p>Command box has to be modified to consume some keypresses such as <code>TAB</code> and <code>SPACE</code> for completion and correction.</p>
 </li>
-</ul>
+<li>
+<p>To support multiple suggestions for auto-complete, a brief history of the last suggestion and input has to be maintained. This is
+further explained in <a href="#auto-complete-implementation">Section 5.11.1</a></p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -4003,7 +4020,7 @@ Expected: No interview is deleted. Error details shown in the status message.</p
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 09:14:22 UTC
+Last updated 2018-04-15 09:16:33 UTC
 </div>
 </div>
 </body>

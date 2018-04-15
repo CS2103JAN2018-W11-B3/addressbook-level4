@@ -28,7 +28,7 @@
 <p>Infinity Book (IB) is an address book application for Tech recruiters who prefer to use a desktop app for managing candidates.<br></p>
 </div>
 <div class="paragraph">
-<p>IB provides <strong>end-to-end support</strong>, from searching for candidates,to adding job postings and saving their resumes and interviews.</p>
+<p>IB provides <strong>end-to-end support</strong> for recruiters, from searching for candidates,to adding job postings and saving their resumes and interviews.</p>
 </div>
 </div>
 </div>
@@ -102,7 +102,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> <code>v1.4.1</code> (2 releases) on GitHub</p>
+<p>Managed releases <code>v1.3</code> and <code>v1.4.1</code> ( 2 releases ) on GitHub</p>
 </li>
 </ul>
 </div>
@@ -112,7 +112,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the add and edit command to support the skills field(Pull requests <a href="https://github.com/CS2103JAN2018-W11-B3/main/pull/157/">#157</a>)</p>
+<p>Updated the add and edit command to support the skills field(Pull request <a href="https://github.com/CS2103JAN2018-W11-B3/main/pull/157/">#157</a>)</p>
 </li>
 </ul>
 </div>
@@ -132,13 +132,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a>,</p>
-</li>
-<li>
 <p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2103JAN2018-W13-B3/main/issues/148">148</a>, <a href="https://github.com/CS2103JAN2018-W13-B3/main/issues/147">147</a>, <a href="https://github.com/CS2103JAN2018-W13-B3/main/issues/154">154</a>, <a href="https://github.com/CS2103JAN2018-W13-B3/main/issues/155">155</a>)</p>
 </li>
 <li>
-<p>Opened non-trivial issues for improvement: <a href="https://github.com/CS2103JAN2018-W11-B3/main/issues/54">#54</a>, <a href="https://github.com/CS2103JAN2018-W11-B3/main/issues/55">#55</a>,</p>
+<p>Opened non-trivial issues for improvement: <a href="https://github.com/CS2103JAN2018-W11-B3/main/issues/54">#54</a>, <a href="https://github.com/CS2103JAN2018-W11-B3/main/issues/55">#55</a></p>
 </li>
 </ul>
 </div>
@@ -150,9 +147,6 @@
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -358,6 +352,152 @@ Returns <code>Backend Engineer</code>, <code>Frontend Engineer</code>, and <code
 </div>
 <div class="paragraph">
 <p><em>Figure.</em> Job list after finding with keywords <code>backend</code> and <code>geylang</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="auto-complete-and-auto-correct"><a class="link" href="#auto-complete-and-auto-correct">Auto-complete and auto-correct</a></h3>
+<div class="paragraph">
+<p>To enhance your experience with the Command Line Interface(CLI), Infinity Book comes with built in auto-correct and auto-complete. This section explains
+how you can use these features to speed up your CLI experience.</p>
+</div>
+<div class="sect3">
+<h4 id="auto-complete"><a class="link" href="#auto-complete">Auto-complete</a></h4>
+<div class="paragraph">
+<p>Auto completes command words being typed into Infinity Book<br></p>
+</div>
+<div class="paragraph">
+<p>To auto-complete a command word:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type in atleast the first character of your command word.</p>
+</li>
+<li>
+<p>Press <kbd>TAB</kbd> until your desired command word appears in the command box.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Entered text must match (case sensitive) the start of the desired command.<br>
+If no matches are available, no change is made to the input text.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>li</code> + <kbd>TAB</kbd> : Completes command word to <code>list</code>.</p>
+</li>
+<li>
+<p><code>LI</code> + <kbd>TAB</kbd>  : Reports no completions found.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Use <kbd>TAB</kbd> repeatedly to loop through the list as many times as you need.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="auto-correct"><a class="link" href="#auto-correct">Auto-correct</a></h4>
+<div class="paragraph">
+<p>Auto correct spell checks command words being typed into Infinity Book.<br></p>
+</div>
+<div class="paragraph">
+<p>To auto-correct a command word:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Entered text must be within one edit-distance of the desired command, by removal, addition or swapping of adjacent characters<br>
+If no corrections are available, no change is made to the input text.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type in a possibly incorrect version of the command word.</p>
+</li>
+<li>
+<p>Press <kbd>SPACE</kbd> and watch the command word auto-corrected immediately.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If a copy-pasted command may contain a spelling error in the command word, press <kbd>SPACE</kbd> to
+correct the command word without affecting the argumets entered.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>lsit</code> +  <kbd>SPACE</kbd> : Corrects command word to <code>list</code>.</p>
+</li>
+<li>
+<p><code>lit</code> +   <kbd>SPACE</kbd> : Corrects command word to <code>list</code>.</p>
+</li>
+<li>
+<p><code>liist</code> + <kbd>SPACE</kbd> : Corrects command word to <code>list</code>.</p>
+</li>
+<li>
+<p><code>lllist</code> + <kbd>SPACE</kbd> : Does not make any correction.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>While copy pasting commands with spelling errors, the <kbd>SPACE</kbd> key will not be available for use to insert spaces in the command while editing.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -589,36 +729,6 @@ Editing jobs to cause duplicates in the UniqueJobList is prevented by throwing a
 these operations ensures the new Job object is updated in the Infinity Book.</p>
 </div>
 <hr>
-<div class="paragraph">
-<p><strong>Delete Job Postings</strong></p>
-</div>
-<div class="paragraph">
-<p>Deleting job postings in the Infinity Book is performed by the DeleteJobCommand. The sequence of events triggered while deleting a job posting are shown in the diagram below:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/DeleteJobCommandSequenceDiagram.png" alt="DeleteJobCommandSequenceDiagram" width="700">
-</div>
-<div class="title">Figure 9. Deleting a job posting is executed as shown above.</div>
-</div>
-<div class="paragraph">
-<p>The DeleteJobCommand selects a Job object by matching the index with the last shown job list, and checks the index as shown in the following code snippet.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre> protected void preprocessUndoableCommand() throws CommandException {
-        List&lt;Job&gt; lastShownList = model.getFilteredJobList();
-
-        if (targetIndex.getZeroBased() &gt;= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_JOB_DISPLAYED_INDEX);
-        }
-
-        jobToDelete = lastShownList.get(targetIndex.getZeroBased());</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The changes to the UniqueJobList are enacted by AddressBook#removeJob, which completes the removal of the object and triggers Storage to update the data.</p>
-</div>
 <hr>
 <div class="paragraph">
 <p><strong>Matching Job Postings</strong></p>
@@ -633,7 +743,7 @@ these operations ensures the new Job object is updated in the Infinity Book.</p>
 <div class="content">
 <img src="../images/matchJobSequenceDiagram.png" alt="matchJobSequenceDiagram" width="700">
 </div>
-<div class="title">Figure 10. <code>matchjob</code> uses predicate based filtering similar to <code>findjob</code> and <code>listjobs</code></div>
+<div class="title">Figure 9. <code>matchjob</code> uses predicate based filtering similar to <code>findjob</code> and <code>listjobs</code></div>
 </div>
 <div class="paragraph">
 <p>The MatchJobCommand selects a Job object by matching the index with the last shown job list. A PersonMatchesJobPredicate is used to find matches, by looking for matches between tags, location and skills fields of the Job and Person.</p>
@@ -678,7 +788,7 @@ these operations ensures the new Job object is updated in the Infinity Book.</p>
 <div class="content">
 <img src="../images/listjobcommandSequenceDiagram.png" alt="listjobcommandSequenceDiagram" width="700">
 </div>
-<div class="title">Figure 11. Sequence diagram above shows the sequence of events triggered on execution of <code>listjobs</code></div>
+<div class="title">Figure 10. Sequence diagram above shows the sequence of events triggered on execution of <code>listjobs</code></div>
 </div>
 <div class="paragraph">
 <p>The ListJobCommand selects displays all Job objects from UniqueJobList in the JobListPanel.</p>
@@ -727,17 +837,186 @@ these operations ensures the new Job object is updated in the Infinity Book.</p>
 <div class="paragraph">
 <p><a href="#top">Back to top</a></p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="auto-correct-and-auto-complete-since-v1-4"><a class="link" href="#auto-correct-and-auto-complete-since-v1-4">Auto-correct and Auto-complete [since v1.4]</a></h3>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p>Infinity Book enhances the user&#8217;s interaction with the application, with built in auto-correct and auto-complete. Command
+words that are typed in are examined for spelling errors and completions upon <code>SPACE</code> and <code>TAB</code> press respectively.</p>
+</div>
+<div class="paragraph">
+<p>To include completion and correction support for a new command, simply add it into commandDictionary in
+CommandCorrection#createDictionary() as shown in code snippet.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>public static void createDictionary() {
+        commandDictionary = new HashSet&lt;&gt;();
+
+        // .. add other command words
+        commandDictionary.add(PostJobCommand.COMMAND_WORD);
+}</pre>
 </div>
 </div>
+<div class="sect3">
+<h4 id="auto-complete-implementation"><a class="link" href="#auto-complete-implementation">Auto-complete Implementation</a></h4>
+<div class="paragraph">
+<p>The user input is recorded in CommandBox, and upon <code>TAB</code> keypress, the CommandBox#navigateToCompletedCommand() method looks for command
+words containing the entered string as the first substring.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutocompleteActivityDiagram.png" alt="AutocompleteActivityDiagram" width="700">
+</div>
+<div class="title">Figure 11. This activity diagram demonstrates the high level behavior of the autocomplete feature.</div>
+</div>
+<div class="paragraph">
+<p>When CommandCorrection#updateSuggestionsList() method is called, it searches through all command words for suitable matches.</p>
+</div>
+<div class="paragraph">
+<p>When multiple matches are available, the <code>TAB</code> keypress is counted, and the command box cycles through all suggestions. When no suggestions are available, the existing
+text is left unchanged.</p>
+</div>
+<div class="paragraph">
+<p>Since the text in the command box is altered with each <code>TAB</code> press, a brief history is maintained containing the most recent suggestion
+made by auto-complete and original user input. Here, the user has pressed the <code>TAB</code> key multiple times, but expects completions based on his input, not the recent suggestion that fills the command box.</p>
+</div>
+<div class="paragraph">
+<p>The following code snipped demonstrates the use of the suggestion history to choose the text to complete.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    public static String updateTextToComplete(String textToComplete) {
+        if (textToComplete.compareTo(recentSuggestion.trim()) == 0) {
+            return recentInput;
+        } else {
+            return textToComplete;
+        }
+    }</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="auto-correct-implementation"><a class="link" href="#auto-correct-implementation">Auto-correct Implementation</a></h4>
+<div class="paragraph">
+<p>Auto-correct searches command word input for potential one edit distance errors, including missed,swapped and stray characters.</p>
+</div>
+<div class="paragraph">
+<p>Two details about the implementation are noteworthy:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>For seamless background operation, command words that are not recognized are automatically analysed for spelling errors on <code>SPACE</code> key press.</p>
+</li>
+<li>
+<p>In cases where commands with spell errors are copy-pasted into the command box, <code>SPACE</code> key press separates the command word from arguments, and corrects the command word without altering the rest of the command.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Upon being triggered, CommandBox#navigateToLikelyInput() method returns the likely correction using the mentioned heuristics.</p>
+</div>
+<div class="paragraph">
+<p>When multiple suggestions are available, corrections obtained by removing stray character, and adding missing character are prioritized, in that order. This is in line with
+belief that these are the most common kinds of errors.</p>
+</div>
+<div class="paragraph">
+<p>The following code snippet demonstrates this ability clearly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>   public static String extractCommandWord(String commandText) {
+           String trimmedCommandText = commandText.trim();
+           String[] wordsInCommandText = trimmedCommandText.split(" ");
+           commandParameters = trimmedCommandText.replace(wordsInCommandText[0], "");
+           return wordsInCommandText[0];
+       }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="#top">Back to top</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="additional-contributions"><a class="link" href="#additional-contributions">Additional Contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I check if Infinity Book is compatible with my computer?<br>
+<strong>A</strong>: Infinity Book is compatible with Windows, Mac OS and Ubuntu with Java <code>1.8.0_60</code> or later installed. Compatibility with other <a href="#unix">UNIX</a> distributions is not guaranteed.<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>To check your Java Version:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>MAC OS/ OS-X Users:<br></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open Spotlight using Command + Space</p>
+</li>
+<li>
+<p>Search for <code>Terminal</code> and open the application</p>
+</li>
+<li>
+<p>In the terminal, copy paste the following command without enclosing double quotes to find your Java version:
+<code>"/Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java -version"</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Windows users:<br></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open Run using Windows Key + R</p>
+</li>
+<li>
+<p>Type <code>cmd</code> and press enter to open Command Prompt</p>
+</li>
+<li>
+<p>In Command Prompt, enter the following command without enclosing double quotes to find your Java version:
+<code>"java -showversion"</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Ubuntu users:<br></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open Terminal using Ctrl + Alt + T</p>
+</li>
+<li>
+<p>In the terminal copy paste the following command without enclosing double quotes to find your Java vesion:
+<code>"java -v"</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>include::../</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 09:14:22 UTC
+Last updated 2018-04-15 09:16:34 UTC
 </div>
 </div>
 </body>
