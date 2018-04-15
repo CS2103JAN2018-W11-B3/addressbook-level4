@@ -408,7 +408,7 @@ interview, and deleting interview.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Interview Model:</p>
+<p>Model Component:</p>
 </li>
 </ul>
 </div>
@@ -416,6 +416,24 @@ interview, and deleting interview.</p>
 <div class="content">
 <img src="../images/InterviewModel.png" alt="InterviewModel" width="700">
 </div>
+</div>
+<div class="paragraph">
+<p>Figure 5.13.1: add Interview Model to Model Component</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Storage Component:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InterviewStorage.png" alt="InterviewStorage" width=""700">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 5.13.2 add XmlAdaptedInterview to Storage Component</p>
 </div>
 <div class="sect3">
 <h4 id="adding-an-interview"><a class="link" href="#adding-an-interview">4.2.1. Adding an interview</a></h4>
@@ -451,13 +469,22 @@ and interview location from user input, form a new interview,
 then pass it to <code>AddInterviewCommand</code> class.</p>
 </li>
 <li>
-<p><code>AddInterviewCommand</code> will take in the interview and add new Interview to
-storage.</p>
+<p><code>AddInterviewCommand</code> will take in the interview and call add new Interview to
+storage in model.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>public synchronized void addInterview(Interview interview) throws DuplicateInterviewException {
+        addressBook.addInterview(interview);
+        updateFilteredInterviewList(PREDICATE_SHOW_ALL_INTERVIEWS);
+        indicateAddressBookChanged();
+}</pre>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -490,12 +517,20 @@ interview when listing all candidates.<br>
 and call ListInterviewCommand.</p>
 </li>
 <li>
-<p><code>ListInterviewCommnad</code> will list all the interviews in storage.</p>
+<p><code>ListInterviewCommand</code> will call updateFilteredList in model and list all the interviews in storage.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>public void updateFilteredInterviewList(Predicate&lt;Interview&gt; predicate) {
+        requireNonNull(predicate);
+        filteredInterviews.setPredicate(predicate);
+}</pre>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -509,8 +544,10 @@ and call ListInterviewCommand.</p>
 <div class="paragraph">
 <p><strong>Alternative 1:</strong> (current choice) create deleting command for deleting interview by index<br>
 <strong>Pros:</strong> It can be easily to use follow the index of listing interview command<br>
-<strong>Cons:</strong> It requires users to use two commands<br>
-<strong>Alternative 2:</strong> create deleting command for deleting interview by name.<br>
+<strong>Cons:</strong> It requires users to use two commands<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> create deleting command for deleting interview by name.<br>
 <strong>Pros:</strong> It requires addtional tools to match interview<br>
 <strong>Cons:</strong> It is easier for user to use.</p>
 </div>
@@ -533,6 +570,14 @@ accordingly.</p>
 </li>
 </ul>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre>public synchronized void deleteInterview(Interview target) throws InterviewNotFoundException {
+        addressBook.removeInterview(target);
+        indicateAddressBookChanged();
+}</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -540,7 +585,7 @@ accordingly.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 01:23:03 UTC
+Last updated 2018-04-15 05:40:38 UTC
 </div>
 </div>
 </body>
