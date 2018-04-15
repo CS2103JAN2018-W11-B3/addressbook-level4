@@ -25,10 +25,10 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Infinity Book (IB) is an address book application for Tech recruiters who prefer to use a desktop app for managing candidates.<br></p>
+<p>Infinity Book (IB) is an address book application for tech recruiters who prefer to use a desktop application to manage their candidates.<br></p>
 </div>
 <div class="paragraph">
-<p>IB provides <strong>end-to-end support</strong> for recruiters, from searching for candidates,to adding job postings and saving their resumes and interviews.</p>
+<p>IB provides recruiters with an <strong>end-to-end</strong> recruitment solution, from searching for candidates,to adding job postings and saving their resumes and interviews.</p>
 </div>
 </div>
 </div>
@@ -42,10 +42,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>What it does</strong>:Allows the recruiter to add a job posting along with preferred location, skills, tags and position title. These jobs can be matched to candidate automatically, or edited, listed, searched and deleted.</p>
+<p><strong>What it does</strong>: Allows the recruiter to add a job posting along with preferred location, skills, tags and position title. These jobs can be matched to candidate automatically, or edited, listed, searched and deleted.</p>
 </li>
 <li>
-<p><strong>Justification</strong>: This feature makes all the information in the Infinity Book useful to a recruiter by providing a direct method to match and access relevant data on the Infinity Book for their job.</p>
+<p><strong>Justification</strong>: This feature makes all the information in the Infinity Book useful to a recruiter by providing a direct method to match and access relevant data for their job.</p>
 </li>
 <li>
 <p><strong>Highlights</strong>:</p>
@@ -55,7 +55,10 @@
 <p>For meaningful implementation of job matching, this enhancement adds a skills field to both Person and Job. This field details the skills possessed by a candidate and those required by the job.</p>
 </li>
 <li>
-<p>This enhancement modifies the structure of the model and data handling in the entire application was modified to suit an additional primary data list. Implementation required many changes to the testing tools of the Infinity Book as well.</p>
+<p>This enhancement also modifies the structure of the model and data handling in the entire application has been modified to suit a Job data list in addition to Person. The implementation effected many changes to the testing tools of the Infinity Book as well.</p>
+</li>
+<li>
+<p>Job matching is performed in a flexible manner, allowing the recruiter to ignore some fields.</p>
 </li>
 </ul>
 </div>
@@ -71,7 +74,7 @@
 <p><strong>What it does</strong>: Allows the recruiter to auto-complete and auto-correct command words automatically.</p>
 </li>
 <li>
-<p><strong>Justification</strong>: This feature allows the recruiter to interact with the command line interface with increased accuracy.</p>
+<p><strong>Justification</strong>: This feature allows the recruiter to interact with the command line with increased accuracy and speed.</p>
 </li>
 <li>
 <p><strong>Highlights</strong>:</p>
@@ -198,46 +201,7 @@ Job postings are matched to candidates on the basis of location, skills and tags
 <div class="content">
 <img src="../images/postjob.JPG.png" alt="postjob.JPG" width="500">
 </div>
-</div>
-<div class="paragraph">
-<p>Figure : PostJob Command adds Jobs into the Job Postings panel as shown.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="edit-job-command"><a class="link" href="#edit-job-command">Edit Job Command</a></h4>
-<div class="paragraph">
-<p>Want to change the parameters of a job after creating? IB provides the flexibility to edit an existing job posting through the <code>editjob</code> command.</p>
-</div>
-<div class="paragraph">
-<p><strong>Format:</strong> <code>editjob [-add-tag/-delete-tag] INDEX [j/JOBTITLE] [l/LOCATION] [s/SKILLS] [t/TAG]</code></p>
-</div>
-<div class="paragraph">
-<p>Specifying -add-tag or -delete-tag causes editjob command to specifically add or delete the specified tag for the index specified tag. If unspecified, the tag list is over-written
-by the newly specified set of tags. This implementation mirrors the edit command.</p>
-</div>
-<div class="paragraph">
-<p><strong>Examples:</strong> <code>editjob 1 j/Backend Engineer l/Singapore</code><br>
-<code>editjob 1 -delete-tag j/Backend Engineer l/Singapore</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-At least one field must be provided for the edit command to function as expected.
-</td>
-</tr>
-</table>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/editjob.JPG.png" alt="editjob.JPG" width="500">
-</div>
-</div>
-<div class="paragraph">
-<p>Figure : <code>editjob</code> edits the first job posting as marked in diagram.</p>
+<div class="title">Figure 1. PostJob Command adds Jobs into the Job Postings panel as shown.</div>
 </div>
 <hr>
 </div>
@@ -259,9 +223,7 @@ At least one field must be provided for the edit command to function as expected
 <div class="content">
 <img src="../images/matchJob.JPG.png" alt="matchJob.JPG" width="500">
 </div>
-</div>
-<div class="paragraph">
-<p>Figure : MatchJob command filters the Candidates as per Job, as shown above.</p>
+<div class="title">Figure 2. MatchJob command filters the Candidates as per Job, as shown above.</div>
 </div>
 <hr>
 </div>
@@ -460,9 +422,9 @@ Any existing job postings may be matched with the list of candidates to filter p
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/SequenceDiagramJobPosting.png" alt="SequenceDiagramJobPosting" width="700">
+<img src="../images/SequenceDiagramJobPosting.png" alt="SequenceDiagramJobPosting" width="600">
 </div>
-<div class="title">Figure 1. A high level sequence diagram showing events triggered by the <code>postjob</code> command.</div>
+<div class="title">Figure 3. A high level sequence diagram showing events triggered by the <code>postjob</code> command.</div>
 </div>
 <div class="paragraph">
 <p>The following job posting commands are implemented extending <code>UndoableCommand</code> and <code>Command</code>:</p>
@@ -496,7 +458,7 @@ Any existing job postings may be matched with the list of candidates to filter p
 <div class="content">
 <img src="../images/CommandsStructure.png" alt="CommandsStructure" width="300">
 </div>
-<div class="title">Figure 2. UML Diagram depicting the class relationship between command classes.</div>
+<div class="title">Figure 4. UML Diagram depicting the class relationship between command classes.</div>
 </div>
 <hr>
 <div class="paragraph">
@@ -507,9 +469,9 @@ Any existing job postings may be matched with the list of candidates to filter p
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/PostJobCommandSequenceDiagram.png" alt="PostJobCommandSequenceDiagram" width="700">
+<img src="../images/PostJobCommandSequenceDiagram.png" alt="PostJobCommandSequenceDiagram" width="600">
 </div>
-<div class="title">Figure 3. Adding a job posting is executed as shown above.</div>
+<div class="title">Figure 5. Adding a job posting is executed as shown above.</div>
 </div>
 <div class="paragraph">
 <p>The PostJobCommand#executeUndoableCommand triggers addition of the Job to <code>UniqueJobList</code> in AddressBook#add
@@ -528,49 +490,6 @@ The following code snippet demonstrates the prevention of duplicates in the Uniq
 </div>
 <hr>
 <div class="paragraph">
-<p><strong>Editing Job Postings</strong></p>
-</div>
-<div class="paragraph">
-<p>Editing job postings in the Infinity Book is performed by the EditJobCommand. The sequence of events triggered while editing a job posting are shown in the diagram below:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/EditJobCommandSequenceDiagram.png" alt="EditJobCommandSequenceDiagram" width="700">
-</div>
-<div class="title">Figure 4. Editing a job posting is executed as shown above.</div>
-</div>
-<div class="paragraph">
-<p>The EditJobCommand#executeUndoableCommand triggers editing of a existing Job in <code>UniqueJobList</code> in AddressBook#add
-The <code>EditJobCommand</code> ensures that the index specified refers to a valid index in the most recent listing of jobs.
-Editing jobs to cause duplicates in the UniqueJobList is prevented by throwing a DuplicateJobException.</p>
-</div>
-<div class="paragraph">
-<p>The following code snippet demonstrates the prevention of duplicates and index checking in the UniqueJobList after editing</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>    public void setJob(Job target, Job editedJob) throws DuplicateJobException, JobNotFoundException {
-        requireNonNull(editedJob);
-
-        int index = internalList.indexOf(target);
-        if (index == -1) {
-            throw new JobNotFoundException();
-        }
-
-        if (!target.equals(editedJob) &amp;&amp; internalList.contains(editedJob)) {
-            throw new DuplicateJobException();
-        }
-
-        internalList.set(index, editedJob);
-    }</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>To completely specify the changes to the Job object specified by EditJobCommand, an EditJobCommandDescriptor is parsed from the command, and used to update changes in the Model. Completing
-these operations ensures the new Job object is updated in the Infinity Book.</p>
-</div>
-<hr>
-<div class="paragraph">
 <p><strong>Matching Job Postings</strong></p>
 </div>
 <div class="paragraph">
@@ -583,7 +502,7 @@ these operations ensures the new Job object is updated in the Infinity Book.</p>
 <div class="content">
 <img src="../images/matchJobSequenceDiagram.png" alt="matchJobSequenceDiagram" width="700">
 </div>
-<div class="title">Figure 5. <code>matchjob</code> uses predicate based filtering similar to <code>findjob</code> and <code>listjobs</code></div>
+<div class="title">Figure 6. <code>matchjob</code> uses predicate based filtering similar to <code>findjob</code> and <code>listjobs</code></div>
 </div>
 <div class="paragraph">
 <p>The MatchJobCommand selects a Job object by matching the index with the last shown job list. A PersonMatchesJobPredicate is used to find matches, by looking for matches between tags, location and skills fields of the Job and Person.</p>
@@ -599,13 +518,11 @@ these operations ensures the new Job object is updated in the Infinity Book.</p>
 <pre>public boolean test(Person person) {
 
         // .. code to set up and assign locationMatch, skillsMatch and tagsMatch
-
         locationMatch = isLocationMatchSatisfied(locationMatch);
         //.. similarly for skillsMatch and tagsMatch
 
         return locationMatch &amp;&amp; skillsMatch &amp;&amp; tagsMatch;
  }
-
  private boolean isLocationMatchSatisfied(boolean locationMatch) {
          if (notLocationBound) {
              locationMatch = true;
@@ -617,6 +534,7 @@ these operations ensures the new Job object is updated in the Infinity Book.</p>
 <div class="paragraph">
 <p>The PersonListPanel is populated with a list of candidates who match the job according to the set parameters.</p>
 </div>
+<hr>
 <hr>
 </div>
 </div>
@@ -650,7 +568,7 @@ words containing the entered string as the first substring.</p>
 <div class="content">
 <img src="../images/AutocompleteActivityDiagram.png" alt="AutocompleteActivityDiagram" width="700">
 </div>
-<div class="title">Figure 6. This activity diagram demonstrates the high level behavior of the autocomplete feature.</div>
+<div class="title">Figure 7. This activity diagram demonstrates the high level behavior of the autocomplete feature.</div>
 </div>
 <div class="paragraph">
 <p>When CommandCorrection#updateSuggestionsList() method is called, it searches through all command words for suitable matches.</p>
@@ -716,8 +634,10 @@ belief that these are the most common kinds of errors.</p>
        }</pre>
 </div>
 </div>
-<div class="paragraph">
-<p><a href="#top">Back to top</a></p>
+<div class="listingblock">
+<div class="content">
+<pre>The following section contains optional contributions demonstrating technical writing capability.</pre>
+</div>
 </div>
 </div>
 </div>
@@ -844,9 +764,7 @@ Returns <code>Backend Engineer</code>, <code>Frontend Engineer</code>, and <code
 <div class="content">
 <img src="../images/findjob.png" alt="findjob" width="700">
 </div>
-</div>
-<div class="paragraph">
-<p><em>Figure.</em> Job list after finding with keywords <code>backend</code> and <code>geylang</code>.</p>
+<div class="title">Figure 8. Job list after finding with keywords <code>backend</code> and <code>geylang</code>.</div>
 </div>
 <hr>
 </div>
@@ -865,9 +783,7 @@ Returns <code>Backend Engineer</code>, <code>Frontend Engineer</code>, and <code
 <div class="content">
 <img src="../images/deletejob.JPG.png" alt="deletejob.JPG" width="500">
 </div>
-</div>
-<div class="paragraph">
-<p>Figure : <code>deletejob</code> deletes the job posting at the specified index in the most recent listing from Figure as shown.</p>
+<div class="title">Figure 9. <code>deletejob</code> deletes the job posting at the specified index in the most recent listing from Figure as shown.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -882,6 +798,42 @@ Returns <code>Backend Engineer</code>, <code>Frontend Engineer</code>, and <code
 </td>
 </tr>
 </table>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="edit-job-command"><a class="link" href="#edit-job-command">Edit Job Command</a></h4>
+<div class="paragraph">
+<p>Want to change the parameters of a job after creating? IB provides the flexibility to edit an existing job posting through the <code>editjob</code> command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong> <code>editjob [-add-tag/-delete-tag] INDEX [j/JOBTITLE] [l/LOCATION] [s/SKILLS] [t/TAG]</code></p>
+</div>
+<div class="paragraph">
+<p>Specifying -add-tag or -delete-tag causes editjob command to specifically add or delete the specified tag for the index specified tag. If unspecified, the tag list is over-written
+by the newly specified set of tags. This implementation mirrors the edit command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Examples:</strong> <code>editjob 1 j/Backend Engineer l/Singapore</code><br>
+<code>editjob 1 -delete-tag j/Backend Engineer l/Singapore</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+At least one field must be provided for the edit command to function as expected.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/editjob.JPG.png" alt="editjob.JPG" width="500">
+</div>
+<div class="title">Figure 10. <code>editjob</code> edits the first job posting as marked in diagram.</div>
 </div>
 </div>
 </div>
@@ -898,7 +850,7 @@ Returns <code>Backend Engineer</code>, <code>Frontend Engineer</code>, and <code
 <div class="content">
 <img src="../images/UniqueJobListUML.png" alt="UniqueJobListUML" width="300">
 </div>
-<div class="title">Figure 7. UML diagram showing representation of UniqueJobList in Infinity Book.</div>
+<div class="title">Figure 11. UML diagram showing representation of UniqueJobList in Infinity Book.</div>
 </div>
 <div class="paragraph">
 <p>Individual job postings are represented by the Job object with attributes <code>Job Title</code>, <code>Location</code>, <code>Skills</code> and <code>Tags</code>. The class relationship is shown
@@ -906,9 +858,9 @@ in Figure 2 below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/JobUMLDiagram.png" alt="JobUMLDiagram" width="400">
+<img src="../images/JobUMLDiagram.png" alt="JobUMLDiagram" width="300">
 </div>
-<div class="title">Figure 8. UML diagram showing representation of Job in Infinity Book.</div>
+<div class="title">Figure 12. UML diagram showing representation of Job in Infinity Book.</div>
 </div>
 <div class="paragraph">
 <p>In addition, the Person and Job class have been modified to maintain Skills as an additional field to offer better functionality
@@ -919,9 +871,9 @@ during candidate-job matching. The <code>add</code> and <code>edit</code> comman
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ModelWithJobUML.png" alt="ModelWithJobUML" width="700">
+<img src="../images/ModelWithJobUML.png" alt="ModelWithJobUML" width="600">
 </div>
-<div class="title">Figure 9. A complete picture of the model as maintained by Infinity Book.</div>
+<div class="title">Figure 13. A complete picture of the model as maintained by Infinity Book.</div>
 </div>
 </div>
 <div class="sect4">
@@ -931,9 +883,9 @@ during candidate-job matching. The <code>add</code> and <code>edit</code> comman
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/JobStorageDiagram.png" alt="JobStorageDiagram" width="700">
+<img src="../images/JobStorageDiagram.png" alt="JobStorageDiagram" width="600">
 </div>
-<div class="title">Figure 10. Job objects are saved using XmlAdaptedJob objects as shown above.</div>
+<div class="title">Figure 14. Job objects are saved using XmlAdaptedJob objects as shown above.</div>
 </div>
 <div class="paragraph">
 <p>An example job stored in this format is reproduced below:</p>
@@ -958,6 +910,77 @@ JobListCards represent the fields in each Job using Labels and flowPanes.</p>
 </div>
 <hr>
 <div class="paragraph">
+<p><strong>Editing Job Postings</strong></p>
+</div>
+<div class="paragraph">
+<p>Editing job postings in the Infinity Book is performed by the EditJobCommand. The sequence of events triggered while editing a job posting are shown in the diagram below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EditJobCommandSequenceDiagram.png" alt="EditJobCommandSequenceDiagram" width="600">
+</div>
+<div class="title">Figure 15. Editing a job posting is executed as shown above.</div>
+</div>
+<div class="paragraph">
+<p>The EditJobCommand#executeUndoableCommand triggers editing of a existing Job in <code>UniqueJobList</code> in AddressBook#add
+The <code>EditJobCommand</code> ensures that the index specified refers to a valid index in the most recent listing of jobs.
+Editing jobs to cause duplicates in the UniqueJobList is prevented by throwing a DuplicateJobException.</p>
+</div>
+<div class="paragraph">
+<p>The following code snippet demonstrates the prevention of duplicates and index checking in the UniqueJobList after editing</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    public void setJob(Job target, Job editedJob) throws DuplicateJobException, JobNotFoundException {
+        requireNonNull(editedJob);
+        int index = internalList.indexOf(target);
+        if (index == -1) {
+            throw new JobNotFoundException();
+        }
+        if (!target.equals(editedJob) &amp;&amp; internalList.contains(editedJob)) {
+            throw new DuplicateJobException();
+        }
+        internalList.set(index, editedJob);
+    }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To completely specify the changes to the Job object specified by EditJobCommand, an EditJobCommandDescriptor is parsed from the command, and used to update changes in the Model. Completing
+these operations ensures the new Job object is updated in the Infinity Book.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Delete Job Postings</strong></p>
+</div>
+<div class="paragraph">
+<p>Deleting job postings in the Infinity Book is performed by the DeleteJobCommand. The sequence of events triggered while deleting a job posting are shown in the diagram below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteJobCommandSequenceDiagram.png" alt="DeleteJobCommandSequenceDiagram" width="700">
+</div>
+<div class="title">Figure 16. Deleting a job posting is executed as shown above.</div>
+</div>
+<div class="paragraph">
+<p>The DeleteJobCommand selects a Job object by matching the index with the last shown job list, and checks the index as shown in the following code snippet.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre> protected void preprocessUndoableCommand() throws CommandException {
+        List&lt;Job&gt; lastShownList = model.getFilteredJobList();
+        if (targetIndex.getZeroBased() &gt;= lastShownList.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_JOB_DISPLAYED_INDEX);
+        }
+
+        jobToDelete = lastShownList.get(targetIndex.getZeroBased());</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The changes to the UniqueJobList are enacted by AddressBook#removeJob, which completes the removal of the object and triggers Storage to update the data.</p>
+</div>
+<hr>
+<hr>
+<div class="paragraph">
 <p><strong>Listing Job Postings</strong></p>
 </div>
 <div class="paragraph">
@@ -965,9 +988,9 @@ JobListCards represent the fields in each Job using Labels and flowPanes.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/listjobcommandSequenceDiagram.png" alt="listjobcommandSequenceDiagram" width="700">
+<img src="../images/listjobcommandSequenceDiagram.png" alt="listjobcommandSequenceDiagram" width="600">
 </div>
-<div class="title">Figure 11. Sequence diagram above shows the sequence of events triggered on execution of <code>listjobs</code></div>
+<div class="title">Figure 17. Sequence diagram above shows the sequence of events triggered on execution of <code>listjobs</code></div>
 </div>
 <div class="paragraph">
 <p>The ListJobCommand selects displays all Job objects from UniqueJobList in the JobListPanel.</p>
@@ -983,37 +1006,6 @@ JobListCards represent the fields in each Job using Labels and flowPanes.</p>
 <p>The FindJobCommand selects Job objects to display by matching the keyword with the Job Title, Location or Tags, and lists all matches in the JobListPanel.</p>
 </div>
 <hr>
-<div class="paragraph">
-<p><strong>Delete Job Postings</strong></p>
-</div>
-<div class="paragraph">
-<p>Deleting job postings in the Infinity Book is performed by the DeleteJobCommand. The sequence of events triggered while deleting a job posting are shown in the diagram below:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/DeleteJobCommandSequenceDiagram.png" alt="DeleteJobCommandSequenceDiagram" width="700">
-</div>
-<div class="title">Figure 12. Deleting a job posting is executed as shown above.</div>
-</div>
-<div class="paragraph">
-<p>The DeleteJobCommand selects a Job object by matching the index with the last shown job list, and checks the index as shown in the following code snippet.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre> protected void preprocessUndoableCommand() throws CommandException {
-        List&lt;Job&gt; lastShownList = model.getFilteredJobList();
-
-        if (targetIndex.getZeroBased() &gt;= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_JOB_DISPLAYED_INDEX);
-        }
-
-        jobToDelete = lastShownList.get(targetIndex.getZeroBased());</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The changes to the UniqueJobList are enacted by AddressBook#removeJob, which completes the removal of the object and triggers Storage to update the data.</p>
-</div>
-<hr>
 </div>
 </div>
 </div>
@@ -1022,7 +1014,7 @@ JobListCards represent the fields in each Job using Labels and flowPanes.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 12:40:32 UTC
+Last updated 2018-04-15 13:11:50 UTC
 </div>
 </div>
 </body>

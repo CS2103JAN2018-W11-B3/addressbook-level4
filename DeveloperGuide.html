@@ -112,6 +112,7 @@
 <li><a href="#launch-and-shutdown">H.1. Launch and Shutdown</a></li>
 <li><a href="#deleting-a-person">H.2. Deleting a person</a></li>
 <li><a href="#saving-data">H.3. Saving data</a></li>
+<li><a href="#add-new-tags-to-candidates">H.4. Add new tags to candidates</a></li>
 </ul>
 </li>
 </ul>
@@ -1652,7 +1653,7 @@ in Figure 2 below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/JobUMLDiagram.png" alt="JobUMLDiagram" width="400">
+<img src="images/JobUMLDiagram.png" alt="JobUMLDiagram" width="300">
 </div>
 <div class="title">Figure 25. UML diagram showing representation of Job in Infinity Book.</div>
 </div>
@@ -1665,7 +1666,7 @@ during candidate-job matching. The <code>add</code> and <code>edit</code> comman
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ModelWithJobUML.png" alt="ModelWithJobUML" width="700">
+<img src="images/ModelWithJobUML.png" alt="ModelWithJobUML" width="600">
 </div>
 <div class="title">Figure 26. A complete picture of the model as maintained by Infinity Book.</div>
 </div>
@@ -1677,7 +1678,7 @@ during candidate-job matching. The <code>add</code> and <code>edit</code> comman
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/JobStorageDiagram.png" alt="JobStorageDiagram" width="700">
+<img src="images/JobStorageDiagram.png" alt="JobStorageDiagram" width="600">
 </div>
 <div class="title">Figure 27. Job objects are saved using XmlAdaptedJob objects as shown above.</div>
 </div>
@@ -1729,7 +1730,7 @@ JobListCards represent the fields in each Job using Labels and flowPanes.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SequenceDiagramJobPosting.png" alt="SequenceDiagramJobPosting" width="700">
+<img src="images/SequenceDiagramJobPosting.png" alt="SequenceDiagramJobPosting" width="600">
 </div>
 <div class="title">Figure 28. A high level sequence diagram showing events triggered by the <code>postjob</code> command.</div>
 </div>
@@ -1776,7 +1777,7 @@ JobListCards represent the fields in each Job using Labels and flowPanes.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/PostJobCommandSequenceDiagram.png" alt="PostJobCommandSequenceDiagram" width="700">
+<img src="images/PostJobCommandSequenceDiagram.png" alt="PostJobCommandSequenceDiagram" width="600">
 </div>
 <div class="title">Figure 30. Adding a job posting is executed as shown above.</div>
 </div>
@@ -1804,7 +1805,7 @@ The following code snippet demonstrates the prevention of duplicates in the Uniq
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/EditJobCommandSequenceDiagram.png" alt="EditJobCommandSequenceDiagram" width="700">
+<img src="images/EditJobCommandSequenceDiagram.png" alt="EditJobCommandSequenceDiagram" width="600">
 </div>
 <div class="title">Figure 31. Editing a job posting is executed as shown above.</div>
 </div>
@@ -1820,16 +1821,13 @@ Editing jobs to cause duplicates in the UniqueJobList is prevented by throwing a
 <div class="content">
 <pre>    public void setJob(Job target, Job editedJob) throws DuplicateJobException, JobNotFoundException {
         requireNonNull(editedJob);
-
         int index = internalList.indexOf(target);
         if (index == -1) {
             throw new JobNotFoundException();
         }
-
         if (!target.equals(editedJob) &amp;&amp; internalList.contains(editedJob)) {
             throw new DuplicateJobException();
         }
-
         internalList.set(index, editedJob);
     }</pre>
 </div>
@@ -1858,7 +1856,6 @@ these operations ensures the new Job object is updated in the Infinity Book.</p>
 <div class="content">
 <pre> protected void preprocessUndoableCommand() throws CommandException {
         List&lt;Job&gt; lastShownList = model.getFilteredJobList();
-
         if (targetIndex.getZeroBased() &gt;= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_JOB_DISPLAYED_INDEX);
         }
@@ -1899,13 +1896,11 @@ these operations ensures the new Job object is updated in the Infinity Book.</p>
 <pre>public boolean test(Person person) {
 
         // .. code to set up and assign locationMatch, skillsMatch and tagsMatch
-
         locationMatch = isLocationMatchSatisfied(locationMatch);
         //.. similarly for skillsMatch and tagsMatch
 
         return locationMatch &amp;&amp; skillsMatch &amp;&amp; tagsMatch;
  }
-
  private boolean isLocationMatchSatisfied(boolean locationMatch) {
          if (notLocationBound) {
              locationMatch = true;
@@ -1926,7 +1921,7 @@ these operations ensures the new Job object is updated in the Infinity Book.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/listjobcommandSequenceDiagram.png" alt="listjobcommandSequenceDiagram" width="700">
+<img src="images/listjobcommandSequenceDiagram.png" alt="listjobcommandSequenceDiagram" width="600">
 </div>
 <div class="title">Figure 34. Sequence diagram above shows the sequence of events triggered on execution of <code>listjobs</code></div>
 </div>
@@ -2056,7 +2051,7 @@ interview, and deleting interview.</p>
 <div class="content">
 <img src="images/InterviewModel.png" alt="InterviewModel" width="700">
 </div>
-<div class="title">Figure 35. add Interview Model to Model Component</div>
+<div class="title">Figure 35. Add Interview Model to Model Component</div>
 </div>
 <div class="ulist">
 <ul>
@@ -4102,10 +4097,9 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-=== Add new tags to candidates</p>
 </div>
+<div class="sect2">
+<h3 id="add-new-tags-to-candidates"><a class="link" href="#add-new-tags-to-candidates">H.4. Add new tags to candidates</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4189,8 +4183,7 @@ Expected: No interview is deleted. Error details shown in the status message.</p
 </li>
 <li>
 <p>Other incorrect delete commands to try: <code>deleteInterview</code>, <code>deleteInterview x</code> (where x is larger than the list size)<br>
-   Expected: Similar to previous.
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; master</p>
+Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
@@ -4317,7 +4310,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 12:40:32 UTC
+Last updated 2018-04-15 13:11:50 UTC
 </div>
 </div>
 </body>
