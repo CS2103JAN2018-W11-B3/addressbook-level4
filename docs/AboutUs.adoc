@@ -36,7 +36,7 @@ Responsibilities: Code Quality
 '''
 
 === Nguyen Dinh Dung
-image::m133225.jpg[width="150", align="left"]
+image::Dung.jpg[width="150", align="left"]
 {empty}[https://github.com/tiny767[github]] [<<tiny767#, portfolio>>]
 
 Role: Developer +

@@ -18,8 +18,7 @@ Infinity Book is a desktop address book application used for HR management recru
 
 * *Minor enhancement*: Added a remark field to person.
 
-* *Code contributed*: [https://github.com/CS2103JAN2018-W11-B3/main/blob/master/collated/functional/tiny767.md[Functional code]]
-[https://github.com/CS2103JAN2018-W11-B3/main/blob/master/collated/test/tiny767.md[Test code]] _{give links to collated code files}_
+* *Code contributed*: [https://github.com/CS2103JAN2018-W11-B3/main/blob/master/collated/functional/tiny767.md[Functional code]][https://github.com/CS2103JAN2018-W11-B3/main/blob/master/collated/test/tiny767.md[Test code]]
 
 * *Other contributions*:
 
@@ -39,8 +38,6 @@ Infinity Book is a desktop address book application used for HR management recru
 *** Integrated a third party library (Natty) to the project (https://github.com[#42])
 *** Integrated a new Github plugin (CircleCI) to the team repo
 
-_{you can add/remove categories in the list above}_
-
 == Contributions to the User Guide
 
 
@@ -57,5 +54,7 @@ include::../UserGuide.adoc[tag=facebook]
 |===
 
 include::../DeveloperGuide.adoc[tag=theme]
+
+include::../DeveloperGuide.adoc[tagcolor]
 
 ---
