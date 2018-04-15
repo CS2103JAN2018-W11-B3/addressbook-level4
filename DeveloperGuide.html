@@ -56,9 +56,10 @@
 <li><a href="#report-since-v1-4">5.8. Report (Since v1.4)</a></li>
 <li><a href="#tag-colors-since-v1-0">5.9. Tag colors [since v1.0]</a></li>
 <li><a href="#display-relevant-github-or-resume-page-since-v1-3">5.10. Display relevant Github or resume page. (Since v1.3)</a></li>
-<li><a href="#add-and-match-job-postings-to-candidates-since-v1-3">5.11. Add and match job postings to candidates. [Since v1.3]</a></li>
-<li><a href="#theming-mechanism-since-v1-3">5.12. Theming Mechanism [since v1.3]</a></li>
-<li><a href="#interview-management-since-v1-5rc">5.13. Interview Management (Since v1.5rc)</a></li>
+<li><a href="#auto-correct-and-auto-complete">5.11. Auto-correct and Auto-complete</a></li>
+<li><a href="#job-postings-since-v1-3">5.12. Job Postings [Since v1.3]</a></li>
+<li><a href="#theming-mechanism-since-v1-3">5.13. Theming Mechanism [since v1.3]</a></li>
+<li><a href="#interview-management-since-v1-5rc">5.14. Interview Management (Since v1.5rc)</a></li>
 </ul>
 </li>
 <li><a href="#documentation">6. Documentation</a>
@@ -156,9 +157,6 @@ Jump to the <a href="#setting-up">Setting up</a> section to get started. Enjoy!<
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section provides step-by-step instructions to set up Infinity Book for development on your computer.<br></p>
-</div>
-<div class="paragraph">
-<p><a href="#top">Back to top</a></p>
 </div>
 <div class="sect2">
 <h3 id="prerequisites"><a class="link" href="#prerequisites">3.1. Prerequisites</a></h3>
@@ -718,6 +716,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="content">
 <img src="images/UndoRedoStartingStackDiagram.png" alt="UndoRedoStartingStackDiagram" width="800">
 </div>
+<div class="title">Figure 11. UndoRedo stack at the start.</div>
 </div>
 <div class="paragraph">
 <p>As the user continues to use the program, more commands are added into the <code>undoStack</code>. For example, the user may execute <code>add n/David &#8230;&#8203;</code> to add a new person.</p>
@@ -726,6 +725,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="content">
 <img src="images/UndoRedoNewCommand1StackDiagram.png" alt="UndoRedoNewCommand1StackDiagram" width="800">
 </div>
+<div class="title">Figure 12. Undo Redo stack showing add command.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -749,6 +749,7 @@ If a command fails its execution, it will not be pushed to the <code>UndoRedoSta
 <div class="content">
 <img src="images/UndoRedoExecuteUndoStackDiagram.png" alt="UndoRedoExecuteUndoStackDiagram" width="800">
 </div>
+<div class="title">Figure 13. UndoRedo stack demonstration</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -769,6 +770,7 @@ If the <code>undoStack</code> is empty, then there are no other commands left to
 <div class="content">
 <img src="images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
 </div>
+<div class="title">Figure 14. Sequence diagram for the undo operation.</div>
 </div>
 <div class="paragraph">
 <p>The redo does the exact opposite (pops from <code>redoStack</code>, push to <code>undoStack</code>, and restores the Infinity Book to the state after the command is executed).</p>
@@ -792,6 +794,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="content">
 <img src="images/UndoRedoNewCommand2StackDiagram.png" alt="UndoRedoNewCommand2StackDiagram" width="800">
 </div>
+<div class="title">Figure 15. UndoRedo stack showing Redo operation.</div>
 </div>
 <div class="paragraph">
 <p>Commands that are not undoable are not added into the <code>undoStack</code>. For example, <code>list</code>, which inherits from <code>Command</code> rather than <code>UndoableCommand</code>, will not be added after execution:</p>
@@ -800,6 +803,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="content">
 <img src="images/UndoRedoNewCommand3StackDiagram.png" alt="UndoRedoNewCommand3StackDiagram" width="800">
 </div>
+<div class="title">Figure 16. UndoRedo stack showing no changes due to Commands that are not undoable.</div>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarize what happens inside the <code>UndoRedoStack</code> when a user executes a new command:</p>
@@ -808,6 +812,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="content">
 <img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
 </div>
+<div class="title">Figure 17. Activity Diagram for Undo and Redo operations</div>
 </div>
 </div>
 <div class="sect3">
@@ -1253,9 +1258,7 @@ args = argWithOption.getArgs();
 <div class="content">
 <img src="images/report_model.jpg" alt="report model" width="700">
 </div>
-</div>
-<div class="paragraph">
-<p>Figure 9. Report as a part in the structure of Model Component of Infinity Book</p>
+<div class="title">Figure 18. Report as a part in the structure of Model Component of Infinity Book</div>
 </div>
 <div class="paragraph">
 <p><strong>Calculating statistics:</strong></p>
@@ -1316,9 +1319,7 @@ This instance can be re-calculated via method <code>updateReport()</code> (imple
 <div class="content">
 <img src="images/ReportStorageDiagram.jpg" alt="ReportStorageDiagram" width="700">
 </div>
-</div>
-<div class="paragraph">
-<p>Figure 10. <code>XmlAdaptedReport</code> in the structure of Storage Component of Infinity Book.</p>
+<div class="title">Figure 19. <code>XmlAdaptedReport</code> in the structure of Storage Component of Infinity Book.</div>
 </div>
 <div class="paragraph">
 <p>One example of <code>Report</code> details stored in xml file:</p>
@@ -1363,9 +1364,7 @@ This instance can be re-calculated via method <code>updateReport()</code> (imple
 <div class="content">
 <img src="images/ViewReportDiagram.jpg" alt="ViewReportDiagram" width="700">
 </div>
-</div>
-<div class="paragraph">
-<p>Figure. Interactions Inside the Logic Component for the <code>viewreport pop/CS</code> Command</p>
+<div class="title">Figure 20. Interactions Inside the Logic Component for the <code>viewreport pop/CS</code> Command</div>
 </div>
 </div>
 <div class="sect4">
@@ -1378,9 +1377,7 @@ We achieve this by posting <code>ToggleReportPanelEvent</code> (showing in the b
 <div class="content">
 <img src="images/EventInteraction.jpg" alt="EventInteraction" width="700">
 </div>
-</div>
-<div class="paragraph">
-<p>Figure. Posting event when we execute Report commands.</p>
+<div class="title">Figure 21. Posting event when we execute Report commands.</div>
 </div>
 <div class="paragraph">
 <p>The <code>EventsCenters</code> then handles this <code>Event</code> and then triggers the update of <code>Report</code> instance (as shown in the below seqence diagram).</p>
@@ -1389,9 +1386,7 @@ We achieve this by posting <code>ToggleReportPanelEvent</code> (showing in the b
 <div class="content">
 <img src="images/ComponentInteractions.jpg" alt="ComponentInteractions" width="700">
 </div>
-</div>
-<div class="paragraph">
-<p>Figure. Update <code>Report</code> instance after the <code>ToggleReportPanelEvent</code> is posted</p>
+<div class="title">Figure 22. Update <code>Report</code> instance after the <code>ToggleReportPanelEvent</code> is posted</div>
 </div>
 </div>
 </div>
@@ -1510,18 +1505,441 @@ source, java]</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-and-match-job-postings-to-candidates-since-v1-3"><a class="link" href="#add-and-match-job-postings-to-candidates-since-v1-3">5.11. Add and match job postings to candidates. [Since v1.3]</a></h3>
+<h3 id="auto-correct-and-auto-complete"><a class="link" href="#auto-correct-and-auto-complete">5.11. Auto-correct and Auto-complete</a></h3>
 <div class="paragraph">
-<p>As there might be several candidates with varying suitability for a position, the reccruiter should be able to
-filter candidates by ability, location and some other basic filters.</p>
+<p>Infinity Book enhances the user&#8217;s interaction with the application, with built in auto-correct and auto-complete. Command
+words that are typed in are examined for spelling errors and completions upon <code>SPACE</code> and <code>TAB</code> press respectively.</p>
 </div>
 <div class="paragraph">
-<p>Jobs may be added through the command <code>postjob j/JOB TITLE s/SKILLS t/TAGS l/LOCATION</code> ,
-and then might be matched with candidates using index displayed in the panel. This is implemented
-through the command <code>matchjob INDEX</code>, which displays the suitable candidates in the person panel.</p>
+<p>To include completion and correction support for a new command, simply add it into commandDictionary in
+CommandCorrection#createDictionary() as shown in code snippet.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>public static void createDictionary() {
+        commandDictionary = new HashSet&lt;&gt;();
+
+        // .. add other command words
+        commandDictionary.add(PostJobCommand.COMMAND_WORD);
+}</pre>
+</div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">5.11.1. Design Considerations*</a></h4>
+<h4 id="auto-complete-implementation"><a class="link" href="#auto-complete-implementation">5.11.1. Auto-complete Implementation</a></h4>
+<div class="paragraph">
+<p>The user input is recorded in CommandBox, and upon <code>TAB</code> keypress, the CommandBox#navigateToCompletedCommand() method looks for command
+words containing the entered string as the first substring.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutocompleteActivityDiagram.png" alt="AutocompleteActivityDiagram" width="700">
+</div>
+<div class="title">Figure 23. This activity diagram demonstrates the high level behavior of the autocomplete feature.</div>
+</div>
+<div class="paragraph">
+<p>When CommandCorrection#updateSuggestionsList() method is called, it searches through all command words for suitable matches.</p>
+</div>
+<div class="paragraph">
+<p>When multiple matches are available, the <code>TAB</code> keypress is counted, and the command box cycles through all suggestions. When no suggestions are available, the existing
+text is left unchanged.</p>
+</div>
+<div class="paragraph">
+<p>Since the text in the command box is altered with each <code>TAB</code> press, a brief history is maintained containing the most recent suggestion
+made by auto-complete and original user input. Here, the user has pressed the <code>TAB</code> key multiple times, but expects completions based on his input, not the recent suggestion that fills the command box.</p>
+</div>
+<div class="paragraph">
+<p>The following code snipped demonstrates the use of the suggestion history to choose the text to complete.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    public static String updateTextToComplete(String textToComplete) {
+        if (textToComplete.compareTo(recentSuggestion.trim()) == 0) {
+            return recentInput;
+        } else {
+            return textToComplete;
+        }
+    }</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="auto-correct-implementation"><a class="link" href="#auto-correct-implementation">5.11.2. Auto-correct Implementation</a></h4>
+<div class="paragraph">
+<p>Auto-correct searches command word input for potential one edit distance errors, including missed,swapped and stray characters.</p>
+</div>
+<div class="paragraph">
+<p>Two details about the implementation are noteworthy:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>For seamless background operation, command words that are not recognized are automatically analysed for spelling errors on <code>SPACE</code> key press.</p>
+</li>
+<li>
+<p>In cases where commands with spell errors are copy-pasted into the command box, <code>SPACE</code> key press separates the command word from arguments, and corrects the command word without altering the rest of the command.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Upon being triggered, CommandBox#navigateToLikelyInput() method returns the likely correction using the mentioned heuristics.</p>
+</div>
+<div class="paragraph">
+<p>When multiple suggestions are available, corrections obtained by removing stray character, and adding missing character are prioritized, in that order. This is in line with
+belief that these are the most common kinds of errors.</p>
+</div>
+<div class="paragraph">
+<p>The following code snippet demonstrates this ability clearly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>   public static String extractCommandWord(String commandText) {
+           String trimmedCommandText = commandText.trim();
+           String[] wordsInCommandText = trimmedCommandText.split(" ");
+           commandParameters = trimmedCommandText.replace(wordsInCommandText[0], "");
+           return wordsInCommandText[0];
+       }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="#top">Back to top</a></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="job-postings-since-v1-3"><a class="link" href="#job-postings-since-v1-3">5.12. Job Postings [Since v1.3]</a></h3>
+<div class="paragraph">
+<p>Recruiters may have several job openings available with varying required skills, location and tags. These are represented in the Infinity
+Book as Job Postings. Job postings may be added or removed at any time. Existing job postings can be listed, searched, edited and deleted.
+Any existing job postings may be matched with the list of candidates to filter potential matches.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-specifics"><a class="link" href="#implementation-specifics">5.12.1. Implementation Specifics</a></h4>
+<div class="sect4">
+<h5 id="model-component-2"><a class="link" href="#model-component-2">Model Component</a></h5>
+<div class="paragraph">
+<p>Job postings are maintained in the Model in a UniqueJobList, enforcing uniqueness among the stored individual job postings.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UniqueJobListUML.png" alt="UniqueJobListUML" width="300">
+</div>
+<div class="title">Figure 24. UML diagram showing representation of UniqueJobList in Infinity Book.</div>
+</div>
+<div class="paragraph">
+<p>Individual job postings are represented by the Job object with attributes <code>Job Title</code>, <code>Location</code>, <code>Skills</code> and <code>Tags</code>. The class relationship is shown
+in Figure <em>{num}</em> .</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/JobUMLDiagram.png" alt="JobUMLDiagram" width="400">
+</div>
+<div class="title">Figure 25. UML diagram showing representation of Job in Infinity Book.</div>
+</div>
+<div class="paragraph">
+<p>In addition, the Person and Job class have been modified to maintain Skills as an additional field to offer better functionality
+during candidate-job matching. The <code>add</code> and <code>edit</code> commands reflect these changes as well.</p>
+</div>
+<div class="paragraph">
+<p>Together, this modifies the Model to the state shown in the following diagram.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ModelWithJobUML.png" alt="ModelWithJobUML" width="700">
+</div>
+<div class="title">Figure 26. A complete picture of the model as mantained by Infinity Book.</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="storage-component-2"><a class="link" href="#storage-component-2">Storage Component</a></h5>
+<div class="paragraph">
+<p>Job postings are stored in <code>XmlAdaptedJob</code> objects, which maintain a class relationship as shown in this diagram.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/JobStorageDiagram.png" alt="JobStorageDiagram" width="700">
+</div>
+<div class="title">Figure 27. Job objects are saved using XmlAdaptedJob objects as shown above.</div>
+</div>
+<div class="paragraph">
+<p>An example job stored in this format is reproduced below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;jobs&gt;
+        &lt;jobTitle&gt;Backend Engineer&lt;/jobTitle&gt;
+        &lt;location&gt;Geylang&lt;/location&gt;
+        &lt;skills&gt;Java,SQL&lt;/skills&gt;
+        &lt;tagged&gt;SEIntern&lt;/tagged&gt;
+        &lt;tagged&gt;ATAP&lt;/tagged&gt;
+&lt;/jobs&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="ui-component-2"><a class="link" href="#ui-component-2">UI Component</a></h5>
+<div class="paragraph">
+<p>The main window contains a JobListPanel, which contains individual jobs represented using JobListCards.
+JobListCards represent the fields in each Job using Labels and flowPanes.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="job-operations-and-logic"><a class="link" href="#job-operations-and-logic">Job Operations and Logic</a></h5>
+<div class="paragraph">
+<p>Operations performed on jobs follow the sequence of operations described in the diagram below.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Command input is received by the UI component.</p>
+</li>
+<li>
+<p>The command execution is handled by the Logic component.</p>
+</li>
+<li>
+<p>The changes to data are effected by the Model component.</p>
+</li>
+<li>
+<p>The new Infinity Book data is saved by the Storage component.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This sequence of events is summarized in the following sequence diagram.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SequenceDiagramJobPosting.png" alt="SequenceDiagramJobPosting" width="700">
+</div>
+<div class="title">Figure 28. A high level sequence diagram showing events triggered by the <code>postjob</code> command.</div>
+</div>
+<div class="paragraph">
+<p>The following job posting commands are implemented extending <code>UndoableCommand</code> and <code>Command</code>:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">extends <code>UndoableCommand</code></th>
+<th class="tableblock halign-left valign-top">extends <code>Command</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PostJobCommand</code><br>
+ <code>EditJobCommand</code><br>
+ <code>DeleteJobCommand</code><br>
+ <code>MatchJobCommand</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ListJobCommand</code><br>
+  <code>FindJobCommand</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following diagram details the class relationship for Commands.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CommandsStructure.png" alt="CommandsStructure" width="300">
+</div>
+<div class="title">Figure 29. UML Diagram depicting the class relationship between command classes.</div>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Adding Job Postings</strong></p>
+</div>
+<div class="paragraph">
+<p>Adding job postings to Infinity Book is performed by the PostJobCommand. The sequence of events triggered while adding a job posting are shown in the diagram below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/PostJobCommandSequenceDiagram.png" alt="PostJobCommandSequenceDiagram" width="700">
+</div>
+<div class="title">Figure 30. Adding a job posting is executed as shown above.</div>
+</div>
+<div class="paragraph">
+<p>The PostJobCommand#executeUndoableCommand triggers addition of the Job to <code>UniqueJobList</code> in AddressBook#add
+The following code snippet demonstrates the prevention of duplicates in the UniqueJobList</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    public void add(Job toAdd) throws DuplicateJobException {
+        requireNonNull(toAdd);
+        if (contains(toAdd)) {
+            throw new DuplicateJobException();
+        }
+        internalList.add(toAdd);
+    }</pre>
+</div>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Editing Job Postings</strong></p>
+</div>
+<div class="paragraph">
+<p>Editing job postings in the Infinity Book is performed by the EditJobCommand. The sequence of events triggered while editing a job posting are shown in the diagram below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditJobCommandSequenceDiagram.png" alt="EditJobCommandSequenceDiagram" width="700">
+</div>
+<div class="title">Figure 31. Editing a job posting is executed as shown above.</div>
+</div>
+<div class="paragraph">
+<p>The EditJobCommand#executeUndoableCommand triggers editing of a existing Job in <code>UniqueJobList</code> in AddressBook#add
+The <code>EditJobCommand</code> ensures that the index specified refers to a valid index in the most recent listing of jobs.
+Editing jobs to cause duplicates in the UniqueJobList is prevented by throwing a DuplicateJobException.</p>
+</div>
+<div class="paragraph">
+<p>The following code snippet demonstrates the prevention of duplicates and index checking in the UniqueJobList after editing</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    public void setJob(Job target, Job editedJob) throws DuplicateJobException, JobNotFoundException {
+        requireNonNull(editedJob);
+
+        int index = internalList.indexOf(target);
+        if (index == -1) {
+            throw new JobNotFoundException();
+        }
+
+        if (!target.equals(editedJob) &amp;&amp; internalList.contains(editedJob)) {
+            throw new DuplicateJobException();
+        }
+
+        internalList.set(index, editedJob);
+    }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To completely specify the changes to the Job object specified by EditJobCommand, an EditJobCommandDescriptor is parsed from the command, and used to update changes in the Model. Completing
+these operations ensures the new Job object is updated in the Infinity Book.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Delete Job Postings</strong></p>
+</div>
+<div class="paragraph">
+<p>Deleting job postings in the Infinity Book is performed by the DeleteJobCommand. The sequence of events triggered while deleting a job posting are shown in the diagram below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteJobCommandSequenceDiagram.png" alt="DeleteJobCommandSequenceDiagram" width="700">
+</div>
+<div class="title">Figure 32. Deleting a job posting is executed as shown above.</div>
+</div>
+<div class="paragraph">
+<p>The DeleteJobCommand selects a Job object by matching the index with the last shown job list, and checks the index as shown in the following code snippet.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre> protected void preprocessUndoableCommand() throws CommandException {
+        List&lt;Job&gt; lastShownList = model.getFilteredJobList();
+
+        if (targetIndex.getZeroBased() &gt;= lastShownList.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_JOB_DISPLAYED_INDEX);
+        }
+
+        jobToDelete = lastShownList.get(targetIndex.getZeroBased());</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The changes to the UniqueJobList are enacted by AddressBook#removeJob, which completes the removal of the object and triggers Storage to update the data.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Matching Job Postings</strong></p>
+</div>
+<div class="paragraph">
+<p>Matching job postings to candidates in the Infinity Book is performed by the MatchJobCommand.</p>
+</div>
+<div class="paragraph">
+<p>The sequence of events triggered while matching a job posting are shown in the diagram below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/matchJobSequenceDiagram.png" alt="matchJobSequenceDiagram" width="700">
+</div>
+<div class="title">Figure 33. <code>matchjob</code> uses predicate based filtering similar to <code>findjob</code> and <code>listjobs</code></div>
+</div>
+<div class="paragraph">
+<p>The MatchJobCommand selects a Job object by matching the index with the last shown job list. A PersonMatchesJobPredicate is used to find matches, by looking for matches between tags, location and skills fields of the Job and Person.</p>
+</div>
+<div class="paragraph">
+<p>Search parameters can be excluded from search when they are set to 'ALL'. Under these circumstances only the other parameters will influence the search.</p>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows how Location can be excluded from the search. Other two parameters are handles similarly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>public boolean test(Person person) {
+
+        // .. code to set up and assign locationMatch, skillsMatch and tagsMatch
+
+        locationMatch = isLocationMatchSatisfied(locationMatch);
+        //.. similarly for skillsMatch and tagsMatch
+
+        return locationMatch &amp;&amp; skillsMatch &amp;&amp; tagsMatch;
+ }
+
+ private boolean isLocationMatchSatisfied(boolean locationMatch) {
+         if (notLocationBound) {
+             locationMatch = true;
+         }
+         return locationMatch;
+ }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The PersonListPanel is populated with a list of candidates who match the job according to the set parameters.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Listing Job Postings</strong></p>
+</div>
+<div class="paragraph">
+<p>Listing all job postings in the Infinity Book is performed by the FindJobCommand. The sequence of events triggered while listing all job postings are shown in the diagram below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/listjobcommandSequenceDiagram.png" alt="listjobcommandSequenceDiagram" width="700">
+</div>
+<div class="title">Figure 34. Sequence diagram above shows the sequence of events triggered on execution of <code>listjobs</code></div>
+</div>
+<div class="paragraph">
+<p>The ListJobCommand selects displays all Job objects from UniqueJobList in the JobListPanel.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Finding Job Postings</strong></p>
+</div>
+<div class="paragraph">
+<p>Finding job postings by keywords in the Infinity Book is performed by the FindJobCommand. The sequence of events triggered while finding a job posting are extremely similar to listing all job postings as in Figure above, differing only in the specifics of the predicate used.</p>
+</div>
+<div class="paragraph">
+<p>The FindJobCommand selects Job objects to display by matching the keyword with the Job Title, Location or Tags, and lists all matches in the JobListPanel.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">5.12.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of additional Skill parameter for Person and Job<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> Maintain skills as list of strings.<br>
+<strong>Pros:</strong> Allows recruiter freedom in creating a skills list as they need.<br>
+<strong>Cons:</strong> Searching requires complex string operations. Duplicates of the same skill will be found under different persons.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Maintain a UniqueSkillsList similar to tags.<br>
+<strong>Pros:</strong> Different candidates with similar skills will utilize the same object.<br>
+<strong>Cons:</strong> The list of skills must be synchronized with both person list and job list, removing any skills that are not used by both.</p>
+</div>
+<hr>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of Job-Person Matching<br></p>
 </div>
@@ -1531,14 +1949,17 @@ through the command <code>matchjob INDEX</code>, which displays the suitable can
 <strong>Cons:</strong> May not provide effective filtering.<br></p>
 </div>
 <div class="paragraph">
-<p><strong>Alternative 2:</strong> Indicate required and optional matches in job posting expected in v1.4<br>
+<p><strong>Alternative 2:</strong> Indicate required and optional matches in job posting.<br>
 <strong>Pros:</strong> Search can be customized to be as accurate as required.<br>
 <strong>Cons:</strong> Spelling differences may still cause diminished effectiveness.</p>
+</div>
+<div class="paragraph">
+<p><a href="#top">Back to top</a></p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="theming-mechanism-since-v1-3"><a class="link" href="#theming-mechanism-since-v1-3">5.12. Theming Mechanism [since v1.3]</a></h3>
+<h3 id="theming-mechanism-since-v1-3"><a class="link" href="#theming-mechanism-since-v1-3">5.13. Theming Mechanism [since v1.3]</a></h3>
 <div class="paragraph">
 <p>The theme mechanism is facilitated by a singleton class <code>UiStyle</code> which will be called inside the <code>MainWindow</code> constructor where it passes its <code>scene</code> into the <code>UiStyle</code> class.
 The <code>scene</code> is necessary for changing the CSS at runtime.</p>
@@ -1581,7 +2002,7 @@ The <code>scene</code> is necessary for changing the CSS at runtime.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">5.12.1. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">5.13.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Ways to change the application theme<br>
 <strong>Alternative 1 (current choice):</strong> Use a dedicated singleton class <code>UiStyle</code> to change the theme<br>
@@ -1594,7 +2015,7 @@ The <code>scene</code> is necessary for changing the CSS at runtime.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="interview-management-since-v1-5rc"><a class="link" href="#interview-management-since-v1-5rc">5.13. Interview Management (Since v1.5rc)</a></h3>
+<h3 id="interview-management-since-v1-5rc"><a class="link" href="#interview-management-since-v1-5rc">5.14. Interview Management (Since v1.5rc)</a></h3>
 <div class="paragraph">
 <p>Interviewing is one of the important steps in recruiting process.
 HR may need a tool to manage interview efficiently. The Infinity Book will
@@ -1632,7 +2053,7 @@ interview, and deleting interview.</p>
 <p>Figure 5.13.2 add XmlAdaptedInterview to Storage Component</p>
 </div>
 <div class="sect3">
-<h4 id="adding-an-interview"><a class="link" href="#adding-an-interview">5.13.1. Adding an interview</a></h4>
+<h4 id="adding-an-interview"><a class="link" href="#adding-an-interview">5.14.1. Adding an interview</a></h4>
 <div class="paragraph">
 <p>The recruiter may want to conduct an interview with candidates, and maintain
 an interview lists.</p>
@@ -1684,7 +2105,7 @@ storage in model.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-interview"><a class="link" href="#list-interview">5.13.2. List interview</a></h4>
+<h4 id="list-interview"><a class="link" href="#list-interview">5.14.2. List interview</a></h4>
 <div class="paragraph">
 <p>The recruiter may want to take a look at all of the interviews.</p>
 </div>
@@ -1730,7 +2151,7 @@ and call ListInterviewCommand.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-interview"><a class="link" href="#deleting-interview">5.13.3. Deleting Interview</a></h4>
+<h4 id="deleting-interview"><a class="link" href="#deleting-interview">5.14.3. Deleting Interview</a></h4>
 <div class="paragraph">
 <p>After conducted interview, the HR may want to delete the interview from the Infinity Book.</p>
 </div>
@@ -1837,7 +2258,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 11. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 35. Saving documentation as PDF files in Chrome</div>
 </div>
 <div class="paragraph">
 <p><a href="#top">Back to top</a></p>
@@ -3548,7 +3969,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 06:32:14 UTC
+Last updated 2018-04-15 07:34:16 UTC
 </div>
 </div>
 </body>

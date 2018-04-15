@@ -30,7 +30,12 @@
 <li><a href="#CommandLine">4. Command Line</a>
 <ul class="sectlevel2">
 <li><a href="#command-format">4.1. Command Format</a></li>
-<li><a href="#auto-complete-and-auto-correct">4.2. Auto-complete and auto-correct</a></li>
+<li><a href="#auto-complete-and-auto-correct">4.2. Auto-complete and auto-correct</a>
+<ul class="sectlevel3">
+<li><a href="#auto-complete">4.2.1. Auto-complete</a></li>
+<li><a href="#auto-correct">4.2.2. Auto-correct</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#Features">5. Features</a>
@@ -60,12 +65,14 @@
 <li><a href="#saving-a-report-code-savereport-code-or-code-sr-code-since-v1-4">5.3.2. Saving a report : <code>savereport</code> or <code>sr</code> [Since v1.4]</a></li>
 </ul>
 </li>
-<li><a href="#managing-job-postings">5.4. Managing Job Postings</a>
+<li><a href="#job-postings">5.4. Job Postings</a>
 <ul class="sectlevel3">
-<li><a href="#post-job-command">5.4.1. Post Job Command</a></li>
-<li><a href="#match-job-command">5.4.2. Match Job Command</a></li>
-<li><a href="#edit-job-command">5.4.3. Edit Job Command</a></li>
-<li><a href="#delete-job-command">5.4.4. Delete Job Command</a></li>
+<li><a href="#add-job-posting">5.4.1. Add Job Posting</a></li>
+<li><a href="#edit-job-command">5.4.2. Edit Job Command</a></li>
+<li><a href="#delete-job-command">5.4.3. Delete Job Command</a></li>
+<li><a href="#match-job-command">5.4.4. Match Job Command</a></li>
+<li><a href="#listing-all-jobs-code-listjobs-code">5.4.5. Listing all jobs : <code>listjobs</code></a></li>
+<li><a href="#finding-jobs-by-job-title-location-and-tags-code-findjob-code">5.4.6. Finding jobs by Job Title, Location, and tags: <code>findjob</code></a></li>
 </ul>
 </li>
 <li><a href="#managing-interview">5.5. Managing Interview</a>
@@ -265,30 +272,27 @@ Other basic example commands are shown here:</p>
 </div>
 <div class="sect2">
 <h3 id="auto-complete-and-auto-correct"><a class="link" href="#auto-complete-and-auto-correct">4.2. Auto-complete and auto-correct</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Spell corrects and completes command words being typed into Infinity Book<br></p>
-</li>
-<li>
-<p><kbd>TAB</kbd> key auto-completes a partial command word and <kbd>SPACE</kbd> autocorrects an incorrect command word spelling.</p>
-</li>
-<li>
-<p><strong>Example:</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>li</code> + <kbd>TAB</kbd> key press<br>
-Completes to command word to <code>list</code></p>
-</li>
-<li>
-<p><code>lsit</code> + <kbd>SPACE</kbd> key press<br>
-Corrects command word to <code>list</code>.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>To enhance your experience with the Command Line Interface(CLI), Infinity Book comes with built in auto-correct and auto-complete. This section explains
+how you can use these features to speed up your CLI experience.</p>
 </div>
+<div class="sect3">
+<h4 id="auto-complete"><a class="link" href="#auto-complete">4.2.1. Auto-complete</a></h4>
+<div class="paragraph">
+<p>Auto completes command words being typed into Infinity Book<br></p>
+</div>
+<div class="paragraph">
+<p>To auto-complete a command word:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type in atleast the first character of your command word.</p>
 </li>
-</ul>
+<li>
+<p>Press <kbd>TAB</kbd> until your desired command word appears in the command box.</p>
+</li>
+</ol>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -297,19 +301,119 @@ Corrects command word to <code>list</code>.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
+Entered text must match (case sensitive) the start of the desired command.<br>
+If no matches are available, no change is made to the input text.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Auto-correct only corrects one edit distance errors.</p>
+<p><code>li</code> + <kbd>TAB</kbd> : Completes command word to <code>list</code>.</p>
 </li>
 <li>
-<p>When completions are available, use <code>TAB</code> to toggle through options.</p>
+<p><code>LI</code> + <kbd>TAB</kbd>  : Reports no completions found.</p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Use <kbd>TAB</kbd> repeatedly to loop through the list as many times as you need.</p>
 </div>
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="auto-correct"><a class="link" href="#auto-correct">4.2.2. Auto-correct</a></h4>
+<div class="paragraph">
+<p>Auto correct spell checks command words being typed into Infinity Book.<br></p>
+</div>
+<div class="paragraph">
+<p>To auto-correct a command word:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Entered text must be within one edit-distance of the desired command.<br>
+If no corrections are available, no change is made to the input text.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type in a possibly incorrect version of the command word.</p>
+</li>
+<li>
+<p>Press <kbd>SPACE</kbd> and watch the command word auto-corrected immediately.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If a copy-pasted command may contain a spelling error in the command word, press <kbd>SPACE</kbd> to
+correct the command word without affecting the argumets entered.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>lsit</code> +  <kbd>SPACE</kbd> : Corrects command word to <code>list</code>.</p>
+</li>
+<li>
+<p><code>lit</code> +   <kbd>SPACE</kbd> : Corrects command word to <code>list</code>.</p>
+</li>
+<li>
+<p><code>liist</code> + <kbd>SPACE</kbd> : Corrects command word to <code>list</code>.</p>
+</li>
+<li>
+<p><code>lllist</code> + <kbd>SPACE</kbd> : Does not make any correction.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>While copy pasting commands with spelling errors, the <kbd>SPACE</kbd> key will not be available for use to insert spaces in the command while editing.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -1078,7 +1182,7 @@ If you provide multiple <code>POPULATION_TAG</code>, Infinity Book will take the
 </div>
 </div>
 <div class="sect2">
-<h3 id="managing-job-postings"><a class="link" href="#managing-job-postings">5.4. Managing Job Postings</a></h3>
+<h3 id="job-postings"><a class="link" href="#job-postings">5.4. Job Postings</a></h3>
 <div class="paragraph">
 <p>In line with the vision of offering end to end support, Infinity Book offers recruiters a very efficient way to keep track of job vacancies and match candidates to these positions.<br></p>
 </div>
@@ -1086,7 +1190,7 @@ If you provide multiple <code>POPULATION_TAG</code>, Infinity Book will take the
 <p>This section details commands for managing job postings.</p>
 </div>
 <div class="sect3">
-<h4 id="post-job-command"><a class="link" href="#post-job-command">5.4.1. Post Job Command</a></h4>
+<h4 id="add-job-posting"><a class="link" href="#add-job-posting">5.4.1. Add Job Posting</a></h4>
 <div class="paragraph">
 <p>Want to add a newly available job vacancy to IB and match candidates to this role? Add a job posting using the <code>postjob</code> command.</p>
 </div>
@@ -1110,46 +1214,28 @@ Job postings are matched to candidates on the basis of location, skills and tags
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/postjob.JPG" alt="postjob" width="500">
+<img src="images/postjob.JPG.png" alt="postjob.JPG" width="500">
 </div>
 </div>
 <div class="paragraph">
-<p>Figure : PostJob Command adds Jobs into a new pane as shown.</p>
+<p>Figure : PostJob Command adds Jobs into the Job Postings panel as shown.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="match-job-command"><a class="link" href="#match-job-command">5.4.2. Match Job Command</a></h4>
-<div class="paragraph">
-<p>To match an existing job posting to potential candidates, use the <code>matchjob</code> command to filter out candidates for the chosen job.</p>
-</div>
-<div class="paragraph">
-<p>Job matching is done on the basis of location, skills and tags. To disregard a parameter during matching, set it to 'ALL' using <code>postjob</code> or <code>editjob</code>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Format:</strong> <code>matchjob INDEX</code></p>
-</div>
-<div class="paragraph">
-<p><strong>Example:</strong> <code>matchjob 1</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/matchJob.JPG" alt="matchJob" width="500">
-</div>
-</div>
-<div class="paragraph">
-<p>Figure : MatchJob command filters the Candidates as per Job, as shown above.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="edit-job-command"><a class="link" href="#edit-job-command">5.4.3. Edit Job Command</a></h4>
+<h4 id="edit-job-command"><a class="link" href="#edit-job-command">5.4.2. Edit Job Command</a></h4>
 <div class="paragraph">
 <p>Want to change the parameters of a job after creating? IB provides the flexibility to edit an existing job posting through the <code>editjob</code> command.</p>
 </div>
 <div class="paragraph">
-<p><strong>Format:</strong> ` editjob INDEX [j/JOBTITLE] [l/LOCATION] [s/SKILLS] [t/TAG]`</p>
+<p><strong>Format:</strong> ` editjob [-add-tag/-delete-tag] INDEX [j/JOBTITLE] [l/LOCATION] [s/SKILLS] [t/TAG]`</p>
 </div>
 <div class="paragraph">
-<p><strong>Examples:</strong> ` editjob 1 j/Backend Engineer l/Singapore`</p>
+<p>Specifying -add-tag or -delete-tag causes editjob command to specifically add or delete the specified tag for the index specified tag. If unspecified, the tag list is over-written
+by the newly specified set of tags. This implementation mirrors the edit command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Examples:</strong> <code>editjob 1 j/Backend Engineer l/Singapore</code><br>
+<code>editjob 1 -delete-tag j/Backend Engineer l/Singapore</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1165,18 +1251,15 @@ At least one field must be provided for the edit command to function as expected
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/editjob.JPG" alt="editjob" width="500">
+<img src="images/editjob.JPG.png" alt="editjob.JPG" width="500">
 </div>
 </div>
 <div class="paragraph">
-<p>Figure : <code>editjob</code> edits the first job posting from Figure as shown.</p>
-</div>
-<div class="paragraph">
-<p><em>{Enter the figure number in the Figure description above.}</em></p>
+<p>Figure : <code>editjob</code> edits the first job posting as marked in diagram.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-job-command"><a class="link" href="#delete-job-command">5.4.4. Delete Job Command</a></h4>
+<h4 id="delete-job-command"><a class="link" href="#delete-job-command">5.4.3. Delete Job Command</a></h4>
 <div class="paragraph">
 <p>Remove a job posting from Infinity Book using the index from latest listing.</p>
 </div>
@@ -1188,7 +1271,7 @@ At least one field must be provided for the edit command to function as expected
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/deletejob.JPG" alt="deletejob" width="500">
+<img src="images/deletejob.JPG.png" alt="deletejob.JPG" width="500">
 </div>
 </div>
 <div class="paragraph">
@@ -1207,6 +1290,86 @@ At least one field must be provided for the edit command to function as expected
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="match-job-command"><a class="link" href="#match-job-command">5.4.4. Match Job Command</a></h4>
+<div class="paragraph">
+<p>To match an existing job posting to potential candidates, use the <code>matchjob</code> command to filter out candidates for the chosen job.</p>
+</div>
+<div class="paragraph">
+<p>Job matching is done on the basis of location, skills and tags. To disregard a parameter during matching, set it to 'ALL' using <code>postjob</code> or <code>editjob</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong> <code>matchjob INDEX</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong> <code>matchjob 1</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/matchJob.JPG.png" alt="matchJob.JPG" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure : MatchJob command filters the Candidates as per Job, as shown above.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-jobs-code-listjobs-code"><a class="link" href="#listing-all-jobs-code-listjobs-code">5.4.5. Listing all jobs : <code>listjobs</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description:</strong> Shows a list of all jobs posted in the Infinity Book.<br></p>
+</li>
+<li>
+<p><strong>Format:</strong> <code>listjobs</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-jobs-by-job-title-location-and-tags-code-findjob-code"><a class="link" href="#finding-jobs-by-job-title-location-and-tags-code-findjob-code">5.4.6. Finding jobs by Job Title, Location, and tags: <code>findjob</code></a></h4>
+<div class="paragraph">
+<p>Finds jobs whose job titles, locations, or tags contain any of the given keywords.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong> <code>find KEYWORD [MORE_KEYWORDS]</code><br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>backend</code> will match <code>Backend</code>.</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Engineer Backend</code> will match <code>Backend Engineer</code>.</p>
+</li>
+<li>
+<p>Only job&#8217;s title, location and tags are searched.</p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Eng</code> will not match <code>Engineer</code>.</p>
+</li>
+<li>
+<p>Jobs matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Engineer</code> will return <code>Backend Engineer</code>, <code>Frontend Engineer</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong> <code>findjob Backend Geylang</code><br>
+Returns <code>Backend Engineer</code>, <code>Frontend Engineer</code>, and <code>Backend Tester</code> whose job titles and locations match with the given keywords.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/findjob.png" alt="findjob" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure.</em> Job list after finding with keywords <code>backend</code> and <code>geylang</code>.</p>
 </div>
 </div>
 </div>
@@ -1638,7 +1801,7 @@ There is no need to save manually.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add Person</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/James Ho p/22224444 e/jamesho@example.com a/123,
  Clementi Rd, 1234665 t/friend t/colleague</code></p></td>
@@ -1646,8 +1809,12 @@ There is no need to save manually.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add Interview</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>addInterview i/INTERVIEW_TITLE n/INTERVIEWEE d/DATE l/INTERVIEW_LOCATION</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">`addInterview i/SE Interview n/David
-d/04.05.2018 l/Suntex City `</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">`addInterview i/SE Interview n/David</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add Job</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>postjob j/JOBTITLE l/LOCATION s/SKILLS [t/TAG]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>postjob j/Backend Engineer l/Singapore s/SQL, Javascript t/FreshGrad</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Clear</p></td>
@@ -1661,8 +1828,13 @@ d/04.05.2018 l/Suntex City `</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Delete Interview</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">`delete INDEX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">`deleteInterview INDEX</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteInterview 3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete Job</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletejob INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletejob 1</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Edit</p></td>
@@ -1670,9 +1842,19 @@ d/04.05.2018 l/Suntex City `</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit 2 n/James Lee e/jameslee@example.com</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add new tags to a person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit Job</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[j/JOBTITLE] [l/LOCATION] [s/SKILLS] [t/TAG]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editjob 1 j/Backend Engineer l/Singapore</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add tags to person</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit -add-tag INDEX [t/TAG]&#8230;&#8203;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit -add-tag 2 t/Computing</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add tags to job</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editjob -add-tag INDEX [t/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editjob -add-tag 2 t/Computing</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Delete tags from a person</p></td>
@@ -1690,6 +1872,11 @@ d/04.05.2018 l/Suntex City `</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>FindInterview David</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find Job</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findjob KEYWORD [MORE_KEYWORDS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findjob frontend backend systems</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Help</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
@@ -1700,9 +1887,19 @@ d/04.05.2018 l/Suntex City `</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List People</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List Jobs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listjobs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listjobs</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Match Job</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>matchjob INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>matchjob 2</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Redo</p></td>
@@ -1766,7 +1963,7 @@ d/04.05.2018 l/Suntex City `</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 06:32:14 UTC
+Last updated 2018-04-15 07:34:16 UTC
 </div>
 </div>
 </body>
