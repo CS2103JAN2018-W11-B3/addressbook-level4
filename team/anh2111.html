@@ -25,10 +25,7 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Infinity Book (IB) is an address book application for Tech recruiters who prefer to use a desktop app for managing candidates.</p>
-</div>
-<div class="paragraph">
-<p>IB provides end-to-end support, from searching for candidates,to adding job postings and saving their resumes and interviews.</p>
+<p>Infinity Book (IB) is an address book application for Tech recruiters, providing end-to-end support, from searching for candidates,to adding job postings and saving their resumes and interviews.</p>
 </div>
 </div>
 </div>
@@ -42,39 +39,17 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Description: Dashboard Reporting allows user to visualize statistics of the group of candidates tagged with a specific tag so that they can have an overview of candidates in their contact list within a few keystrokes.</p>
+<p>Recruiters may have to screen through one candidate&#8217;s profile many times, which costs time. Thus, I improved <code>edit</code>
+command so that recruiters can add new tags or remove current tags from candidates.
+This enables them to summarize each candidate in a few keywords to save time for their future reference.</p>
 </li>
 <li>
-<p>Justification: Infinity Book helps recruiters process candidate’s information faster. Aligning with this vision, I implemented two features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>First, recruiters may have to screen through one candidate&#8217;s profile many times, which costs time. Thus, I improved <code>edit</code> command so that recruiters can add new tags or remove current tags from candidates. This enables them to summarize each candidate in a few keywords to save time for their future reference.</p>
+<p>Recruiters need to make decisions based on candidates' information in their contact list.
+But their list is overwhelmingly long, so I implemented <code>Report</code> feature showing them statistics from Tags they have added
+so that recruiters can have an idea of what is happening without going through each record.</p>
 </li>
 <li>
-<p>Second, recruiters need to make decisions and understand actions they have to take based on candidates' information in their contact list. But their list is overwhelmingly long, so I implemented <code>Report</code> feature showing them statistics from Tags they have added so that recruiters can have an idea of what is happening without going through each record. And numbers may be boring, so I represented it in charts to give them a better visualization.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Highlights: This enhancement touches multiple components:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Added a new Report to the Model component to encapsulate report details.</p>
-</li>
-<li>
-<p>Modified Logic component to accept new commands and provide information needed to display the report on UI.</p>
-</li>
-<li>
-<p>Modified Storage component so that IB can store report persistently among sessions.</p>
-</li>
-<li>
-<p>Added a new panel to display the report and ensured this UI component updates whenever recruiters update candidate' information.</p>
-</li>
-</ul>
-</div>
+<p>Highlights: This enhancement touches multiple components: Model, Logic, Storage, and UI.</p>
 </li>
 </ul>
 </div>
@@ -83,9 +58,6 @@
 <p><strong>Minor enhancement</strong>: Improvement of <code>Find</code> command.</p>
 <div class="ulist">
 <ul>
-<li>
-<p>Previous Implementation: In the previous iteration of the product, <code>Find</code> only allows users to search by contacts' name.</p>
-</li>
 <li>
 <p>Since Infinity Book v1.2, recruiters can find candidates by their name, email, phone, and tags.</p>
 </li>
@@ -96,51 +68,20 @@
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: UI Overhaul.</p>
-</li>
-<li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-W11-B3/main/blob/master/collated/functional/anh2111.md">Functional code</a>]
-[<a href="https://github.com/CS2103JAN2018-W11-B3/main/blob/master/collated/test/anh2111.md">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-W11-B3/main/blob/master/collated/functional/anh2111.md">Functional code</a>][<a href="https://github.com/CS2103JAN2018-W11-B3/main/blob/master/collated/test/anh2111.md">Test code</a>]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
 <p>Did a UI overhaul to provide a sleek and visual appeal look that optimize for users' satisfaction and enjoyment. Infinity Book v1.5 uses this design as the default theme.</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase 4.9% coverage (Pull request 159: <a href="https://github.com/CS2103JAN2018-W11-B3/main/pull/159" class="bare">https://github.com/CS2103JAN2018-W11-B3/main/pull/159</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
 <p>Managed to wrapped up project properly on GitHub from v1.1 to v1.5</p>
 </li>
-</ul>
-</div>
-</li>
 <li>
-<p>Documentation:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Grouped features in User Guide to provide a more intuitive flow to the readers.</p>
-</li>
-<li>
-<p>Was responsible for updating Readme and UI screenshot to match with the actual product.</p>
-</li>
-</ul>
-</div>
+<p>Was responsible for updating Readme, UI screenshot, User Guide, Developer Guide to match with the actual product.</p>
 </li>
 <li>
 <p>Community:</p>
@@ -150,7 +91,7 @@
 <p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2103JAN2018-W11-B3/main/pull/58" class="bare">https://github.com/CS2103JAN2018-W11-B3/main/pull/58</a>, <a href="https://github.com/CS2103JAN2018-W11-B3/main/pull/140" class="bare">https://github.com/CS2103JAN2018-W11-B3/main/pull/140</a></p>
 </li>
 <li>
-<p>Reported bugs and suggestions for other teams in the class: <a href="https://github.com/CS2103JAN2018-F11-B2/main/issues/116#event-1568942469" class="bare">https://github.com/CS2103JAN2018-F11-B2/main/issues/116#event-1568942469</a>, <a href="https://github.com/CS2103JAN2018-F11-B2/main/issues/109#event-1571532062" class="bare">https://github.com/CS2103JAN2018-F11-B2/main/issues/109#event-1571532062</a></p>
+<p>Reported bugs and suggestions for other teams in the class: <a href="https://github.com/CS2103JAN2018-F11-B2/main/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+is%3Aclosed+anh2111+" class="bare">https://github.com/CS2103JAN2018-F11-B2/main/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+is%3Aclosed+anh2111+</a></p>
 </li>
 </ul>
 </div>
@@ -211,80 +152,7 @@ Aligning with this vision, Report feature offers you an easy way to get statisti
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>An example usage:</strong></p>
-</div>
-<div class="paragraph">
-<p>You are recruiting Software Engineering interns, and you want to keep track of the number of candidates in each stage:
-Screening, Interviewing, Offered, or Rejected. Given the a significant pool of applicants, this task is tedious, and
-our Report feature is a solution.  <br></p>
-</div>
-<div class="paragraph">
-<p>Using our Report with Population Tag <code>SEIntern</code>,<br></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>To ensure your team keeps up with deadlines, you can monitor the whole recruiting pipeline using Report bar chart.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/barchart.png" alt="barchart" width="400">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure.</em> Bar chart in <code>SEIntern</code> report<br>
-<em>Explanation:</em> there are 11 candidates tagged with <code>SEIntern</code> in which 5 of them are tagged with <code>Screening</code>, 3 of them
-are tagged with <code>Interviewing</code>, 1 of them is tagged with <code>Rejected</code>, and 2 of them are tagged with <code>Offered</code>.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>To see the progress of your interns recruitment, you can view percentages of candidates in each stage using Report pie chart.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/piechart.png" alt="piechart" width="400">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure.</em> Pie chart in <code>SEIntern</code> report<br>
-<em>Explanation:</em> there are 11 tags that candidates tagged with <code>SEIntern</code> has in total, and 45% of them are <code>Screening</code>,
-27% are <code>Interviewing</code>, 18% are <code>Offered</code>, and 9% are <code>Rejected</code>.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>To analyze your team&#8217;s productivity, you can track the speed at which tasks are done using the history list.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/history%20copy.png" alt="history copy" width="400">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure.</em> History list in <code>SEIntern</code> report<br>
-<em>Example in the firgure:</em> At 14:10:24 04/06/2018, there are 9 candidates tagged with <code>Screening</code> in Infinity Book,
-then at 16:36:55 04/12/2018, there are only 5 <code>Screening</code> candidates left.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Date format is in <strong>"hh/mm/ss mm/dd/yyyy""</strong>.</p>
-</div>
-</td>
-</tr>
-</table>
+<p>An example usage can be found in Appendices.</p>
 </div>
 <div class="sect3">
 <h4 id="viewing-a-report-code-viewreport-code-or-code-vr-code-since-v1-4"><a class="link" href="#viewing-a-report-code-viewreport-code-or-code-vr-code-since-v1-4">Viewing a report : <code>viewreport</code> or <code>vr</code> [Since v1.4]</a></h4>
@@ -303,9 +171,7 @@ Displays statistics for candidates tagged with <code>SEIntern</code>.</p>
 <div class="content">
 <img src="../images/viewreport.png" alt="viewreport" width="600">
 </div>
-</div>
-<div class="paragraph">
-<p><em>Figure.</em> Infinity Book has displayed Report with Population Tag <code>SEIntern</code> in the right-most column.</p>
+<div class="title">Figure 1. Infinity Book has displayed Report with Population Tag <code>SEIntern</code> in the right-most column.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -335,7 +201,7 @@ Displays statistics for candidates tagged with <code>SEIntern</code>.</p>
 </li>
 <li>
 <p>If you provide multiple <code>POPULATION_TAG</code>, Infinity Book will take the last one.
-For example, when you execute <code>viewreport pop/SEIntern pop/Computing</code>, Infinity Book will display the report for <code>Computing</code>.<br></p>
+For example, when you execute <code>savereport pop/SEIntern pop/Computing</code>, Infinity Book will display the report for <code>Computing</code>.<br></p>
 </li>
 </ul>
 </div>
@@ -362,10 +228,7 @@ Infinity Book will add a new entry to the history list in the report.</p>
 <div class="content">
 <img src="../images/savereport.png" alt="savereport" width="600">
 </div>
-</div>
-<div class="paragraph">
-<p><em>Figure.</em> Infinity Book has saved Report with population Tag <code>SEIntern</code>. In the right-most column,
-the history list includes all statistics you have saved.</p>
+<div class="title">Figure 2. Infinity Book has saved Report with population Tag <code>SEIntern</code>. In the right-most column, the history list includes all statistics you have saved.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -403,48 +266,94 @@ If you provide multiple <code>POPULATION_TAG</code>, Infinity Book will take the
 </div>
 </div>
 <div class="sect3">
-<h4 id="finding-candidates-by-name-phone-email-and-tags-code-find-code"><a class="link" href="#finding-candidates-by-name-phone-email-and-tags-code-find-code">Finding candidates by name, phone, email, and tags: <code>find</code></a></h4>
+<h4 id="add-new-tags-to-a-person-code-edit-add-tag-code"><a class="link" href="#add-new-tags-to-a-person-code-edit-add-tag-code">Add new tags to a person : <code>edit -add-tag</code></a></h4>
 <div class="paragraph">
-<p>Finds candidates whose names, phone numbers, emails, or tags contain any of the given keywords.<br></p>
+<p>Infinity Book helps you process candidate&#8217;s information faster.
+Summarize each candidate in a few keywords using the <code>edit -add-tag</code> command to save time for your future reference.</p>
 </div>
 <div class="paragraph">
-<p><strong>Format:</strong> <code>find KEYWORD [MORE_KEYWORDS]</code><br></p>
+<p><strong>Format:</strong> <code>edit -add-tag INDEX [t/TAG]&#8230;&#8203;</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code>.</p>
+<p>Each candidate:<br></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Can have any number (including zero) of tags.</p>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code>.</p>
+<p>Cannot have duplicated tags. Tag name comparision is case sensitive, which means the list of tags of a candidate can be
+<code>Java</code> <code>JAVA</code> <code>JAVa</code>, for example, but cannot be <code>JAVA</code> <code>JAVA</code>.</p>
 </li>
 <li>
-<p>Only candidate&#8217;s name, phone number, email, and tags are searched.</p>
+<p>Cannot have tags with empty tag name.</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code>.</p>
-</li>
-<li>
-<p>Candidates matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p>Ensure that the specified <code>INDEX</code> is a positive integer that is smaller or equal to the total number of candidates shown in the list.</p>
 </li>
 </ul>
 </div>
+</td>
+</tr>
+</table>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>When you provide invalid tags, Infinity Book will ignore them. To verify, you can look at all tags shown under candidate&#8217;s name in the list.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p><strong>Examples:</strong>
-- <code>find Alex 93210283</code><br>
-Returns <code>Alex Yeoh</code>, <code>Charlotte Oliveiro</code>, and <code>Alex Smith</code> whose names and phone numbers match with the given keywords.</p>
+<p><strong>Examples:</strong><br>
+* <code>edit -add-tag 1 t/Year2 t/SpeakVietnamese</code><br>
+Adds tag <code>Year2</code> and <code>SpeakVietnamese</code> to the first candidate.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/Find.png" alt="Find" width="300">
+<img src="../images/canaddtag.png" alt="canaddtag" width="900">
 </div>
+<div class="title">Figure 3. Added new tags to the first candidate.</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit -add-tag 1 t/Year2</code><br>
+Adds a new tag <code>Year2</code> to the first candidate, but it is not successful since this candidate already has tag <code>Year2</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/cannotaddtag.png" alt="cannotaddtag" width="900">
+</div>
+<div class="title">Figure 4. Cannot add a new duplicated tag to the first candidate. The candidate&#8217;s details will not be updated, and Infinity Book will not show any warning.</div>
 </div>
 <div class="paragraph">
-<p><em>Figure.</em> Person list after finding with keywords <code>Alex</code> and <code>93210283</code>.</p>
+<p>You can find my other contributions to User Guide: Delete Tags and Improved Find command in Appendices.</p>
 </div>
 </div>
 </div>
@@ -463,232 +372,6 @@ Returns <code>Alex Yeoh</code>, <code>Charlotte Oliveiro</code>, and <code>Alex 
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="search-by-name-tags-email-and-phone-since-v1-2"><a class="link" href="#search-by-name-tags-email-and-phone-since-v1-2">Search by Name, Tags, Email, and Phone [Since v1.2]</a></h3>
-<div class="paragraph">
-<p>This <code>find</code> command allows the user to search through the list of all candidates and output all whose  <code>Name</code>, <code>Tags</code>, <code>Email</code>, and <code>Phone</code> match with the given keywords.</p>
-</div>
-<div class="sect3">
-<h4 id="implementation-details"><a class="link" href="#implementation-details">Implementation Details</a></h4>
-<div class="paragraph">
-<p>During execution of this command, Infinity Book will do the following:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>FindCommandParser</code> class will extract keywords from user input, form a predicate, then pass it to <code>FindCommand</code> class.</p>
-</li>
-<li>
-<p><code>FindCommand</code> will take in the predicate and update the list of Persons accordingly.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>The condition for a candidate to be matched with given keywords is defined in <code>PersonContainsKeywordsPredicate</code>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">keywords.stream()
-    .anyMatch(keyword -&gt; StringUtil.containsWordIgnoreCase(person.getName().fullName, keyword)
-    || StringUtil.containsWordIgnoreCase(person.getEmail().toString(), keyword)
-    || StringUtil.containsWordIgnoreCase(person.getPhone().toString(), keyword)
-    || person.getTags().stream()
-    .anyMatch(tag -&gt; StringUtil.containsWordIgnoreCase(tag.tagName, keyword)));</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="paragraph">
-<p><strong>Aspect:</strong> How user should specify the field to search<br>
-<strong>Alternative 1 (current choice):</strong> Search for all <code>Name</code>, <code>Tags</code>, <code>Email</code>, and <code>Phone</code><br>
-<strong>Pros:</strong> User does not need to learn additional commands.<br>
-<strong>Cons:</strong> There can be unintended results, but since the set of keywords to search for each field does not overlap with each other, so such unintended results are very rare.<br></p>
-</div>
-<div class="paragraph">
-<p><strong>Alternative 2:</strong> Allow users to opt searching for one field in <code>Name</code>, <code>Tags</code>, <code>Email</code>, or <code>Phone</code> <br>
-<strong>Pros:</strong> User can narrow down the search result.<br>
-<strong>Cons:</strong> User has to remember additional syntax.</p>
-</div>
-<hr>
-<div class="paragraph">
-<p><strong>Aspect:</strong>  The matching condition<br>
-<strong>Alternative 1 (current choice):</strong> Return Persons whose <code>Name</code>, <code>Tags</code>, <code>Email</code>, or <code>Phone</code> have at least one keyword in the input keywords.<br>
-<strong>Pros:</strong> User can do a wider search when he or she does not remember candidates' information clearly.<br>
-<strong>Cons:</strong> User hardly does a detailed search.<br></p>
-</div>
-<div class="paragraph">
-<p><strong>Alternative 2:</strong> Return Persons whose <code>Name</code>, <code>Tags</code>, <code>Email</code>, or <code>Phone</code> have all input keywords.<br>
-<strong>Pros:</strong> User can narrow down the search results.<br>
-<strong>Cons:</strong> In some cases, user cannot do a more general search.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="add-remove-tags-since-v1-3"><a class="link" href="#add-remove-tags-since-v1-3">Add/Remove Tags (Since v1.3)</a></h3>
-<div class="paragraph">
-<p>The mechanics of <code>EditCommand</code> is that a new <code>Person</code> will be first created with the same information as the <code>Person</code> to edit.
-Then edited fields of the new <code>Person</code> will be determined based on user inputs, then it will be used to update the persons list of Infinity Book.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">personToEdit = lastShownList.get(index.getZeroBased());
-editedPerson = editPersonDescriptor.createEditedPerson(personToEdit);
-
-<span class="keyword">try</span> {
-    model.updatePerson(personToEdit, editedPerson);
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>From v1.0, user can overwrite any field of a candidate using <code>edit</code> command. Enhancing on top of this, the creation of the new <code>Person</code> is updated
-so that user can add new tags by <code>edit -add-tag INDEX [t/TAG]&#8230;&#8203;</code> command and remove existing tags by <code>edit -delete-tag [t/TAG]&#8230;&#8203;</code> command.</p>
-</div>
-<div class="paragraph">
-<p>The code snippet below shows the updated creation of new <code>Person</code>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">/**
- * Creates and returns a {@code Person} with the details of {@code personToEdit}
- * edited with {@code editPersonDescriptor}.
- */</span>
-<span class="directive">public</span> Person createEditedPerson(Person personToEdit) {
-    <span class="type">boolean</span> isTagsChanged = getTags().isPresent();
-    <span class="type">boolean</span> isNewTagsChanged = getNewTags().isPresent();
-    <span class="type">boolean</span> isDeletedTagsChanged = getDeletedTags().isPresent();
-
-    <span class="type">boolean</span> isMultipleTagsChanged = (isTagsChanged &amp;&amp; isNewTagsChanged)
-            || (isTagsChanged &amp;&amp; isDeletedTagsChanged) || (isDeletedTagsChanged &amp;&amp; isNewTagsChanged);
-    <span class="keyword">assert</span> !isMultipleTagsChanged;
-
-    <span class="keyword">assert</span> personToEdit != <span class="predefined-constant">null</span>;
-
-    <span class="predefined-type">Name</span> updatedName = getName().orElse(personToEdit.getName());
-    Phone updatedPhone = getPhone().orElse(personToEdit.getPhone());
-    Email updatedEmail = getEmail().orElse(personToEdit.getEmail());
-    Remark updatedRemark = personToEdit.getRemark();
-    Address updatedAddress = getAddress().orElse(personToEdit.getAddress());
-
-    <span class="predefined-type">Set</span>&lt;Tag&gt; updatedTags;
-    <span class="predefined-type">Set</span>&lt;Tag&gt; personTags = <span class="keyword">new</span> <span class="predefined-type">HashSet</span>&lt;&gt;(personToEdit.getTags());
-    <span class="keyword">if</span> (isTagsChanged) {
-        updatedTags = getTags().orElse(<span class="predefined-constant">null</span>);
-    } <span class="keyword">else</span> <span class="keyword">if</span> (isNewTagsChanged) {
-        <span class="keyword">if</span> (personTags.isEmpty()) {
-            updatedTags = getNewTags().orElse(<span class="predefined-constant">null</span>);
-        } <span class="keyword">else</span> {
-            updatedTags = personTags;
-            updatedTags.addAll(getNewTags().orElse(<span class="predefined-constant">null</span>));
-        }
-    } <span class="keyword">else</span> <span class="keyword">if</span> (isDeletedTagsChanged) {
-        updatedTags = personTags;
-        <span class="keyword">if</span> (personTags.isEmpty()) {
-            updatedTags.removeAll(getDeletedTags().orElse(<span class="predefined-constant">null</span>));
-        }
-    } <span class="keyword">else</span> {
-        updatedTags = personTags;
-    }
-
-
-    <span class="keyword">return</span> <span class="keyword">new</span> Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedRemark, updatedTags);
-}</code></pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
-<div class="paragraph">
-<p><strong>Aspect:</strong> Implementation of removing/adding tags<br>
-<strong>Alternative 1 (current choice):</strong> Modify <code>EditPersonDescriptor</code> in <code>EditCommand</code><br>
-<strong>Pros:</strong> Prevent overlapping codes.<br>
-<strong>Cons:</strong> Modify other details (e.g. Name, Phone, Address,&#8230;&#8203;) apart from Tags.<br></p>
-</div>
-<div class="paragraph">
-<p><strong>Alternative 2:</strong> Write a new EditPersonDescriptor for this command<br>
-<strong>Pros:</strong> Maintain the current <code>edit</code> logic and behaviour.<br>
-<strong>Cons:</strong> Duplicate the exact code, which may cause a lot of hassles in future development.</p>
-</div>
-<hr>
-<div class="paragraph">
-<p><strong>Aspect:</strong> Choosing command to add or remove tags<br>
-<strong>Alternative 1 (current choice):</strong> Add <code>COMMAND_OPTION</code> (<code>-add-tag</code> and <code>-delete-tag</code>) to the current <code>edit</code> command.<br>
-<strong>Pros:</strong> Adding or removing tags is indeed editing a Person&#8217;s details, so it makes complete sense to perform this action using <code>edit</code> command and reduces the number of commands that user has to remember. <br>
-<strong>Cons:</strong> Have to modify the parser so that it can extract the option.<br></p>
-</div>
-<div class="paragraph">
-<p><strong>Alternative 2:</strong> Using two new commands for adding and removing tags<br>
-<strong>Pros:</strong> It is easier to parse the command.  <br>
-<strong>Cons:</strong> User has to remember more commands.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="accept-option-for-commands-since-v1-2"><a class="link" href="#accept-option-for-commands-since-v1-2">Accept Option for Commands (Since v1.2)</a></h3>
-<div class="paragraph">
-<p>To reduce the number of commands that user needs to learn, functions having similar behaviours can be grouped under one <code>COMMAND_WORD</code>, and each function in the group can be specified by <code>COMMAND_OPTION</code> by the user.</p>
-</div>
-<div class="paragraph">
-<p>The command format is thus: <code>COMMAND_WORD [-COMMAND_OPTION] [PARAMETERS]&#8230;&#8203;</code></p>
-</div>
-<div class="sect3">
-<h4 id="implementation-details-2"><a class="link" href="#implementation-details-2">Implementation Details</a></h4>
-<div class="paragraph">
-<p>Arguments including option are wrapped with the <code>ArgumentWithOption</code> class shown in the below code snippet.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">/**
- *  ArgumentWithOption class encapsulates an argument in the format: [OPTION] ARGS, and handles the parsing, extracting
- *  option from the argument.
- */</span>
-
-<span class="directive">public</span> <span class="type">class</span> <span class="class">ArgumentWithOption</span> {
-
-    <span class="directive">private</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">Pattern</span> ARGUMENT_FORMAT =
-            <span class="predefined-type">Pattern</span>.compile(<span class="string"><span class="delimiter">&quot;</span><span class="content">(?&lt;commandOption&gt;</span><span class="delimiter">&quot;</span></span> + PREFIX_OPTION.getPrefix() + <span class="string"><span class="delimiter">&quot;</span><span class="char">\\</span><span class="content">S+)?(?&lt;arguments&gt;.*)</span><span class="delimiter">&quot;</span></span>);
-    <span class="directive">private</span> <span class="predefined-type">String</span> rawArgs;
-    <span class="directive">private</span> <span class="directive">final</span> <span class="predefined-type">String</span> option;
-    <span class="directive">private</span> <span class="predefined-type">String</span> args;
-
-    <span class="directive">public</span> ArgumentWithOption(<span class="predefined-type">String</span> rawArgs) <span class="directive">throws</span> <span class="exception">ParseException</span> {
-        <span class="local-variable">this</span>.rawArgs = rawArgs.trim();
-
-        <span class="directive">final</span> <span class="predefined-type">Matcher</span> matcher = ARGUMENT_FORMAT.matcher(<span class="local-variable">this</span>.rawArgs);
-        <span class="keyword">if</span> (!matcher.matches()) {
-            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="exception">ParseException</span>(<span class="predefined-type">String</span>.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
-        }
-        <span class="local-variable">this</span>.args = matcher.group(<span class="string"><span class="delimiter">&quot;</span><span class="content">arguments</span><span class="delimiter">&quot;</span></span>);
-
-        <span class="predefined-type">String</span> rawOption = matcher.group(<span class="string"><span class="delimiter">&quot;</span><span class="content">commandOption</span><span class="delimiter">&quot;</span></span>);
-        <span class="local-variable">this</span>.option = (rawOption != <span class="predefined-constant">null</span>) ?  rawOption.substring(PREFIX_OPTION.getPrefix().length()) : <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>;
-    }
-
-    <span class="directive">public</span> <span class="type">boolean</span> isOption(<span class="predefined-type">String</span> toCheck) {
-        <span class="keyword">return</span> toCheck.equals(option);
-    }
-
-    <span class="directive">public</span> <span class="predefined-type">String</span> getArgs() {
-        <span class="keyword">return</span> args;
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The following snippet shows how <code>ArgumentWithOption</code> may be used</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">ArgumentWithOption argWithOption = <span class="keyword">new</span> ArgumentWithOption(args);
-<span class="comment">// Get arguments</span>
-args = argWithOption.getArgs();
-<span class="comment">// Check for option</span>
-<span class="keyword">if</span> (argWithOption.isOption(EditCommand.COMMAND_OPTION_ADD_TAG)) {
-    parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editPersonDescriptor::setNewTags);
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
 <div class="sect2">
 <h3 id="report-since-v1-4"><a class="link" href="#report-since-v1-4">Report (Since v1.4)</a></h3>
 <div class="paragraph">
@@ -717,7 +400,7 @@ args = argWithOption.getArgs();
 <p>User can view a report using <code>viewreport</code> command and save a report for future reference using <code>savereport</code> command.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-details-3"><a class="link" href="#implementation-details-3">Implementation Details</a></h4>
+<h4 id="implementation-details"><a class="link" href="#implementation-details">Implementation Details</a></h4>
 <div class="sect4">
 <h5 id="model-component"><a class="link" href="#model-component">Model Component</a></h5>
 <div class="paragraph">
@@ -727,7 +410,7 @@ args = argWithOption.getArgs();
 <div class="content">
 <img src="../images/report_model.jpg" alt="report model" width="700">
 </div>
-<div class="title">Figure 1. Report as a part in the structure of Model Component of Infinity Book</div>
+<div class="title">Figure 5. Report as a part in the structure of Model Component of Infinity Book</div>
 </div>
 <div class="paragraph">
 <p><strong>Calculating statistics:</strong></p>
@@ -788,40 +471,7 @@ This instance can be re-calculated via method <code>updateReport()</code> (imple
 <div class="content">
 <img src="../images/ReportStorageDiagram.jpg" alt="ReportStorageDiagram" width="700">
 </div>
-<div class="title">Figure 2. <code>XmlAdaptedReport</code> in the structure of Storage Component of Infinity Book.</div>
-</div>
-<div class="paragraph">
-<p>One example of <code>Report</code> details stored in xml file:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;reports&gt;</span>
-    <span class="tag">&lt;population&gt;</span>SEIntern<span class="tag">&lt;/population&gt;</span>
-    <span class="tag">&lt;totalTags&gt;</span>11<span class="tag">&lt;/totalTags&gt;</span>
-    <span class="tag">&lt;totalPersons&gt;</span>11<span class="tag">&lt;/totalPersons&gt;</span>
-    <span class="tag">&lt;proportions&gt;</span>
-        <span class="tag">&lt;proportionName&gt;</span>Screening<span class="tag">&lt;/proportionName&gt;</span>
-        <span class="tag">&lt;value&gt;</span>5<span class="tag">&lt;/value&gt;</span>
-        <span class="tag">&lt;totalPersonsInProportion&gt;</span>5<span class="tag">&lt;/totalPersonsInProportion&gt;</span>
-    <span class="tag">&lt;/proportions&gt;</span>
-    <span class="tag">&lt;proportions&gt;</span>
-        <span class="tag">&lt;proportionName&gt;</span>Rejected<span class="tag">&lt;/proportionName&gt;</span>
-        <span class="tag">&lt;value&gt;</span>1<span class="tag">&lt;/value&gt;</span>
-        <span class="tag">&lt;totalPersonsInProportion&gt;</span>1<span class="tag">&lt;/totalPersonsInProportion&gt;</span>
-    <span class="tag">&lt;/proportions&gt;</span>
-    <span class="tag">&lt;proportions&gt;</span>
-        <span class="tag">&lt;proportionName&gt;</span>Offered<span class="tag">&lt;/proportionName&gt;</span>
-        <span class="tag">&lt;value&gt;</span>2<span class="tag">&lt;/value&gt;</span>
-        <span class="tag">&lt;totalPersonsInProportion&gt;</span>2<span class="tag">&lt;/totalPersonsInProportion&gt;</span>
-    <span class="tag">&lt;/proportions&gt;</span>
-    <span class="tag">&lt;proportions&gt;</span>
-        <span class="tag">&lt;proportionName&gt;</span>Interviewing<span class="tag">&lt;/proportionName&gt;</span>
-        <span class="tag">&lt;value&gt;</span>3<span class="tag">&lt;/value&gt;</span>
-        <span class="tag">&lt;totalPersonsInProportion&gt;</span>3<span class="tag">&lt;/totalPersonsInProportion&gt;</span>
-    <span class="tag">&lt;/proportions&gt;</span>
-    <span class="tag">&lt;date&gt;</span>04/06/2018 14:41:30<span class="tag">&lt;/date&gt;</span>
-<span class="tag">&lt;/reports&gt;</span></code></pre>
-</div>
+<div class="title">Figure 6. <code>XmlAdaptedReport</code> in the structure of Storage Component of Infinity Book.</div>
 </div>
 </div>
 <div class="sect4">
@@ -833,7 +483,7 @@ This instance can be re-calculated via method <code>updateReport()</code> (imple
 <div class="content">
 <img src="../images/ViewReportDiagram.jpg" alt="ViewReportDiagram" width="700">
 </div>
-<div class="title">Figure 3. Interactions Inside the Logic Component for the <code>viewreport pop/CS</code> Command</div>
+<div class="title">Figure 7. Interactions Inside the Logic Component for the <code>viewreport pop/CS</code> Command</div>
 </div>
 </div>
 <div class="sect4">
@@ -846,7 +496,7 @@ We achieve this by posting <code>ToggleReportPanelEvent</code> (showing in the b
 <div class="content">
 <img src="../images/ComponentInteractions.jpg" alt="ComponentInteractions" width="700">
 </div>
-<div class="title">Figure 4. Posting event when we execute Report commands.</div>
+<div class="title">Figure 8. Posting event when we execute Report commands.</div>
 </div>
 <div class="paragraph">
 <p>The <code>EventsCenters</code> then handles this <code>Event</code> and then triggers the update of <code>Report</code> instance (as shown in the below seqence diagram).</p>
@@ -855,21 +505,18 @@ We achieve this by posting <code>ToggleReportPanelEvent</code> (showing in the b
 <div class="content">
 <img src="../images/EventInteraction.jpg" alt="EventInteraction" width="700">
 </div>
-<div class="title">Figure 5. Update <code>Report</code> instance after the <code>ToggleReportPanelEvent</code> is posted</div>
+<div class="title">Figure 9. Update <code>Report</code> instance after the <code>ToggleReportPanelEvent</code> is posted</div>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Where calculation of statistics in the <code>Report</code> should be placed<br>
 <strong>Alternative 1 (current choice):</strong> in <code>ModelManager</code><br>
 <strong>Pros:</strong>
 Since the calculation requires fetching the list of all Persons in Infinity Book, Defining it in the <code>ModelManager</code> to reduce dependency among components.<br>
-<strong>Cons:</strong></p>
-</div>
-<div class="paragraph">
-<p>Have to modify multiple components such as <code>LogicManager</code>, <code>ModelManager</code>, <code>Event</code>.<br>
+<strong>Cons:</strong> Have to modify multiple components such as <code>LogicManager</code>, <code>ModelManager</code>, <code>Event</code>.<br>
 <strong>Alternative 2:</strong> in <code>Report</code> class itself<br>
 <strong>Pros:</strong> Do not require a <code>Report</code> instance in Infinity Book, which can be redundant when user does not use.<br>
 <strong>Cons:</strong> Have to write setter and getter to get the list of Persons from <code>Model</code>.</p>
@@ -900,7 +547,382 @@ so that they are accessible by people who are color blind and obvious for everyo
 <strong>Pros:</strong> Do not need to implement.  <br>
 <strong>Cons:</strong> Do not have the control over visual effect.<br></p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-remove-tags-since-v1-3"><a class="link" href="#add-remove-tags-since-v1-3">Add/Remove Tags (Since v1.3)</a></h3>
+<div class="paragraph">
+<p>The mechanics of <code>EditCommand</code> is that a new <code>Person</code> will be first created with the same information as the <code>Person</code> to edit.
+Then edited fields of the new <code>Person</code> will be determined based on user inputs, then it will be used to update the persons list of Infinity Book.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">personToEdit = lastShownList.get(index.getZeroBased());
+editedPerson = editPersonDescriptor.createEditedPerson(personToEdit);
+
+<span class="keyword">try</span> {
+    model.updatePerson(personToEdit, editedPerson);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From v1.0, user can overwrite any field of a candidate using <code>edit</code> command. Enhancing on top of this, the creation of the new <code>Person</code> is updated
+so that user can add new tags by <code>edit -add-tag INDEX [t/TAG]&#8230;&#8203;</code> command and remove existing tags by <code>edit -delete-tag [t/TAG]&#8230;&#8203;</code> command.</p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of removing/adding tags<br>
+<strong>Alternative 1 (current choice):</strong> Modify <code>EditPersonDescriptor</code> in <code>EditCommand</code><br>
+<strong>Pros:</strong> Prevent overlapping codes.<br>
+<strong>Cons:</strong> Modify other details (e.g. Name, Phone, Address,&#8230;&#8203;) apart from Tags.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Write a new EditPersonDescriptor for this command<br>
+<strong>Pros:</strong> Maintain the current <code>edit</code> logic and behaviour.<br>
+<strong>Cons:</strong> Duplicate the exact code, which may cause a lot of hassles in future development.</p>
+</div>
 <hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Choosing command to add or remove tags<br>
+<strong>Alternative 1 (current choice):</strong> Add <code>COMMAND_OPTION</code> (<code>-add-tag</code> and <code>-delete-tag</code>) to the current <code>edit</code> command.<br>
+<strong>Pros:</strong> Adding or removing tags is indeed editing a Person&#8217;s details, so it makes complete sense to perform this action using <code>edit</code> command and reduces the number of commands that user has to remember. <br>
+<strong>Cons:</strong> Have to modify the parser so that it can extract the option.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Using two new commands for adding and removing tags<br>
+<strong>Pros:</strong> It is easier to parse the command.  <br>
+<strong>Cons:</strong> User has to remember more commands.</p>
+</div>
+<div class="paragraph">
+<p>You can find my other contributions to Developer Guide.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="appendices"><a class="link" href="#appendices">Appendices</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="other-contributions-to-the-user-guide"><a class="link" href="#other-contributions-to-the-user-guide">Other contributions to the User Guide</a></h3>
+<div class="sect3">
+<h4 id="an-example-usage-of-report"><a class="link" href="#an-example-usage-of-report">An example usage of Report</a></h4>
+<div class="paragraph">
+<p><strong>An example usage:</strong></p>
+</div>
+<div class="paragraph">
+<p>You are recruiting Software Engineering interns, and you want to keep track of the number of candidates in each stage:
+Screening, Interviewing, Offered, or Rejected. Given the a significant pool of applicants, this task is tedious, and
+our Report feature is a solution.  <br></p>
+</div>
+<div class="paragraph">
+<p>Using our Report with Population Tag <code>SEIntern</code>,<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To ensure your team keeps up with deadlines, you can monitor the whole recruiting pipeline using Report bar chart.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/barchart.png" alt="barchart" width="400">
+</div>
+<div class="title">Figure 10. Bar chart in <code>SEIntern</code> report</div>
+</div>
+<div class="paragraph">
+<p><em>Explanation:</em> there are 11 candidates tagged with <code>SEIntern</code> in which 5 of them are tagged with <code>Screening</code>, 3 of them
+are tagged with <code>Interviewing</code>, 1 of them is tagged with <code>Rejected</code>, and 2 of them are tagged with <code>Offered</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To see the progress of your interns recruitment, you can view percentages of candidates in each stage using Report pie chart.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/piechart.png" alt="piechart" width="400">
+</div>
+<div class="title">Figure 11. Pie chart in <code>SEIntern</code> report</div>
+</div>
+<div class="paragraph">
+<p><em>Explanation:</em> there are 11 tags that candidates tagged with <code>SEIntern</code> has in total, and 45% of them are <code>Screening</code>,
+27% are <code>Interviewing</code>, 18% are <code>Offered</code>, and 9% are <code>Rejected</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To analyze your team&#8217;s productivity, you can track the speed at which tasks are done using the history list.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/history%20copy.png" alt="history copy" width="400">
+</div>
+<div class="title">Figure 12. History list in <code>SEIntern</code> report<br></div>
+</div>
+<div class="paragraph">
+<p><em>Example in the firgure:</em> At 14:10:24 04/06/2018, there are 9 candidates tagged with <code>Screening</code> in Infinity Book,
+then at 16:36:55 04/12/2018, there are only 5 <code>Screening</code> candidates left.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Date format is in <strong>"hh/mm/ss mm/dd/yyyy""</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-tags-from-a-person-code-edit-delete-tag-code"><a class="link" href="#delete-tags-from-a-person-code-edit-delete-tag-code">Delete tags from a person : <code>edit -delete-tag</code></a></h4>
+<div class="paragraph">
+<p>Some tags are no longer seem to be relevant to the candidate? Remove them using the <code>edit -delete-tag</code> command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong> <code>edit -delete-tag INDEX [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Tag name comparision is case sensitive, which means when the first candidate has tags <code>COMPUTING</code> <code>computing</code>, for example,
+<code>edit -delete-tag 1 t/computing</code> will only remove tag <code>computing</code>.</p>
+</li>
+<li>
+<p>Ensure that the specified <code>INDEX</code> is a positive integer that is smaller or equal to the total number of candidates shown in the list.</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Examples:</strong><br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit -delete-tag 1 t/computing</code><br>
+Deletes tag <code>computing</code> from the first candidate.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/candeletetag.png" alt="candeletetag" width="600">
+</div>
+<div class="title">Figure 13. Remove tags from the first candidate.</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit -delete-tag 1 t/computing</code><br>
+Removes tag <code>computing</code> from the first candidate, but it is not successful since this candidate does not have tag <code>computing</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/cannotdeletetag.png" alt="cannotdeletetag" width="600">
+</div>
+<div class="title">Figure 14. Cannot delete tag <code>computing</code> from the first candidate. The candidate&#8217;s details will not be updated, and Infinity Book will not show any warning.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-candidates-by-name-phone-email-and-tags-code-find-code"><a class="link" href="#finding-candidates-by-name-phone-email-and-tags-code-find-code">Finding candidates by name, phone, email, and tags: <code>find</code></a></h4>
+<div class="paragraph">
+<p>Finds candidates whose names, phone numbers, emails, or tags contain any of the given keywords.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong> <code>find KEYWORD [MORE_KEYWORDS]</code><br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code>.</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code>.</p>
+</li>
+<li>
+<p>Only candidate&#8217;s name, phone number, email, and tags are searched.</p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code>.</p>
+</li>
+<li>
+<p>Candidates matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Examples:</strong>
+- <code>find Alex 93210283</code><br>
+Returns <code>Alex Yeoh</code>, <code>Charlotte Oliveiro</code>, and <code>Alex Smith</code> whose names and phone numbers match with the given keywords.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Find.png" alt="Find" width="300">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure.</em> Person list after finding with keywords <code>Alex</code> and <code>93210283</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-contributions-to-the-developer-guide"><a class="link" href="#other-contributions-to-the-developer-guide">Other contributions to the Developer Guide</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="search-by-name-tags-email-and-phone-since-v1-2"><a class="link" href="#search-by-name-tags-email-and-phone-since-v1-2">Search by Name, Tags, Email, and Phone [Since v1.2]</a></h3>
+<div class="paragraph">
+<p>This <code>find</code> command allows the user to search through the list of all candidates and output all whose  <code>Name</code>, <code>Tags</code>, <code>Email</code>, and <code>Phone</code> match with the given keywords.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-details-2"><a class="link" href="#implementation-details-2">Implementation Details</a></h4>
+<div class="paragraph">
+<p>During execution of this command, Infinity Book will do the following:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>FindCommandParser</code> class will extract keywords from user input, form a predicate, then pass it to <code>FindCommand</code> class.</p>
+</li>
+<li>
+<p><code>FindCommand</code> will take in the predicate and update the list of Persons accordingly.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The condition for a candidate to be matched with given keywords is defined in <code>PersonContainsKeywordsPredicate</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">keywords.stream()
+    .anyMatch(keyword -&gt; StringUtil.containsWordIgnoreCase(person.getName().fullName, keyword)
+    || StringUtil.containsWordIgnoreCase(person.getEmail().toString(), keyword)
+    || StringUtil.containsWordIgnoreCase(person.getPhone().toString(), keyword)
+    || person.getTags().stream()
+    .anyMatch(tag -&gt; StringUtil.containsWordIgnoreCase(tag.tagName, keyword)));</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> How user should specify the field to search<br>
+<strong>Alternative 1 (current choice):</strong> Search for all <code>Name</code>, <code>Tags</code>, <code>Email</code>, and <code>Phone</code><br>
+<strong>Pros:</strong> User does not need to learn additional commands.<br>
+<strong>Cons:</strong> There can be unintended results, but since the set of keywords to search for each field does not overlap with each other, so such unintended results are very rare.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Allow users to opt searching for one field in <code>Name</code>, <code>Tags</code>, <code>Email</code>, or <code>Phone</code> <br>
+<strong>Pros:</strong> User can narrow down the search result.<br>
+<strong>Cons:</strong> User has to remember additional syntax.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong>  The matching condition<br>
+<strong>Alternative 1 (current choice):</strong> Return Persons whose <code>Name</code>, <code>Tags</code>, <code>Email</code>, or <code>Phone</code> have at least one keyword in the input keywords.<br>
+<strong>Pros:</strong> User can do a wider search when he or she does not remember candidates' information clearly.<br>
+<strong>Cons:</strong> User hardly does a detailed search.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Return Persons whose <code>Name</code>, <code>Tags</code>, <code>Email</code>, or <code>Phone</code> have all input keywords.<br>
+<strong>Pros:</strong> User can narrow down the search results.<br>
+<strong>Cons:</strong> In some cases, user cannot do a more general search.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="accept-option-for-commands-since-v1-2"><a class="link" href="#accept-option-for-commands-since-v1-2">Accept Option for Commands (Since v1.2)</a></h3>
+<div class="paragraph">
+<p>To reduce the number of commands that user needs to learn, functions having similar behaviours can be grouped under one <code>COMMAND_WORD</code>, and each function in the group can be specified by <code>COMMAND_OPTION</code> by the user.</p>
+</div>
+<div class="paragraph">
+<p>The command format is thus: <code>COMMAND_WORD [-COMMAND_OPTION] [PARAMETERS]&#8230;&#8203;</code></p>
+</div>
+<div class="sect3">
+<h4 id="implementation-details-3"><a class="link" href="#implementation-details-3">Implementation Details</a></h4>
+<div class="paragraph">
+<p>Arguments including option are wrapped with the <code>ArgumentWithOption</code> class shown in the below code snippet.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">/**
+ *  ArgumentWithOption class encapsulates an argument in the format: [OPTION] ARGS, and handles the parsing, extracting
+ *  option from the argument.
+ */</span>
+
+<span class="directive">public</span> <span class="type">class</span> <span class="class">ArgumentWithOption</span> {
+
+    <span class="directive">private</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">Pattern</span> ARGUMENT_FORMAT =
+            <span class="predefined-type">Pattern</span>.compile(<span class="string"><span class="delimiter">&quot;</span><span class="content">(?&lt;commandOption&gt;</span><span class="delimiter">&quot;</span></span> + PREFIX_OPTION.getPrefix() + <span class="string"><span class="delimiter">&quot;</span><span class="char">\\</span><span class="content">S+)?(?&lt;arguments&gt;.*)</span><span class="delimiter">&quot;</span></span>);
+    <span class="directive">private</span> <span class="predefined-type">String</span> rawArgs;
+    <span class="directive">private</span> <span class="directive">final</span> <span class="predefined-type">String</span> option;
+    <span class="directive">private</span> <span class="predefined-type">String</span> args;
+
+    <span class="directive">public</span> ArgumentWithOption(<span class="predefined-type">String</span> rawArgs) <span class="directive">throws</span> <span class="exception">ParseException</span> {
+        <span class="local-variable">this</span>.rawArgs = rawArgs.trim();
+
+        <span class="directive">final</span> <span class="predefined-type">Matcher</span> matcher = ARGUMENT_FORMAT.matcher(<span class="local-variable">this</span>.rawArgs);
+        <span class="keyword">if</span> (!matcher.matches()) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="exception">ParseException</span>(<span class="predefined-type">String</span>.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
+        }
+        <span class="local-variable">this</span>.args = matcher.group(<span class="string"><span class="delimiter">&quot;</span><span class="content">arguments</span><span class="delimiter">&quot;</span></span>);
+
+        <span class="predefined-type">String</span> rawOption = matcher.group(<span class="string"><span class="delimiter">&quot;</span><span class="content">commandOption</span><span class="delimiter">&quot;</span></span>);
+        <span class="local-variable">this</span>.option = (rawOption != <span class="predefined-constant">null</span>) ?  rawOption.substring(PREFIX_OPTION.getPrefix().length()) : <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>;
+    }
+
+    <span class="directive">public</span> <span class="type">boolean</span> isOption(<span class="predefined-type">String</span> toCheck) {
+        <span class="keyword">return</span> toCheck.equals(option);
+    }
+
+    <span class="directive">public</span> <span class="predefined-type">String</span> getArgs() {
+        <span class="keyword">return</span> args;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following snippet shows how <code>ArgumentWithOption</code> may be used</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">ArgumentWithOption argWithOption = <span class="keyword">new</span> ArgumentWithOption(args);
+<span class="comment">// Get arguments</span>
+args = argWithOption.getArgs();
+<span class="comment">// Check for option</span>
+<span class="keyword">if</span> (argWithOption.isOption(EditCommand.COMMAND_OPTION_ADD_TAG)) {
+    parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editPersonDescriptor::setNewTags);
+}</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -908,7 +930,7 @@ so that they are accessible by people who are color blind and obvious for everyo
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 13:20:42 UTC
+Last updated 2018-04-15 14:02:10 UTC
 </div>
 </div>
 </body>

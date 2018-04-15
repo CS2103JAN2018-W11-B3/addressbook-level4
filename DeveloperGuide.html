@@ -110,9 +110,13 @@
 <li><a href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">H.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">H.2. Deleting a person</a></li>
-<li><a href="#saving-data">H.3. Saving data</a></li>
-<li><a href="#add-new-tags-to-candidates">H.4. Add new tags to candidates</a></li>
+<li><a href="#add-tags-to-a-candidate">H.2. Add tags to a candidate</a></li>
+<li><a href="#delete-tags-from-a-candidate">H.3. Delete tags from a candidate</a></li>
+<li><a href="#view-a-report">H.4. View a report</a></li>
+<li><a href="#save-a-report">H.5. Save a report</a></li>
+<li><a href="#view-a-person">H.6. View a person</a></li>
+<li><a href="#interview-management">H.7. Interview Management</a></li>
+<li><a href="#job-management">H.8. Job Management</a></li>
 </ul>
 </li>
 </ul>
@@ -1082,57 +1086,6 @@ editedPerson = editPersonDescriptor.createEditedPerson(personToEdit);
 <p>From v1.0, user can overwrite any field of a candidate using <code>edit</code> command. Enhancing on top of this, the creation of the new <code>Person</code> is updated
 so that user can add new tags by <code>edit -add-tag INDEX [t/TAG]&#8230;&#8203;</code> command and remove existing tags by <code>edit -delete-tag [t/TAG]&#8230;&#8203;</code> command.</p>
 </div>
-<div class="paragraph">
-<p>The code snippet below shows the updated creation of new <code>Person</code>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">/**
- * Creates and returns a {@code Person} with the details of {@code personToEdit}
- * edited with {@code editPersonDescriptor}.
- */</span>
-<span class="directive">public</span> Person createEditedPerson(Person personToEdit) {
-    <span class="type">boolean</span> isTagsChanged = getTags().isPresent();
-    <span class="type">boolean</span> isNewTagsChanged = getNewTags().isPresent();
-    <span class="type">boolean</span> isDeletedTagsChanged = getDeletedTags().isPresent();
-
-    <span class="type">boolean</span> isMultipleTagsChanged = (isTagsChanged &amp;&amp; isNewTagsChanged)
-            || (isTagsChanged &amp;&amp; isDeletedTagsChanged) || (isDeletedTagsChanged &amp;&amp; isNewTagsChanged);
-    <span class="keyword">assert</span> !isMultipleTagsChanged;
-
-    <span class="keyword">assert</span> personToEdit != <span class="predefined-constant">null</span>;
-
-    <span class="predefined-type">Name</span> updatedName = getName().orElse(personToEdit.getName());
-    Phone updatedPhone = getPhone().orElse(personToEdit.getPhone());
-    Email updatedEmail = getEmail().orElse(personToEdit.getEmail());
-    Remark updatedRemark = personToEdit.getRemark();
-    Address updatedAddress = getAddress().orElse(personToEdit.getAddress());
-
-    <span class="predefined-type">Set</span>&lt;Tag&gt; updatedTags;
-    <span class="predefined-type">Set</span>&lt;Tag&gt; personTags = <span class="keyword">new</span> <span class="predefined-type">HashSet</span>&lt;&gt;(personToEdit.getTags());
-    <span class="keyword">if</span> (isTagsChanged) {
-        updatedTags = getTags().orElse(<span class="predefined-constant">null</span>);
-    } <span class="keyword">else</span> <span class="keyword">if</span> (isNewTagsChanged) {
-        <span class="keyword">if</span> (personTags.isEmpty()) {
-            updatedTags = getNewTags().orElse(<span class="predefined-constant">null</span>);
-        } <span class="keyword">else</span> {
-            updatedTags = personTags;
-            updatedTags.addAll(getNewTags().orElse(<span class="predefined-constant">null</span>));
-        }
-    } <span class="keyword">else</span> <span class="keyword">if</span> (isDeletedTagsChanged) {
-        updatedTags = personTags;
-        <span class="keyword">if</span> (personTags.isEmpty()) {
-            updatedTags.removeAll(getDeletedTags().orElse(<span class="predefined-constant">null</span>));
-        }
-    } <span class="keyword">else</span> {
-        updatedTags = personTags;
-    }
-
-
-    <span class="keyword">return</span> <span class="keyword">new</span> Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedRemark, updatedTags);
-}</code></pre>
-</div>
-</div>
 <div class="sect3">
 <h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">5.6.1. Design Considerations</a></h4>
 <div class="paragraph">
@@ -1328,39 +1281,6 @@ This instance can be re-calculated via method <code>updateReport()</code> (imple
 </div>
 <div class="title">Figure 19. <code>XmlAdaptedReport</code> in the structure of Storage Component of Infinity Book.</div>
 </div>
-<div class="paragraph">
-<p>One example of <code>Report</code> details stored in xml file:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;reports&gt;</span>
-    <span class="tag">&lt;population&gt;</span>SEIntern<span class="tag">&lt;/population&gt;</span>
-    <span class="tag">&lt;totalTags&gt;</span>11<span class="tag">&lt;/totalTags&gt;</span>
-    <span class="tag">&lt;totalPersons&gt;</span>11<span class="tag">&lt;/totalPersons&gt;</span>
-    <span class="tag">&lt;proportions&gt;</span>
-        <span class="tag">&lt;proportionName&gt;</span>Screening<span class="tag">&lt;/proportionName&gt;</span>
-        <span class="tag">&lt;value&gt;</span>5<span class="tag">&lt;/value&gt;</span>
-        <span class="tag">&lt;totalPersonsInProportion&gt;</span>5<span class="tag">&lt;/totalPersonsInProportion&gt;</span>
-    <span class="tag">&lt;/proportions&gt;</span>
-    <span class="tag">&lt;proportions&gt;</span>
-        <span class="tag">&lt;proportionName&gt;</span>Rejected<span class="tag">&lt;/proportionName&gt;</span>
-        <span class="tag">&lt;value&gt;</span>1<span class="tag">&lt;/value&gt;</span>
-        <span class="tag">&lt;totalPersonsInProportion&gt;</span>1<span class="tag">&lt;/totalPersonsInProportion&gt;</span>
-    <span class="tag">&lt;/proportions&gt;</span>
-    <span class="tag">&lt;proportions&gt;</span>
-        <span class="tag">&lt;proportionName&gt;</span>Offered<span class="tag">&lt;/proportionName&gt;</span>
-        <span class="tag">&lt;value&gt;</span>2<span class="tag">&lt;/value&gt;</span>
-        <span class="tag">&lt;totalPersonsInProportion&gt;</span>2<span class="tag">&lt;/totalPersonsInProportion&gt;</span>
-    <span class="tag">&lt;/proportions&gt;</span>
-    <span class="tag">&lt;proportions&gt;</span>
-        <span class="tag">&lt;proportionName&gt;</span>Interviewing<span class="tag">&lt;/proportionName&gt;</span>
-        <span class="tag">&lt;value&gt;</span>3<span class="tag">&lt;/value&gt;</span>
-        <span class="tag">&lt;totalPersonsInProportion&gt;</span>3<span class="tag">&lt;/totalPersonsInProportion&gt;</span>
-    <span class="tag">&lt;/proportions&gt;</span>
-    <span class="tag">&lt;date&gt;</span>04/06/2018 14:41:30<span class="tag">&lt;/date&gt;</span>
-<span class="tag">&lt;/reports&gt;</span></code></pre>
-</div>
-</div>
 </div>
 <div class="sect4">
 <h5 id="logic-component"><a class="link" href="#logic-component">Logic Component</a></h5>
@@ -1404,10 +1324,7 @@ We achieve this by posting <code>ToggleReportPanelEvent</code> (showing in the b
 <strong>Alternative 1 (current choice):</strong> in <code>ModelManager</code><br>
 <strong>Pros:</strong>
 Since the calculation requires fetching the list of all Persons in Infinity Book, Defining it in the <code>ModelManager</code> to reduce dependency among components.<br>
-<strong>Cons:</strong></p>
-</div>
-<div class="paragraph">
-<p>Have to modify multiple components such as <code>LogicManager</code>, <code>ModelManager</code>, <code>Event</code>.<br>
+<strong>Cons:</strong> Have to modify multiple components such as <code>LogicManager</code>, <code>ModelManager</code>, <code>Event</code>.<br>
 <strong>Alternative 2:</strong> in <code>Report</code> class itself<br>
 <strong>Pros:</strong> Do not require a <code>Report</code> instance in Infinity Book, which can be redundant when user does not use.<br>
 <strong>Cons:</strong> Have to write setter and getter to get the list of Persons from <code>Model</code>.</p>
@@ -4053,27 +3970,23 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">H.2. Deleting a person</a></h3>
+<h3 id="add-tags-to-a-candidate"><a class="link" href="#add-tags-to-a-candidate">H.2. Add tags to a candidate</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a person while all persons are listed</p>
+<p>Add new tags to a candidate in the list.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
 </li>
 <li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+<p>Test case: <code>edit -add-tag 1 t/Year2 t/SpeakVietnamese</code><br>
+Expected: Added new tags to the first candidate.</p>
 </li>
 <li>
-<p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size)<br>
-Expected: Similar to previous.</p>
+<p>Test case: <code>edit -add-tag 1 t/Year2</code><br>
+Expected: Cannot add a new duplicated tag to the first candidate. The candidate’s details will not be updated, and Infinity Book will not show any warning.</p>
 </li>
 </ol>
 </div>
@@ -4082,15 +3995,23 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">H.3. Saving data</a></h3>
+<h3 id="delete-tags-from-a-candidate"><a class="link" href="#delete-tags-from-a-candidate">H.3. Delete tags from a candidate</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Dealing with missing/corrupted data files</p>
+<p>Delete tags from a candidate in the list.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Missing data cannot be replaced selectively.</p>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>edit -delete-tag 1 t/computing</code><br>
+Expected: Cannot delete tag computing from the first candidate. The candidate’s details will not be updated, and Infinity Book will not show any warning</p>
+</li>
+<li>
+<p>Test case: <code>edit -delete-tag 1 t/Computing</code><br>
+Expected: Removes tag Computing from the first candidate.</p>
 </li>
 </ol>
 </div>
@@ -4099,43 +4020,67 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-new-tags-to-candidates"><a class="link" href="#add-new-tags-to-candidates">H.4. Add new tags to candidates</a></h3>
+<h3 id="view-a-report"><a class="link" href="#view-a-report">H.4. View a report</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a person while all persons are listed</p>
+<p>View report based on candidates in IB.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+<p>Test case: <code>viewreport pop/SEIntern</code><br>
+Expected: Infinity Book has displayed Report with Population Tag <code>SEIntern</code> in the right-most column.</p>
 </li>
 <li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
-</li>
-<li>
-<p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size)<br>
-Expected: Similar to previous.</p>
+<p>Test case: <code>viewreport pop/SEIntern pop/Computing</code><br>
+Expected:  Infinity Book will display the report for Computing.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
-<div class="exampleblock">
-<div class="content">
 <div class="paragraph">
-<p>=== Viewing a person
-. Viewing a person by emailID
-.. Test case: <code>view <a href="mailto:notexisted@example.com">notexisted@example.com</a></code><br>
-   Expected: person found and no new url display on browser panel</p>
+<p>Report explanation can be found in User Guide.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="save-a-report"><a class="link" href="#save-a-report">H.5. Save a report</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Save report based on candidates in IB.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>savereport pop/SEIntern</code><br>
+Expected:  Infinity Book has saved Report with population Tag SEIntern. In the right-most column, the history list includes all statistics you have saved.</p>
+</li>
+<li>
+<p>Test case: <code>savereport pop/SEIntern pop/Computing</code><br>
+Expected: Infinity Book will save the report for Computing.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Report explanation can be found in User Guide.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="view-a-person"><a class="link" href="#view-a-person">H.6. View a person</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing a person by emailID</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>view <a href="mailto:notexisted@example.com">notexisted@example.com</a></code><br>
+Expected: person found and no new url display on browser panel</p>
+</li>
 <li>
 <p>Test case: <code>view <a href="mailto:a@example.com">a@example.com</a></code><br>
 Prerequisites: the person with email <a href="mailto:a@example.com">a@example.com</a> exists on Infinity Book.<br>
@@ -4144,30 +4089,60 @@ and the corresponding linking page has been displayed on the browser panel.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>=== Interview Management</p>
+</li>
+</ol>
 </div>
-<div class="paragraph">
-<p>==== Add interview
-. Add an interview to current infinity book.
-.. Test case: <code>addInterview</code><br>
-   Expected:  Invalid format showing in the status message<br>
-.. Test case:  <code>addInterview i/SE INTERVIEW n/DAVID d/04.05.2018 l/NUS SOC</code><br>
-   Expected: new interview added in the status message.
-   New interview added in the browser panel.</p>
 </div>
-<div class="paragraph">
-<p>==== List interview
-. List all interviews of infinity book
-.. Test case: <code>listInterview</code>
-   Expected: Showing all the interviews in the interview panel</p>
-</div>
-<div class="paragraph">
-<p>==== Delete Interview
-. Prerequisites: List all interviews using the <code>listInterview</code> command. Multiple interviews in the list.<br></p>
-</div>
+<div class="sect2">
+<h3 id="interview-management"><a class="link" href="#interview-management">H.7. Interview Management</a></h3>
+<div class="sect3">
+<h4 id="add-interview"><a class="link" href="#add-interview">H.7.1. Add interview</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
+<li>
+<p>Add an interview to current infinity book.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>addInterview</code><br>
+Expected:  Invalid format showing in the status message<br></p>
+</li>
+<li>
+<p>Test case:  <code>addInterview i/SE INTERVIEW n/DAVID d/04.05.2018 l/NUS SOC</code><br>
+Expected: new interview added in the status message.
+New interview added in the browser panel.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-interview-2"><a class="link" href="#list-interview-2">H.7.2. List interview</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>List all interviews of infinity book</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>listInterview</code>
+Expected: Showing all the interviews in the interview panel</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-interview"><a class="link" href="#delete-interview">H.7.3. Delete Interview</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prerequisites: List all interviews using the <code>listInterview</code> command. Multiple interviews in the list.<br></p>
+</li>
 <li>
 <p>Deleting an interview while all interviews are listed</p>
 <div class="olist loweralpha">
@@ -4190,30 +4165,58 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>=== Job Management</p>
 </div>
-<div class="paragraph">
-<p>==== Add Job
-. Post a job to infinity book.
-.. Test case: <code>postjob</code><br>
-   Expected:  Invalid format showing in the status message<br>
-.. Test case:  <code>postjob j/JobTitle l/location s/skill t/NewTag</code><br>
-   Expected: new job posted in the status message.
-   New job card displauyed in the JobListPanel.</p>
 </div>
-<div class="paragraph">
-<p>==== List Jobs
-. List all jobs of infinity book
-.. Test case: <code>listjobs</code>
-   Expected: Showing all jobs in the job panel.</p>
-</div>
-<div class="paragraph">
-<p>==== Delete Job
-. Prerequisites: List all jobs using the <code>listjobs</code> command. All entries are displayed in JobListPanel.<br></p>
-</div>
+<div class="sect2">
+<h3 id="job-management"><a class="link" href="#job-management">H.8. Job Management</a></h3>
+<div class="sect3">
+<h4 id="add-job"><a class="link" href="#add-job">H.8.1. Add Job</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
+<li>
+<p>Post a job to infinity book.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>postjob</code><br>
+Expected:  Invalid format showing in the status message<br></p>
+</li>
+<li>
+<p>Test case:  <code>postjob j/JobTitle l/location s/skill t/NewTag</code><br>
+Expected: new job posted in the status message.
+New job card displauyed in the JobListPanel.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-jobs"><a class="link" href="#list-jobs">H.8.2. List Jobs</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>List all jobs of infinity book</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>listjobs</code>
+Expected: Showing all jobs in the job panel.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-job"><a class="link" href="#delete-job">H.8.3. Delete Job</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prerequisites: List all jobs using the <code>listjobs</code> command. All entries are displayed in JobListPanel.<br></p>
+</li>
 <li>
 <p>Deleting a job while all jobs are listed</p>
 <div class="olist loweralpha">
@@ -4236,12 +4239,14 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>==== Edit Job
-. Prerequisites: List all jobs using the <code>listjobs</code> command. All entries are displayed in JobListPanel.<br></p>
 </div>
+<div class="sect3">
+<h4 id="edit-job"><a class="link" href="#edit-job">H.8.4. Edit Job</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
+<li>
+<p>Prerequisites: List all jobs using the <code>listjobs</code> command. All entries are displayed in JobListPanel.<br></p>
+</li>
 <li>
 <p>Editing a job while all jobs are listed</p>
 <div class="olist loweralpha">
@@ -4264,20 +4269,36 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>==== Find Job
-. Find a job by keyword[s].
-.. Test case: <code>findjob keyword</code>
-   Expected: Showing all jobs matching keyword in the job panel.
-.. Test case: <code>findjob</code>
-   Expected: No job list change is made. Error details shown in the status message.</p>
 </div>
-<div class="paragraph">
-<p>==== Match Job
-. Prerequisites: List all jobs using the <code>listjobs</code> command. All entries are displayed in JobListPanel.<br></p>
-</div>
+<div class="sect3">
+<h4 id="find-job"><a class="link" href="#find-job">H.8.5. Find Job</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
+<li>
+<p>Find a job by keyword[s].</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>findjob keyword</code>
+Expected: Showing all jobs matching keyword in the job panel.</p>
+</li>
+<li>
+<p>Test case: <code>findjob</code>
+Expected: No job list change is made. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="match-job"><a class="link" href="#match-job">H.8.6. Match Job</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prerequisites: List all jobs using the <code>listjobs</code> command. All entries are displayed in JobListPanel.<br></p>
+</li>
 <li>
 <p>Matching a job to candidates while all jobs are listed</p>
 <div class="olist loweralpha">
@@ -4307,10 +4328,9 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 13:20:42 UTC
+Last updated 2018-04-15 14:02:10 UTC
 </div>
 </div>
 </body>
